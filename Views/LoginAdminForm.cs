@@ -24,6 +24,16 @@ private void btnLogin_Click(object sender, EventArgs e)
         frm.Show();
         this.Hide();
     }
+
+    else if (role == "user")
+    {
+        DashboardUserForm frm =
+            new DashboardUserForm();
+
+        frm.show();
+        this.Hide();
+    }
+
     else
     {
         MessageBox.Show("Login Admin Gagal");
