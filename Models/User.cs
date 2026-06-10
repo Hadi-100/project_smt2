@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace pbo_app_mvc.Models
+namespace project_smt2.Models
 {
     public class User
     {
