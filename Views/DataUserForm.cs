@@ -5,14 +5,17 @@ using System.Text;
 
 namespace project_smt2.Views
 {
-    private void DataUserForm_Load(
-        object sender,
-        EventArgs e)
+    public partial class DataUserForm : Form
     {
-        UserController controller =
-            new UserController();
+        private void DataUserForm_Load(
+            object sender,
+            EventArgs e)
+        {
+            UserController controller =
+                new UserController();
 
-        dgvUser.DataSource =
-            controller.GetUsers();
+            dgvUser.DataSource =
+                controller.GetUsers();
+        }
     }
 }
