@@ -6,5 +6,6 @@ namespace project_smt2.Views
 {
     internal class DashboardAdminForm
     {
+         
     }
 }

@@ -5,27 +5,27 @@ using System.Collections.Generic;
 using System.Text;
 
 
-private void btnLogin_Click(object sender, EventArgs e)
-{
-    LoginController controller =
-        new LoginController();
+//public void btnLogin_Click(object sender, EventArgs e)
+//{
+//    LoginController controller =
+//        new LoginController();
 
-    string role =
-        controller.Login(
-            txtEmail.Text,
-            txtPassword.Text
-        );
+//    string role =
+//        controller.Login(
+//            //tbMasukEmail.Text,
+//            //tbMasukPass.Text
+//        );
 
-    if (role == "admin")
-    {
-        DashboardAdminForm frm =
-            new DashboardAdminForm();
+//    if (role == "admin")
+//    {
+//        DashboardAdminForm frm =
+//            new DashboardAdminForm();
 
-        frm.Show();
-        this.Hide();
-    }
-    else
-    {
-        MessageBox.Show("Login Admin Gagal");
-    }
-}
+//        frm.Show();
+//        this.Hide();
+//    }
+//    else
+//    {
+//        MessageBox.Show("Login Admin Gagal");
+//    }
+//}
