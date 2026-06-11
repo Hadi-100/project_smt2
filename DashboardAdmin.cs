@@ -6,16 +6,16 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace project_smt2.Views
+namespace project_smt2
 {
-    public partial class DistribusiHewanForm : UserControl
+    public partial class DashboardAdmin : UserControl
     {
-        public DistribusiHewanForm()
+        public DashboardAdmin()
         {
             InitializeComponent();
         }
 
-        private void DistribusiHewanForm_Load(object sender, EventArgs e)
+        private void DashboardAdmin_Load(object sender, EventArgs e)
         {
 
         }

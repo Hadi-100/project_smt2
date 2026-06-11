@@ -14,5 +14,10 @@ namespace project_smt2.Views
         {
             InitializeComponent();
         }
+
+        private void DataHewanForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

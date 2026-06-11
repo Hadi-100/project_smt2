@@ -107,8 +107,8 @@ namespace project_smt2
         private void ResetFormRegister()
         {
             tbRegUsn.Text = "Masukkan Username";
-            tbRegEmail.Text = "Masukkan Email";
             tbRegTelp.Text = "Masukkan No. Hp";
+            tbRegEmail.Text = "Masukkan Email";
             tbRegPass.Text = "Masukkan Password";
         }
 
@@ -170,8 +170,8 @@ namespace project_smt2
             Models.User user = new Models.User(
                 0,
                 tbRegUsn.Text,
-                tbRegTelp.Text,
                 tbRegEmail.Text,
+                tbRegTelp.Text,
                 tbRegPass.Text,
                 "user'"
                 );

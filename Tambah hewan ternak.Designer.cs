@@ -1,6 +1,6 @@
-﻿namespace project_smt2.Views
+﻿namespace project_smt2
 {
-    partial class RegisterForm
+    partial class Tambah_hewan_ternak
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,8 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tambah_hewan_ternak));
+            SuspendLayout();
+            // 
+            // Tambah_hewan_ternak
+            // 
+            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            DoubleBuffered = true;
+            Name = "Tambah_hewan_ternak";
+            Size = new Size(1601, 1028);
+            ResumeLayout(false);
         }
 
         #endregion
