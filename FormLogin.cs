@@ -92,7 +92,15 @@ namespace project_smt2
 
         private void btnRegist_Click_1(object sender, EventArgs e)
         {
+            ResetFromLogin();
             pnlRegist.Show();
+        }
+
+        private void ResetFromLogin()
+        {
+            tbMasukEmail.Text = "Masukkan Email";
+            tbMasukPass.Text = "Masukkan Password";
+
         }
 
         private void ResetFormRegister()
@@ -113,7 +121,7 @@ namespace project_smt2
         {
             string pesan = "";
 
-            string email = tbRegEmail.Text.Trim().ToLower();
+            string email = tbRegEmail.Text;
             if (!email.Contains("com"))
             {
                 pesan += "• Masukkan alamat email yang sesuai\n";
@@ -130,7 +138,7 @@ namespace project_smt2
                 return;
             }
 
-            string noTelp = tbRegTelp.Text.Trim();
+            string noTelp = tbRegTelp.Text;
             if (noTelp.Length < 13)
             {
                 pesan += "• Nomor telepon terlalu pendek\n";
@@ -142,10 +150,10 @@ namespace project_smt2
 
             User user = new User(
                 0,
-                tbRegUsn.Text.Trim(),
-                tbRegEmail.Text.Trim(),
-                tbRegTelp.Text.Trim(),
-                tbRegPass.Text.Trim(),
+                tbRegUsn.Text,
+                tbRegEmail.Text,
+                tbRegTelp.Text,
+                tbRegPass.Text,
                 "user"
             );
 

@@ -36,7 +36,7 @@ namespace project_smt2.Views
             // 
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1898, 1029);
+            ClientSize = new Size(1817, 987);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "DashboardAdminForm";

@@ -177,10 +177,10 @@
             // tbRegEmail
             // 
             tbRegEmail.BorderStyle = BorderStyle.None;
-            tbRegEmail.Location = new Point(86, 500);
+            tbRegEmail.Location = new Point(86, 496);
             tbRegEmail.Margin = new Padding(5);
             tbRegEmail.Name = "tbRegEmail";
-            tbRegEmail.Size = new Size(566, 32);
+            tbRegEmail.Size = new Size(548, 32);
             tbRegEmail.TabIndex = 4;
             tbRegEmail.Text = "Masukkan Email";
             tbRegEmail.TextChanged += tbRegEmail_TextChanged;
