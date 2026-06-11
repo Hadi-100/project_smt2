@@ -35,10 +35,10 @@ namespace project_smt2
 
         }
 
-        private void FormLogin_Load(object sender, EventArgs e)
-        {
+        //private void FormLogin_Load(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
