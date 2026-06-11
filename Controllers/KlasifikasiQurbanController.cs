@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace project_smt2.Views
+namespace project_smt2.Controllers
 {
-    internal class LoginUserForm
+    internal class KlasifikasiQurbanController
     {
     }
 }

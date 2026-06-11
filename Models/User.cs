@@ -12,5 +12,16 @@ namespace project_smt2.Models
         public string NomorTelepon { get; set; }
         public string Password { get; set; }
         public string RoleUser { get; set; }
+
+
+        public User(int id, string nama, string email, string telepon, string password, string roleUser)
+        {
+            this.UserId = id;
+            this.NamaLengkap = nama;
+            this.Email = email;
+            this.NomorTelepon = telepon;
+            this.Password = password;
+            this.RoleUser = roleUser;
+        }
     }
 }

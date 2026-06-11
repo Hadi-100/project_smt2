@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace project_smt2.Views
 {
-    public partial class DataHewanForm : UserControl
+    public partial class PembayaranForms : UserControl
     {
-        public DataHewanForm()
+        public PembayaranForms()
         {
             InitializeComponent();
         }
