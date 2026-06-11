@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace project_smt2.Views
+namespace project_smt2
 {
-    public partial class RegisterForm : UserControl
+    public partial class Tambah_hewan_ternak : UserControl
     {
-        public RegisterForm()
+        public Tambah_hewan_ternak()
         {
             InitializeComponent();
         }

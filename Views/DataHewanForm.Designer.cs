@@ -28,8 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataHewanForm));
+            SuspendLayout();
+            // 
+            // DataHewanForm
+            // 
+            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonShadow;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            DoubleBuffered = true;
+            Name = "DataHewanForm";
+            Size = new Size(1407, 903);
+            Load += DataHewanForm_Load;
+            ResumeLayout(false);
         }
 
         #endregion

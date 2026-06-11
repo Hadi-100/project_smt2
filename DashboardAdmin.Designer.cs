@@ -1,6 +1,6 @@
-﻿namespace project_smt2.Views
+﻿namespace project_smt2
 {
-    partial class DistribusiHewanForm
+    partial class DashboardAdmin
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,22 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DistribusiHewanForm));
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // DistribusiHewanForm
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(83, 452);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 82;
+            dataGridView1.Size = new Size(852, 460);
+            dataGridView1.TabIndex = 0;
+            // 
+            // DashboardAdmin
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            BackgroundImageLayout = ImageLayout.Stretch;
-            DoubleBuffered = true;
-            Name = "DistribusiHewanForm";
-            Size = new Size(1534, 984);
-            Load += DistribusiHewanForm_Load;
+            BackColor = Color.Transparent;
+            Controls.Add(dataGridView1);
+            Name = "DashboardAdmin";
+            Size = new Size(1544, 980);
+            Load += DashboardAdmin_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private DataGridView dataGridView1;
     }
 }
