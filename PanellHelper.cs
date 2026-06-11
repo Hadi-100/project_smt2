@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing.Drawing2D;
+using System.Text;
+
+namespace project_smt2
+{
+    internal class PanellHelper
+    {
+        public static void BuatMelengkung(Panel panel, int radius)
+        {
+            if (panel.Width <= 0 || panel.Height <= 0) return;
+
+            panel.Resize += (sender, e) => AturRegionMelengkung(panel, radius);
+
+            AturRegionMelengkung(panel, radius);
+        }
+
+        private static void AturRegionMelengkung(Panel panel, int radius)
+        {
+            if (panel.Width <= 0 || panel.Height <= 0) return;
+
+            Rectangle rect = new Rectangle(0, 0, panel.Width, panel.Height);
+            using (GraphicsPath path = new GraphicsPath())
+            {
+                float diameter = radius * 2;
+
+                path.StartFigure();
+                path.AddArc(rect.X, rect.Y, diameter, diameter, 180, 90);
+                path.AddArc(rect.Width - diameter + rect.X, rect.Y, diameter, diameter, 270, 90);
+                path.AddArc(rect.Width - diameter + rect.X, rect.Height - diameter + rect.Y, diameter, diameter, 0, 90);
+                path.AddArc(rect.X, rect.Height - diameter + rect.Y, diameter, diameter, 90, 90);
+                path.CloseFigure();
+
+                panel.Region = new Region(path);
+            }
+        }
+        public static void MakeButtonRounded(Button btn, int radius)
+        {
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 0;
+
+            btn.Paint += (sender, e) =>
+            {
+                Rectangle rect = new Rectangle(0, 0, btn.Width, btn.Height);
+
+                using (GraphicsPath gp = new GraphicsPath())
+                {
+                    gp.StartFigure();
+                    gp.AddArc(new Rectangle(0, 0, radius, radius), 180, 90);
+                    gp.AddArc(new Rectangle(rect.Width - radius - 1, 0, radius, radius), 270, 90);
+                    gp.AddArc(new Rectangle(rect.Width - radius - 1, rect.Height - radius - 1, radius, radius), 0, 90);
+                    gp.AddArc(new Rectangle(0, rect.Height - radius - 1, radius, radius), 90, 90);
+                    gp.CloseFigure();
+
+                    btn.Region = new Region(gp);
+                }
+            };
+        }
+    }
+}

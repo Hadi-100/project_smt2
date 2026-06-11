@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace project_smt2
 {
     public partial class FormLogin : Form
@@ -15,6 +16,13 @@ namespace project_smt2
         public FormLogin()
         {
             InitializeComponent();
+            PanellHelper.MakeButtonRounded(btnLogin, 10);
+            PanellHelper.MakeButtonRounded(btnRegist, 10);
+            PanellHelper.MakeButtonRounded(btnRegConfirm, 10);
+            PanellHelper.MakeButtonRounded(btnRegBack, 10);
+            new AutoScaleHelper(this);
+            pnlRegist.Hide();
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -22,15 +30,26 @@ namespace project_smt2
 
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogin_Click_1(object sender, EventArgs e)
         {
             LoginController controller =
         new LoginController();
 
             string role =
                 controller.Login(
-                    tbMasukEmail.Text,
-                    tbMasukPass.Text
+                tbMasukEmail.Text,
+                tbMasukPass.Text
                 );
 
             if (role == "admin")
@@ -44,9 +63,7 @@ namespace project_smt2
 
             else if (role == "user")
             {
-                LoginUserForm frm =
-                    new LoginUserForm();
-                //frm.Show();
+                LoginUserForm frm = new LoginUserForm();
                 this.Hide();
             }
 
@@ -56,7 +73,17 @@ namespace project_smt2
             }
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private void btnRegist_Click_1(object sender, EventArgs e)
+        {
+            pnlRegist.Show();
+        }
+
+        private void btnRegBack_Click(object sender, EventArgs e)
+        {
+            pnlRegist.Hide();
+        }
+
+        private void btnRegConfirm_Click(object sender, EventArgs e)
         {
 
         }
