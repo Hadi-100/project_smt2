@@ -12,7 +12,7 @@ namespace project_smt2.Views
     {
         public DashboardUserForm()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }

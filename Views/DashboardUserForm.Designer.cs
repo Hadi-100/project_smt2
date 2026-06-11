@@ -9,12 +9,12 @@ namespace project_smt2
     {
         public DashboardUserForm()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
 
         private void DashboardUserForm_Load(object sender, EventArgs e)
         {
-            lblJudul.Text = "Dashboard User";
+            //lblJudul.Text = "Dashboard User";
         }
     }
 }

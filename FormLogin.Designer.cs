@@ -201,7 +201,6 @@
             Name = "FormLogin";
             Text = "FormLogin";
             WindowState = FormWindowState.Maximized;
-            Load += FormLogin_Load;
             pnlLogin.ResumeLayout(false);
             pnlLogin.PerformLayout();
             pnlRegist.ResumeLayout(false);

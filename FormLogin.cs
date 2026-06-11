@@ -66,16 +66,16 @@ namespace project_smt2
 
             if (role == "admin")
             {
-                DashboardAdminForm frm =
-                    new DashboardAdminForm();
+                //DashboardAdminForm frm =
+                    //new DashboardAdminForm();
 
-                frm.Show();
-                this.Hide();
+                //frm.Show();
+                //this.Hide();
             }
 
             else if (role == "user")
             {
-                LoginUserForm frm = new LoginUserForm();
+                //LoginUserForm frm = new LoginUserForm();
                 this.Hide();
             }
 
@@ -100,9 +100,9 @@ namespace project_smt2
 
         }
 
-        private void FormLogin_Load(object sender, EventArgs e)
-        {
+        //private void FormLogin_Load(object sender, EventArgs e)
+        //{
 
-        }
+        //}
     }
 }

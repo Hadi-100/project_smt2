@@ -13,6 +13,10 @@ namespace project_smt2.Models
         public string Password { get; set; }
         public string RoleUser { get; set; }
 
+        public User()
+        {
+
+        }
 
         public User(int id, string nama, string email, string telepon, string password, string roleUser)
         {

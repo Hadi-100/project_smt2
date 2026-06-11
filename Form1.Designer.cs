@@ -43,7 +43,7 @@
             button1.TabIndex = 0;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            //button1.Click += button1_Click;
             // 
             // dataGridView1
             // 
@@ -83,7 +83,7 @@
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
-            Load += Form1_Load_1;
+            //Load += Form1_Load_1;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }

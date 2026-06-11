@@ -7,14 +7,14 @@ namespace project_smt2.Views
 {
     public partial class DashboardAdminForm : Form
     {
-        public DashboardAdminForm()
-        {
-            InitializeComponent();
-        }
+        //public DashboardAdminForm()
+        //{
+        //    InitializeComponent();
+        //}
 
-        private void DashboardAdminForm_Load(object sender, EventArgs e)
-        {
-            lblJudul.Text = "Dashboard Admin";
-        }
+        //private void DashboardAdminForm_Load(object sender, EventArgs e)
+        //{
+        //    lblJudul.Text = "Dashboard Admin";
+        //}
     }
 }
