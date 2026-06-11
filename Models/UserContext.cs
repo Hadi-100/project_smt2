@@ -67,7 +67,6 @@ namespace project_smt2.Contexts
                 string query =
                 @"INSERT INTO users
                 (
-                    user_id,
                     nama_lengkap,
                     email,
                     password,
@@ -75,7 +74,6 @@ namespace project_smt2.Contexts
                 )
                 VALUES
                 (
-                    @id,
                     @nama,
                     @email,
                     @password,
@@ -84,10 +82,6 @@ namespace project_smt2.Contexts
 
                 NpgsqlCommand cmd =
                     new NpgsqlCommand(query, conn);
-
-                cmd.Parameters.AddWithValue(
-                    "@id",
-                    user.UserId);
 
                 cmd.Parameters.AddWithValue(
                     "@nama",
