@@ -1,30 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Text;
+using System.Windows.Forms;
 
 namespace project_smt2.Views
 {
-    internal class RegisterForm
+    public partial class RegisterForm : UserControl
     {
-        //public void Register(User user)
-        //{
-        //    string query = @"
-        //    INSERT INTO users
-        //    (
-        //        nama_lengkap,
-        //        email,
-        //        nomor_telepon,
-        //        password,
-        //        role_user
-        //    )
-        //    VALUES
-        //    (
-        //        @nama,
-        //        @email,
-        //        @telp,
-        //        @password,
-        //        'user'
-        //    )";
-        //}
+        public RegisterForm()
+        {
+            InitializeComponent();
+        }
     }
 }

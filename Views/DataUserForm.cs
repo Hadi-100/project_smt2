@@ -1,22 +1,18 @@
-﻿using project_smt2.Controllers;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Text;
+using System.Windows.Forms;
 
 namespace project_smt2.Views
 {
-
-    //public partial class DataUserForm : Form
-    //{
-    //    private void DataUserForm_Load(
-    //        object sender,
-    //        EventArgs e)
-    //    {
-    //        UserController controller =
-    //            new UserController();
-
-    //        dgvUser.DataSource =
-    //            controller.GetUsers();
-    //    }
-    //}
+    public partial class DataUserForm : UserControl
+    {
+        public DataUserForm()
+        {
+            InitializeComponent();
+        }
+    }
 }

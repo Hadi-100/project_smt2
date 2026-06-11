@@ -43,6 +43,18 @@ namespace project_smt2
 
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(tbMasukEmail.Text))
+            {
+                MessageBox.Show("Email harus diisi!");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(tbMasukPass.Text))
+            {
+                MessageBox.Show("Password harus diisi!");
+                return;
+            }
+
             LoginController controller =
         new LoginController();
 
@@ -57,7 +69,7 @@ namespace project_smt2
                 DashboardAdminForm frm =
                     new DashboardAdminForm();
 
-                //frm.Show();
+                frm.Show();
                 this.Hide();
             }
 
@@ -84,6 +96,11 @@ namespace project_smt2
         }
 
         private void btnRegConfirm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
         {
 
         }
