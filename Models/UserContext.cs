@@ -1,20 +1,18 @@
 ﻿using Npgsql;
 using project_smt2.Models;
 using System.Collections.Generic;
+using project_smt2.Helpers;
 
 namespace project_smt2.Contexts
 {
     public class UserContext
     {
-        private string connString =
-            "Host=localhost;Port=5432;Username=postgres;Password=Alhadi2007;Database=revisi_db_terbaru";
 
         public User GetUserByEmail(string email)
         {
             User user = null;
 
-            using (NpgsqlConnection conn =
-                new NpgsqlConnection(connString))
+            using var conn = DatabaseHelper.GetConnection();
             {
                 conn.Open();
 
@@ -59,8 +57,7 @@ namespace project_smt2.Contexts
 
         public bool Insert(User user)
         {
-            using (NpgsqlConnection conn =
-                new NpgsqlConnection(connString))
+            using var conn = DatabaseHelper.GetConnection();
             {
                 conn.Open();
 
@@ -108,8 +105,7 @@ namespace project_smt2.Contexts
             List<User> users =
                 new List<User>();
 
-            using (NpgsqlConnection conn =
-                new NpgsqlConnection(connString))
+            using var conn = DatabaseHelper.GetConnection();
             {
                 conn.Open();
 

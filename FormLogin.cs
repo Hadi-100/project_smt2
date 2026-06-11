@@ -1,6 +1,7 @@
-﻿using project_smt2.Controllers;
-using project_smt2.Views;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using project_smt2.Controllers;
 using project_smt2.Models;
+using project_smt2.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -121,11 +122,39 @@ namespace project_smt2
         {
             string pesan = "";
 
+            string noTelp = tbRegTelp.Text;
             string email = tbRegEmail.Text;
-            if (!email.Contains("com"))
+
+            //bool telp_kosong = noTelp == "" || noTelp == "masukkan no. telp";
+            bool email_kosong = email == "" || email == "masukkan email";
+
+            //if (telp_kosong)
+            //{
+            //    pesan += "• Nomor telepon harus diisi\n";
+            //}
+            //else if (noTelp.Length < 11)
+            //{
+            //    pesan += "• Nomor telepon terlalu pendek\n";
+            //}
+            //else if (noTelp.Length > 15)
+            //{
+            //    pesan += "• Nomor telepon terlalu panjang\n";
+            //}
+
+            if (email_kosong)
+            {
+                pesan += "• Email harus diisi\n";
+            }
+            else if (!email.Contains("@"))
             {
                 pesan += "• Masukkan alamat email yang sesuai\n";
             }
+
+            if (tbRegUsn.Text.Trim() == "" || tbRegUsn.Text.Trim() == "masukkan username")
+                pesan += "• Username harus diisi\n";
+
+            if (tbRegPass.Text.Trim() == "" || tbRegPass.Text.Trim() == "masukkan password")
+                pesan += "• Password harus diisi\n";
 
             if (pesan != "")
             {
@@ -138,24 +167,14 @@ namespace project_smt2
                 return;
             }
 
-            string noTelp = tbRegTelp.Text;
-            if (noTelp.Length < 13)
-            {
-                pesan += "• Nomor telepon terlalu pendek\n";
-            }
-            else if (noTelp.Length > 15)
-            {
-                pesan += "• Nomor telepon terlalu panjang\n";
-            }
-
-            User user = new User(
+            Models.User user = new Models.User(
                 0,
                 tbRegUsn.Text,
-                tbRegEmail.Text,
                 tbRegTelp.Text,
+                tbRegEmail.Text,
                 tbRegPass.Text,
-                "user"
-            );
+                "user'"
+                );
 
             UserController controller = new UserController();
             controller.Register(user);
