@@ -7,14 +7,14 @@ namespace project_smt2
 {
     public partial class DashboardUserForm : Form
     {
-        public DashboardUserForm()
-        {
-            InitializeComponent();
-        }
+        //public DashboardUserForm()
+        //{
+        //    InitializeComponent();
+        //}
 
-        private void DashboardUserForm_Load(object sender, EventArgs e)
-        {
-            lblJudul.Text = "Dashboard User";
-        }
+        //private void DashboardUserForm_Load(object sender, EventArgs e)
+        //{
+        //    lblJudul.Text = "Dashboard User";
+        //}
     }
 }

@@ -17,7 +17,19 @@ namespace project_smt2.Views
 
         private void DashboardAdminForm_Load(object sender, EventArgs e)
         {
-            lblJudul.Text = "Dashboard Admin";
+            //lblJudul.Text = "Dashboard Admin";
+        }
+
+        private void InitializeComponent()
+        {
+            SuspendLayout();
+            // 
+            // DashboardAdminForm
+            // 
+            ClientSize = new Size(1500, 831);
+            Name = "DashboardAdminForm";
+            ResumeLayout(false);
+
         }
     }
 }

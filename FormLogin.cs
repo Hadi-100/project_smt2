@@ -36,10 +36,10 @@ namespace project_smt2
 
         }
 
-        private void FormLogin_Load(object sender, EventArgs e)
-        {
+        //private void FormLogin_Load(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
@@ -75,8 +75,8 @@ namespace project_smt2
 
             else if (role == "user")
             {
-                LoginUserForm frm = new LoginUserForm();
-                this.Hide();
+                //LoginUserForm frm = new LoginUserForm();
+                //this.Hide();
             }
 
             else
