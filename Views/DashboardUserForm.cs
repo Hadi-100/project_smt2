@@ -14,5 +14,10 @@ namespace project_smt2.Views
         {
             //InitializeComponent();
         }
+
+        private void InitializeComponent()
+        {
+
+        }
     }
 }
