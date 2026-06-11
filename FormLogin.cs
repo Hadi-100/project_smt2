@@ -1,5 +1,6 @@
 ﻿using project_smt2.Controllers;
 using project_smt2.Views;
+using project_smt2.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,31 +55,38 @@ namespace project_smt2
                 return;
             }
 
-            DashboardAdminForm frmAdm = new DashboardAdminForm();
-            frmAdm.Show();
-            this.Hide();
-            //LoginController controller = new LoginController();
+            LoginController controller = new LoginController();
 
-            //string role = controller.Login(tbMasukEmail.Text, tbMasukPass.Text);
+            string role = controller.Login(
+                tbMasukEmail.Text,
+                tbMasukPass.Text
+            );
 
-            //if (role == "admin")
-            //{
-            //    DashboardAdminForm frmAdmin = new DashboardAdminForm();
-            //    frmAdmin.Show();
-            //    this.Hide();
-            //}
+            if (role == "admin")
+            {
+                DashboardAdminForm frmAdmin =
+                    new DashboardAdminForm();
 
-            //else if (role == "user")
-            //{
-            //    DashboardUserForm frmUser = new DashboardUserForm();
-            //    frmUser.Show();
-            //    this.Hide();
-            //}
+                frmAdmin.Show();
+                this.Hide();
+            }
+            else if (role == "user")
+            {
+                DashboardUserForm frmUser =
+                    new DashboardUserForm();
 
-            //else
-            //{
-            //    MessageBox.Show("Login Gagal");
-            //}
+                frmUser.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Email atau Password salah!",
+                    "Login Gagal",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
 
         private void btnRegist_Click_1(object sender, EventArgs e)
@@ -93,7 +101,23 @@ namespace project_smt2
 
         private void btnRegConfirm_Click(object sender, EventArgs e)
         {
+            User user = new User(
+                0,
+                tbRegUsn.Text,
+                tbRegTelp.Text,
+                tbRegEmail.Text,
+                tbRegPass.Text,
+                "user"
+                );
 
+            UserController controller =
+                new UserController();
+
+            controller.Register(user);
+
+            MessageBox.Show("Registrasi berhasil!");
+
+            pnlRegist.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -106,6 +130,6 @@ namespace project_smt2
         private void FormLogin_Load_1(object sender, EventArgs e)
         {
 
-        //}
+        }
     }
 }
