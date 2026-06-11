@@ -13,11 +13,17 @@ namespace project_smt2.Views
         public DashboardAdminForm()
         {
             InitializeComponent();
+            new AutoScaleHelper(this);
         }
 
         private void DashboardAdminForm_Load(object sender, EventArgs e)
         {
-            lblJudul.Text = "Dashboard Admin";
+            //lblJudul.Text = "Dashboard Admin";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

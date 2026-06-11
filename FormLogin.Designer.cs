@@ -41,23 +41,23 @@
             btnLogin = new Button();
             tbMasukPass = new TextBox();
             tbMasukEmail = new TextBox();
-            pnlLogin = new Panel();
-            pnlLogin.SuspendLayout();
+            this.pnlLogin = new Panel();
+            this.pnlLogin.SuspendLayout();
             pnlRegist.SuspendLayout();
             SuspendLayout();
             // 
             // pnlLogin
             // 
-            pnlLogin.BackgroundImage = (Image)resources.GetObject("pnlLogin.BackgroundImage");
-            pnlLogin.BackgroundImageLayout = ImageLayout.Stretch;
-            pnlLogin.Controls.Add(btnRegist);
-            pnlLogin.Controls.Add(btnLogin);
-            pnlLogin.Controls.Add(tbMasukPass);
-            pnlLogin.Controls.Add(tbMasukEmail);
-            pnlLogin.Location = new Point(724, 0);
-            pnlLogin.Name = "pnlLogin";
-            pnlLogin.Size = new Size(445, 644);
-            pnlLogin.TabIndex = 0;
+            this.pnlLogin.BackgroundImage = (Image)resources.GetObject("pnlLogin.BackgroundImage");
+            this.pnlLogin.BackgroundImageLayout = ImageLayout.Stretch;
+            this.pnlLogin.Controls.Add(this.btnRegist);
+            this.pnlLogin.Controls.Add(this.btnLogin);
+            this.pnlLogin.Controls.Add(this.tbMasukPass);
+            this.pnlLogin.Controls.Add(this.tbMasukEmail);
+            this.pnlLogin.Location = new Point(724, 0);
+            this.pnlLogin.Name = "pnlLogin";
+            this.pnlLogin.Size = new Size(445, 644);
+            this.pnlLogin.TabIndex = 0;
             // 
             // pnlRegist
             // 
@@ -195,17 +195,16 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1168, 643);
             Controls.Add(pnlRegist);
-            Controls.Add(pnlLogin);
+            Controls.Add(this.pnlLogin);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormLogin";
             Text = "FormLogin";
             WindowState = FormWindowState.Maximized;
-            Load += FormLogin_Load;
-            pnlLogin.ResumeLayout(false);
-            pnlLogin.PerformLayout();
-            pnlRegist.ResumeLayout(false);
-            pnlRegist.PerformLayout();
+            this.pnlLogin.ResumeLayout(false);
+            this.pnlLogin.PerformLayout();
+            this.pnlRegist.ResumeLayout(false);
+            this.pnlRegist.PerformLayout();
             ResumeLayout(false);
         }
 

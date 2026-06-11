@@ -21,21 +21,21 @@ using System.Text;
 //        DashboardAdminForm frm =
 //            new DashboardAdminForm();
 
-        frm.Show();
-        this.Hide();
-    }
+    //    frm.Show();
+    //    this.Hide();
+    //}
 
-    else if (role == "user")
-    {
-        DashboardUserForm frm =
-            new DashboardUserForm();
+    //else if (role == "user")
+    //{
+    //    DashboardUserForm frm =
+    //        new DashboardUserForm();
 
-        frm.show();
-        this.Hide();
-    }
+    //    frm.show();
+    //    this.Hide();
+    //}
 
-    else
-    {
-        MessageBox.Show("Login Admin Gagal");
-    }
-}
+    //else
+    //{
+    //    MessageBox.Show("Login Admin Gagal");
+    //}
+//}
