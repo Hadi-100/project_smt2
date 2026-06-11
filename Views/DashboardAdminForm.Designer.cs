@@ -29,28 +29,22 @@ namespace project_smt2.Views
 
         private void InitializeComponent()
         {
-            button1 = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardAdminForm));
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.Location = new Point(345, 237);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // DashboardAdminForm
             // 
-            ClientSize = new Size(847, 547);
-            Controls.Add(button1);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1898, 1029);
+            DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "DashboardAdminForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            WindowState = FormWindowState.Maximized;
+            Load += DashboardAdminForm_Load_1;
             ResumeLayout(false);
         }
-
-        private Button button1;
     }
     #endregion
 }

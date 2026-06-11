@@ -35,10 +35,10 @@ namespace project_smt2
 
         }
 
-        //private void FormLogin_Load(object sender, EventArgs e)
-        //{
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
 
-        //}
+        }
 
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
@@ -53,7 +53,7 @@ namespace project_smt2
                 MessageBox.Show("Password harus diisi!");
                 return;
             }
-            
+
             DashboardAdminForm frmAdm = new DashboardAdminForm();
             frmAdm.Show();
             this.Hide();
@@ -100,7 +100,12 @@ namespace project_smt2
         {
             var login = new FormLogin();
             login.Show();
-            this.Hide(); 
+            this.Hide();
+        }
+
+        private void FormLogin_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
