@@ -16,6 +16,7 @@ namespace project_smt2.Controllers
                 string query =
                 @"INSERT INTO users
                 (
+                    user_id,
                     nama_lengkap,
                     email,
                     nomor_telepon,
@@ -24,6 +25,7 @@ namespace project_smt2.Controllers
                 )
                 VALUES
                 (
+                    @id,
                     @nama,
                     @email,
                     @telepon,
@@ -33,6 +35,9 @@ namespace project_smt2.Controllers
 
                 NpgsqlCommand cmd =
                     new NpgsqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@id",
+                    user.UserId);
 
                 cmd.Parameters.AddWithValue("@nama",
                     user.NamaLengkap);
