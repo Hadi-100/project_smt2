@@ -31,6 +31,13 @@ namespace project_smt2.Views
 
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FormLogin login = new FormLogin();
+            login.Show();
+            this.Hide();
+        }
+
 
         //private void button1_Click(object sender, EventArgs e)
         //{
