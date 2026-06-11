@@ -107,8 +107,8 @@ namespace project_smt2
         private void ResetFormRegister()
         {
             tbRegUsn.Text = "Masukkan Username";
-            tbRegEmail.Text = "Masukkan Email";
             tbRegTelp.Text = "Masukkan No. Hp";
+            tbRegEmail.Text = "Masukkan Email";
             tbRegPass.Text = "Masukkan Password";
         }
 
