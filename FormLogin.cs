@@ -40,7 +40,7 @@ namespace project_smt2
         {
 
         }
-
+       
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(tbMasukEmail.Text))
@@ -89,36 +89,75 @@ namespace project_smt2
             }
         }
 
+
         private void btnRegist_Click_1(object sender, EventArgs e)
         {
             pnlRegist.Show();
         }
 
+        private void ResetFormRegister()
+        {
+            tbRegUsn.Text = "Masukkan Username";
+            tbRegEmail.Text = "Masukkan Email";
+            tbRegTelp.Text = "Masukkan No. Hp";
+            tbRegPass.Text = "Masukkan Password";
+        }
+
         private void btnRegBack_Click(object sender, EventArgs e)
         {
+            ResetFormRegister();
             pnlRegist.Hide();
         }
 
         private void btnRegConfirm_Click(object sender, EventArgs e)
         {
+            string pesan = "";
+
+            string email = tbRegEmail.Text.Trim().ToLower();
+            if (!email.Contains("com"))
+            {
+                pesan += "• Masukkan alamat email yang sesuai\n";
+            }
+
+            if (pesan != "")
+            {
+                MessageBox.Show(
+                    "Registrasi Gagal!\n\n" + pesan,
+                    "Gagal Registrasi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            string noTelp = tbRegTelp.Text.Trim();
+            if (noTelp.Length < 13)
+            {
+                pesan += "• Nomor telepon terlalu pendek\n";
+            }
+            else if (noTelp.Length > 15)
+            {
+                pesan += "• Nomor telepon terlalu panjang\n";
+            }
+
             User user = new User(
                 0,
-                tbRegUsn.Text,
-                tbRegTelp.Text,
-                tbRegEmail.Text,
-                tbRegPass.Text,
+                tbRegUsn.Text.Trim(),
+                tbRegEmail.Text.Trim(),
+                tbRegTelp.Text.Trim(),
+                tbRegPass.Text.Trim(),
                 "user"
-                );
+            );
 
-            UserController controller =
-                new UserController();
-
+            UserController controller = new UserController();
             controller.Register(user);
 
             MessageBox.Show("Registrasi berhasil!");
 
+            ResetFormRegister();
             pnlRegist.Hide();
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -128,6 +167,16 @@ namespace project_smt2
         }
 
         private void FormLogin_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbRegTelp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbRegEmail_TextChanged(object sender, EventArgs e)
         {
 
         }

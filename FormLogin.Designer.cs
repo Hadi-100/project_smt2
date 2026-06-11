@@ -141,12 +141,13 @@
             // tbRegTelp
             // 
             tbRegTelp.BorderStyle = BorderStyle.None;
-            tbRegTelp.Location = new Point(86, 496);
+            tbRegTelp.Location = new Point(86, 373);
             tbRegTelp.Margin = new Padding(5);
             tbRegTelp.Name = "tbRegTelp";
             tbRegTelp.Size = new Size(566, 32);
             tbRegTelp.TabIndex = 3;
-            tbRegTelp.Text = "Masukkan No. Telp";
+            tbRegTelp.Text = "Masukkan No Hp";
+            tbRegTelp.TextChanged += tbRegTelp_TextChanged;
             // 
             // btnRegBack
             // 
@@ -176,12 +177,13 @@
             // tbRegEmail
             // 
             tbRegEmail.BorderStyle = BorderStyle.None;
-            tbRegEmail.Location = new Point(86, 373);
+            tbRegEmail.Location = new Point(86, 500);
             tbRegEmail.Margin = new Padding(5);
             tbRegEmail.Name = "tbRegEmail";
             tbRegEmail.Size = new Size(566, 32);
             tbRegEmail.TabIndex = 4;
-            tbRegEmail.Text = "Masukkan No. Telp";
+            tbRegEmail.Text = "Masukkan Email";
+            tbRegEmail.TextChanged += tbRegEmail_TextChanged;
             // 
             // btnRegConfirm
             // 
