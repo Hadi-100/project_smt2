@@ -19,17 +19,13 @@ namespace project_smt2.Views
             InitializeComponent();
             new AutoScaleHelper(this);
 
-            dataUserForm1.Hide();
+            //dataUserForm1.Hide();
             dataHewanForm1.Hide();
-            //distribusiHewanForm1.Hide();
+            distribusiHewanForm1.Hide();
             riwayatTransaksiForm1.Hide();
 
-            //dataUserForm1.Show();
+            dataUserForm1.Show();
             dataUserForm1.BringToFront();
-
-            MessageBox.Show(
-                dataUserForm1.Visible.ToString()
-                );
         }
 
         private void DashboardAdminForm_Load(object sender, EventArgs e)
