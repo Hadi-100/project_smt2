@@ -2,25 +2,30 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using project_smt2.Controllers;
 
 namespace project_smt2.Views
 {
     public partial class DashboardAdminForm : Form
     {
+        private UserController controller = new UserController();
+
         public DashboardAdminForm()
         {
             InitializeComponent();
             new AutoScaleHelper(this);
 
-            distribusiHewanForm1.Visible = false;
-            riwayatTransaksiForm1.Visible = true;
-            tambah_hewan_ternak1.Visible = false;
-            dataHewanForm2.Visible = false;
+            //dataUserForm1.Hide();
+            dataHewanForm1.Hide();
+            distribusiHewanForm1.Hide();
+            riwayatTransaksiForm1.Hide();
 
-            dataUserForm1.Visible = false;
+            dataUserForm1.Show();
+            dataUserForm1.BringToFront();
         }
 
         private void DashboardAdminForm_Load(object sender, EventArgs e)
@@ -43,30 +48,10 @@ namespace project_smt2.Views
 
         }
 
-        private void distribusiHewanForm1_Load(object sender, EventArgs e)
+        private void LoadStatistik()
         {
+      
         }
-
-        private void riwayatTransaksiForm1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tambah_hewan_ternak1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataUserForm1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataHewanForm2_Load(object sender, EventArgs e)
-        {
-
-        }
-
 
         //private void button1_Click(object sender, EventArgs e)
         //{
