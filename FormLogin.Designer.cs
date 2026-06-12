@@ -202,6 +202,7 @@
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormLogin";
             WindowState = FormWindowState.Maximized;
             Load += FormLogin_Load_1;

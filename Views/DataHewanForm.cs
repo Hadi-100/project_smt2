@@ -13,6 +13,8 @@ namespace project_smt2.Views
         public DataHewanForm()
         {
             InitializeComponent();
+            this.AutoScaleMode = AutoScaleMode.None;
+            this.Font = new Font("Arial", 9F); // pick one consistent font/size
         }
 
         private void DataHewanForm_Load(object sender, EventArgs e)

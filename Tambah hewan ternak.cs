@@ -13,6 +13,13 @@ namespace project_smt2
         public Tambah_hewan_ternak()
         {
             InitializeComponent();
+            cbxJenisHewan.Size = new Size(521, 60);
+        }
+
+        private void cbxJenisHewan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
+
