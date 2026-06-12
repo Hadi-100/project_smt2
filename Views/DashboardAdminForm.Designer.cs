@@ -33,7 +33,6 @@ namespace project_smt2.Views
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardAdminForm));
             dataUserForm1 = new DataUserForm();
-            dataHewanForm1 = new DataHewanForm();
             tambah_hewan_ternak1 = new Tambah_hewan_ternak();
             riwayatTransaksiForm1 = new RiwayatTransaksiForm();
             distribusiHewanForm1 = new DistribusiHewanForm();
@@ -106,6 +105,7 @@ namespace project_smt2.Views
             distribusiHewanForm1.Name = "distribusiHewanForm1";
             distribusiHewanForm1.Size = new Size(1536, 988);
             distribusiHewanForm1.TabIndex = 4;
+            distribusiHewanForm1.Load += distribusiHewanForm1_Load;
             // 
             // btnLogout
             // 
@@ -296,7 +296,6 @@ namespace project_smt2.Views
             Controls.Add(distribusiHewanForm1);
             Controls.Add(riwayatTransaksiForm1);
             Controls.Add(tambah_hewan_ternak1);
-            Controls.Add(dataHewanForm1);
             Controls.Add(dataUserForm1);
             Controls.Add(btnLogout);
             DoubleBuffered = true;
