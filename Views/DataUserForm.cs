@@ -18,29 +18,31 @@ namespace project_smt2.Views
             InitializeComponent();
 
             LoadDataUser();
-
-            dataGridView1.Location = new Point(60, 180);
-            dataGridView1.Size = new Size(850, 400);
         }
 
-        private void LoadDataUser ()
+        public void LoadDataUser()
         {
-            try
-            {
-                dataGridView1.DataSource = controller.GetUsers();
+            dataGridView1.DataSource = controller.GetUsers();
 
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            lblTotalUser.Text = controller.GetTotalUser().ToString();
+            lblTotalAdmin.Text = controller.GetTotalAdmin().ToString();
+        }
 
-                dataGridView1.ReadOnly = true;
 
-                dataGridView1.AllowUserToAddRows = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Gagal memuat data!\n" + ex.Message);
-            }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lblTotalUser_Click(object sender, EventArgs e)
+        {
+            LoadDataUser();
+        }
+
+        private void lblTotalAdmin_Click(object sender, EventArgs e)
+        {
+            LoadDataUser();
         }
     }
 }

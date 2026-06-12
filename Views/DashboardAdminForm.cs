@@ -2,24 +2,29 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using project_smt2.Controllers;
 
 namespace project_smt2.Views
 {
     public partial class DashboardAdminForm : Form
     {
+        private UserController controller = new UserController();
+
         public DashboardAdminForm()
         {
             InitializeComponent();
             new AutoScaleHelper(this);
 
+            dataUserForm1.Hide();
             dataHewanForm1.Hide();
-            distribusiHewanForm1.Hide();
+            //distribusiHewanForm1.Hide();
             riwayatTransaksiForm1.Hide();
 
-            dataUserForm1.Show();
+            //dataUserForm1.Show();
             dataUserForm1.BringToFront();
 
             MessageBox.Show(
@@ -47,7 +52,10 @@ namespace project_smt2.Views
 
         }
 
-
+        private void LoadStatistik()
+        {
+      
+        }
 
         //private void button1_Click(object sender, EventArgs e)
         //{

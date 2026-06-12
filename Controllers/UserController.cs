@@ -75,8 +75,38 @@ namespace project_smt2.Controllers
             }
 
             return dt;
-  
         }
 
+        public int GetTotalAdmin()
+        {
+            int totalAdmin = 0;
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                string query =
+                @"SELECT COUNT(*) FROM users
+                WHERE role_user = 'admin'";
+                NpgsqlCommand cmd =
+                    new NpgsqlCommand(query, conn);
+                totalAdmin = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            return totalAdmin;
+        }
+
+        public int GetTotalUser()
+        {
+            int totalUser = 0;
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                string query =
+                @"SELECT COUNT(*) FROM users
+                WHERE role_user = 'user'";
+                NpgsqlCommand cmd =
+                    new NpgsqlCommand(query, conn);
+                totalUser = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            return totalUser;
+        }
     }
 }
