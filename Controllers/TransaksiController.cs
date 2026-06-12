@@ -18,18 +18,15 @@ namespace project_smt2.Controllers
 
                 string query =
                 @"SELECT
-                    t.transaksi_id,
-                    u.nama_lengkap,
-                    t.tanggal_transaksi,
-                    dt.harga_jual,
-                    dt.subtotal,
-                    t.status_pembayaran
+                t.transaksi_id,
+                u.nama_lengkap,
+                t.tanggal_transaksi,
+                dl.harga_jual,
+                dl.subtotal,
+                t.status_pembayaran
                 FROM transaksi t
-                JOIN users u
-                ON t.user_id=u.user_id
-                JOIN detail_transaksi dt
-                ON t.transaksi_id=dt.transaksi_id";
-
+                JOIN users u ON t.user_id = u.user_id
+                JOIN detail_transaksi dl ON t.transaksi_id = dl.transaksi_id";
                 NpgsqlDataAdapter da =
                     new NpgsqlDataAdapter(
                         query,
@@ -40,5 +37,53 @@ namespace project_smt2.Controllers
 
             return dt;
         }
+
+        public int GetTotalTransaksi()
+        {
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                var cmd = new NpgsqlCommand(
+                    "SELECT COUNT(transaksi_id) FROM transaksi", conn);
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
+        public int GetTotalBelumBayar()
+        {
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                var cmd = new NpgsqlCommand(
+                    "SELECT COUNT(transaksi_id) FROM transaksi WHERE status_pembayaran = 'Belum Lunas'", conn);
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
+        public int GetTotalSudahLunas()
+        {
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                var cmd = new NpgsqlCommand(
+                    "SELECT COUNT(transaksi_id) FROM transaksi WHERE status_pembayaran = 'Lunas'", conn);
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
+        public long GetNilaiTotal()
+        {
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                var cmd = new NpgsqlCommand(
+                    @"SELECT COALESCE(SUM(dl.subtotal), 0)
+              FROM transaksi t
+              JOIN detail_transaksi dl ON t.transaksi_id = dl.transaksi_id", conn);
+                return Convert.ToInt64(cmd.ExecuteScalar());
+            }
+        }
     }
+        
+    
 }

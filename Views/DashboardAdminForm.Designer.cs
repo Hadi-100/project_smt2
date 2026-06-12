@@ -31,10 +31,10 @@ namespace project_smt2.Views
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardAdminForm));
             dataUserForm1 = new DataUserForm();
-            dataHewanForm1 = new DataHewanForm();
             tambah_hewan_ternak1 = new Tambah_hewan_ternak();
             riwayatTransaksiForm1 = new RiwayatTransaksiForm();
             distribusiHewanForm1 = new DistribusiHewanForm();
+            dataHewanForm2 = new DataHewanForm();
             SuspendLayout();
             // 
             // dataUserForm1
@@ -46,30 +46,20 @@ namespace project_smt2.Views
             dataUserForm1.Size = new Size(1604, 1029);
             dataUserForm1.TabIndex = 0;
             // 
-            // dataHewanForm1
-            // 
-            dataHewanForm1.BackColor = SystemColors.ButtonShadow;
-            dataHewanForm1.BackgroundImage = (Image)resources.GetObject("dataHewanForm1.BackgroundImage");
-            dataHewanForm1.BackgroundImageLayout = ImageLayout.Stretch;
-            dataHewanForm1.Location = new Point(294, 0);
-            dataHewanForm1.Name = "dataHewanForm1";
-            dataHewanForm1.Size = new Size(1609, 1029);
-            dataHewanForm1.TabIndex = 1;
-            // 
             // tambah_hewan_ternak1
             // 
             tambah_hewan_ternak1.BackgroundImage = (Image)resources.GetObject("tambah_hewan_ternak1.BackgroundImage");
             tambah_hewan_ternak1.BackgroundImageLayout = ImageLayout.Stretch;
             tambah_hewan_ternak1.Location = new Point(294, 0);
             tambah_hewan_ternak1.Name = "tambah_hewan_ternak1";
-            tambah_hewan_ternak1.Size = new Size(1609, 1029);
+            tambah_hewan_ternak1.Size = new Size(1596, 1029);
             tambah_hewan_ternak1.TabIndex = 2;
             // 
             // riwayatTransaksiForm1
             // 
             riwayatTransaksiForm1.BackgroundImage = (Image)resources.GetObject("riwayatTransaksiForm1.BackgroundImage");
             riwayatTransaksiForm1.BackgroundImageLayout = ImageLayout.Stretch;
-            riwayatTransaksiForm1.Location = new Point(294, 0);
+            riwayatTransaksiForm1.Location = new Point(289, 0);
             riwayatTransaksiForm1.Name = "riwayatTransaksiForm1";
             riwayatTransaksiForm1.Size = new Size(1609, 1029);
             riwayatTransaksiForm1.TabIndex = 3;
@@ -78,20 +68,32 @@ namespace project_smt2.Views
             // 
             distribusiHewanForm1.BackgroundImage = (Image)resources.GetObject("distribusiHewanForm1.BackgroundImage");
             distribusiHewanForm1.BackgroundImageLayout = ImageLayout.Stretch;
-            distribusiHewanForm1.Location = new Point(294, 0);
+            distribusiHewanForm1.Location = new Point(286, 0);
             distribusiHewanForm1.Name = "distribusiHewanForm1";
             distribusiHewanForm1.Size = new Size(1609, 1029);
             distribusiHewanForm1.TabIndex = 4;
+            distribusiHewanForm1.Load += distribusiHewanForm1_Load;
+            // 
+            // dataHewanForm2
+            // 
+            dataHewanForm2.BackColor = SystemColors.ButtonShadow;
+            dataHewanForm2.BackgroundImage = (Image)resources.GetObject("dataHewanForm2.BackgroundImage");
+            dataHewanForm2.BackgroundImageLayout = ImageLayout.Stretch;
+            dataHewanForm2.Location = new Point(286, 0);
+            dataHewanForm2.Name = "dataHewanForm2";
+            dataHewanForm2.Size = new Size(1620, 1029);
+            dataHewanForm2.TabIndex = 5;
+            dataHewanForm2.Load += dataHewanForm2_Load;
             // 
             // DashboardAdminForm
             // 
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1902, 1029);
+            Controls.Add(dataHewanForm2);
             Controls.Add(distribusiHewanForm1);
             Controls.Add(riwayatTransaksiForm1);
             Controls.Add(tambah_hewan_ternak1);
-            Controls.Add(dataHewanForm1);
             Controls.Add(dataUserForm1);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
@@ -107,6 +109,7 @@ namespace project_smt2.Views
         private Tambah_hewan_ternak tambah_hewan_ternak1;
         private RiwayatTransaksiForm riwayatTransaksiForm1;
         private DistribusiHewanForm distribusiHewanForm1;
+        private DataHewanForm dataHewanForm2;
     }
     #endregion
 }
