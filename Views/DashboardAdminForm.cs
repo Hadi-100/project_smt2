@@ -14,6 +14,17 @@ namespace project_smt2.Views
         {
             InitializeComponent();
             new AutoScaleHelper(this);
+
+            dataHewanForm1.Hide();
+            distribusiHewanForm1.Hide();
+            riwayatTransaksiForm1.Hide();
+
+            dataUserForm1.Show();
+            dataUserForm1.BringToFront();
+
+            MessageBox.Show(
+                dataUserForm1.Visible.ToString()
+                );
         }
 
         private void DashboardAdminForm_Load(object sender, EventArgs e)
@@ -37,6 +48,7 @@ namespace project_smt2.Views
             login.Show();
             this.Hide();
         }
+
 
 
         //private void button1_Click(object sender, EventArgs e)
