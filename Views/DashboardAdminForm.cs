@@ -25,11 +25,19 @@ namespace project_smt2.Views
             PanellHelper.MakeButtonRounded(btnDistribusi, 10);
             new AutoScaleHelper(this);
 
+            //lbDistribusi.Hide();
+            //lbJumlahuser.Hide();
+            //lbTotalTransaksi.Hide();
+            //lbHewanTersedia.Hide();
+            //lbHewanTerjual.Hide();
+            //lbPendapatanTotal.Hide();
+            //dgvRiwayatTransaksi.Hide();
             dataUserForm1.Hide();
-            dataHewanForm1.Hide();
+            //dataHewanForm1.Hide();
             tambah_hewan_ternak1.Hide();
             riwayatTransaksiForm1.Hide();
             distribusiHewanForm1.Hide();
+
         }
 
         private void DashboardAdminForm_Load(object sender, EventArgs e)
@@ -79,6 +87,7 @@ namespace project_smt2.Views
             lbHewanTerjual.Hide();
             lbPendapatanTotal.Hide();
             dgvRiwayatTransaksi.Hide();
+            distribusiHewanForm1.Hide();
 
         }
 
@@ -86,7 +95,7 @@ namespace project_smt2.Views
         private void btnHewanTernak_Click(object sender, EventArgs e)
         {
             dataUserForm1.Hide();
-            dataHewanForm1.Show();
+            //dataHewanForm1.Show();
             tambah_hewan_ternak1.Hide();
             distribusiHewanForm1.Hide();
             riwayatTransaksiForm1.Hide();
@@ -102,7 +111,7 @@ namespace project_smt2.Views
         private void btnRiwayat_Click(object sender, EventArgs e)
         {
             riwayatTransaksiForm1.Show();
-            dataHewanForm1.Hide();
+            //dataHewanForm1.Hide();
             dataUserForm1.Hide();
             distribusiHewanForm1.Hide();
             lbDistribusi.Hide();
@@ -117,7 +126,7 @@ namespace project_smt2.Views
         private void btnDistribusi_Click(object sender, EventArgs e)
         {
             distribusiHewanForm1.Show();
-            dataHewanForm1.Hide();
+            //dataHewanForm1.Hide();
             dataUserForm1.Hide();
             riwayatTransaksiForm1.Hide();
             lbDistribusi.Hide();
@@ -132,7 +141,7 @@ namespace project_smt2.Views
         private void btnLaporan_Click(object sender, EventArgs e)
         {
             distribusiHewanForm1.Hide();
-            dataHewanForm1.Hide();
+            //dataHewanForm1.Hide();
             dataUserForm1.Hide();
             riwayatTransaksiForm1.Hide();
             lbDistribusi.Hide();
@@ -147,7 +156,7 @@ namespace project_smt2.Views
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             distribusiHewanForm1.Hide();
-            dataHewanForm1.Hide();
+            //dataHewanForm1.Hide();
             dataUserForm1.Hide();
             riwayatTransaksiForm1.Hide();
             lbDistribusi.Show();

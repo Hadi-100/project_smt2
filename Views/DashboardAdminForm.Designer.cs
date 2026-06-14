@@ -35,7 +35,6 @@ namespace project_smt2.Views
             dataUserForm1 = new DataUserForm();
             tambah_hewan_ternak1 = new Tambah_hewan_ternak();
             riwayatTransaksiForm1 = new RiwayatTransaksiForm();
-            distribusiHewanForm1 = new DistribusiHewanForm();
             btnLogout = new Button();
             btnDashboard = new Button();
             btnUsers = new Button();
@@ -50,6 +49,7 @@ namespace project_smt2.Views
             lbDistribusi = new Label();
             lbPendapatanTotal = new Label();
             dgvRiwayatTransaksi = new DataGridView();
+            distribusiHewanForm1 = new DistribusiHewanForm();
             ((System.ComponentModel.ISupportInitialize)dgvRiwayatTransaksi).BeginInit();
             SuspendLayout();
             // 
@@ -62,18 +62,6 @@ namespace project_smt2.Views
             dataUserForm1.Name = "dataUserForm1";
             dataUserForm1.Size = new Size(1536, 988);
             dataUserForm1.TabIndex = 0;
-            // 
-            // dataHewanForm1
-            // 
-            dataHewanForm1.BackColor = SystemColors.ButtonShadow;
-            dataHewanForm1.BackgroundImage = (Image)resources.GetObject("dataHewanForm1.BackgroundImage");
-            dataHewanForm1.BackgroundImageLayout = ImageLayout.Stretch;
-            dataHewanForm1.Font = new Font("Arial", 9F);
-            dataHewanForm1.Location = new Point(280, 0);
-            dataHewanForm1.Margin = new Padding(2, 2, 2, 2);
-            dataHewanForm1.Name = "dataHewanForm1";
-            dataHewanForm1.Size = new Size(1536, 986);
-            dataHewanForm1.TabIndex = 1;
             // 
             // tambah_hewan_ternak1
             // 
@@ -94,18 +82,6 @@ namespace project_smt2.Views
             riwayatTransaksiForm1.Name = "riwayatTransaksiForm1";
             riwayatTransaksiForm1.Size = new Size(1538, 987);
             riwayatTransaksiForm1.TabIndex = 3;
-            // 
-            // distribusiHewanForm1
-            // 
-            distribusiHewanForm1.AutoSize = true;
-            distribusiHewanForm1.BackgroundImage = (Image)resources.GetObject("distribusiHewanForm1.BackgroundImage");
-            distribusiHewanForm1.BackgroundImageLayout = ImageLayout.Stretch;
-            distribusiHewanForm1.Location = new Point(280, 0);
-            distribusiHewanForm1.Margin = new Padding(2, 2, 2, 2);
-            distribusiHewanForm1.Name = "distribusiHewanForm1";
-            distribusiHewanForm1.Size = new Size(1536, 988);
-            distribusiHewanForm1.TabIndex = 4;
-            distribusiHewanForm1.Load += distribusiHewanForm1_Load;
             // 
             // btnLogout
             // 
@@ -272,6 +248,16 @@ namespace project_smt2.Views
             dgvRiwayatTransaksi.Size = new Size(840, 454);
             dgvRiwayatTransaksi.TabIndex = 17;
             // 
+            // distribusiHewanForm1
+            // 
+            distribusiHewanForm1.BackgroundImage = (Image)resources.GetObject("distribusiHewanForm1.BackgroundImage");
+            distribusiHewanForm1.BackgroundImageLayout = ImageLayout.Stretch;
+            distribusiHewanForm1.Location = new Point(280, 0);
+            distribusiHewanForm1.Margin = new Padding(2);
+            distribusiHewanForm1.Name = "distribusiHewanForm1";
+            distribusiHewanForm1.Size = new Size(1536, 988);
+            distribusiHewanForm1.TabIndex = 18;
+            // 
             // DashboardAdminForm
             // 
             AllowDrop = true;
@@ -280,6 +266,7 @@ namespace project_smt2.Views
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1817, 988);
+            Controls.Add(distribusiHewanForm1);
             Controls.Add(dgvRiwayatTransaksi);
             Controls.Add(lbPendapatanTotal);
             Controls.Add(lbDistribusi);
@@ -293,7 +280,6 @@ namespace project_smt2.Views
             Controls.Add(btnHewanTernak);
             Controls.Add(btnUsers);
             Controls.Add(btnDashboard);
-            Controls.Add(distribusiHewanForm1);
             Controls.Add(riwayatTransaksiForm1);
             Controls.Add(tambah_hewan_ternak1);
             Controls.Add(dataUserForm1);
@@ -310,10 +296,8 @@ namespace project_smt2.Views
         }
 
         private DataUserForm dataUserForm1;
-        private DataHewanForm dataHewanForm1;
         private Tambah_hewan_ternak tambah_hewan_ternak1;
         private RiwayatTransaksiForm riwayatTransaksiForm1;
-        private DistribusiHewanForm distribusiHewanForm1;
         private Button btnDashboard;
         private Button btnUsers;
         private Button btnHewanTernak;
@@ -327,6 +311,7 @@ namespace project_smt2.Views
         private Label lbDistribusi;
         private Label lbPendapatanTotal;
         private DataGridView dgvRiwayatTransaksi;
+        private DistribusiHewanForm distribusiHewanForm1;
     }
     #endregion
 }

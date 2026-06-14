@@ -36,19 +36,22 @@
             dataGridViewRiwayat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewRiwayat.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewRiwayat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewRiwayat.Location = new Point(75, 403);
+            dataGridViewRiwayat.Location = new Point(46, 252);
+            dataGridViewRiwayat.Margin = new Padding(2, 2, 2, 2);
             dataGridViewRiwayat.Name = "dataGridViewRiwayat";
             dataGridViewRiwayat.RowHeadersWidth = 82;
-            dataGridViewRiwayat.Size = new Size(1436, 537);
+            dataGridViewRiwayat.Size = new Size(884, 336);
             dataGridViewRiwayat.TabIndex = 0;
             dataGridViewRiwayat.CellContentClick += dataGridViewRiwayat_CellContentClick;
             // 
             // lblTotalTransaksi
             // 
             lblTotalTransaksi.AutoSize = true;
-            lblTotalTransaksi.Location = new Point(180, 296);
+            lblTotalTransaksi.BackColor = Color.Transparent;
+            lblTotalTransaksi.Location = new Point(111, 185);
+            lblTotalTransaksi.Margin = new Padding(2, 0, 2, 0);
             lblTotalTransaksi.Name = "lblTotalTransaksi";
-            lblTotalTransaksi.Size = new Size(78, 32);
+            lblTotalTransaksi.Size = new Size(50, 20);
             lblTotalTransaksi.TabIndex = 1;
             lblTotalTransaksi.Text = "label1";
             lblTotalTransaksi.Click += lblTotalTransaksi_Click;
@@ -56,9 +59,11 @@
             // lblbelumbayar
             // 
             lblbelumbayar.AutoSize = true;
-            lblbelumbayar.Location = new Point(453, 296);
+            lblbelumbayar.BackColor = Color.Transparent;
+            lblbelumbayar.Location = new Point(279, 185);
+            lblbelumbayar.Margin = new Padding(2, 0, 2, 0);
             lblbelumbayar.Name = "lblbelumbayar";
-            lblbelumbayar.Size = new Size(78, 32);
+            lblbelumbayar.Size = new Size(50, 20);
             lblbelumbayar.TabIndex = 2;
             lblbelumbayar.Text = "label1";
             lblbelumbayar.Click += lblbelumbayar_Click;
@@ -66,9 +71,11 @@
             // lblbelumlunas
             // 
             lblbelumlunas.AutoSize = true;
-            lblbelumlunas.Location = new Point(756, 296);
+            lblbelumlunas.BackColor = Color.Transparent;
+            lblbelumlunas.Location = new Point(465, 185);
+            lblbelumlunas.Margin = new Padding(2, 0, 2, 0);
             lblbelumlunas.Name = "lblbelumlunas";
-            lblbelumlunas.Size = new Size(78, 32);
+            lblbelumlunas.Size = new Size(50, 20);
             lblbelumlunas.TabIndex = 3;
             lblbelumlunas.Text = "label1";
             lblbelumlunas.Click += lblbelumlunas_Click;
@@ -76,16 +83,18 @@
             // lblnilaitotal
             // 
             lblnilaitotal.AutoSize = true;
-            lblnilaitotal.Location = new Point(1314, 296);
+            lblnilaitotal.BackColor = Color.Transparent;
+            lblnilaitotal.Location = new Point(809, 185);
+            lblnilaitotal.Margin = new Padding(2, 0, 2, 0);
             lblnilaitotal.Name = "lblnilaitotal";
-            lblnilaitotal.Size = new Size(78, 32);
+            lblnilaitotal.Size = new Size(50, 20);
             lblnilaitotal.TabIndex = 4;
             lblnilaitotal.Text = "label1";
             lblnilaitotal.Click += lblnilaitotal_Click;
             // 
             // RiwayatTransaksiForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
@@ -95,8 +104,9 @@
             Controls.Add(lblTotalTransaksi);
             Controls.Add(dataGridViewRiwayat);
             DoubleBuffered = true;
+            Margin = new Padding(2, 2, 2, 2);
             Name = "RiwayatTransaksiForm";
-            Size = new Size(1600, 1020);
+            Size = new Size(985, 638);
             Load += RiwayatTransaksiForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewRiwayat).EndInit();
             ResumeLayout(false);

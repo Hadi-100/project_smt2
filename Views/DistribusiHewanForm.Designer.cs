@@ -39,7 +39,7 @@
             // dgvDistribusiHewan
             // 
             dgvDistribusiHewan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDistribusiHewan.Location = new Point(65, 255);
+            dgvDistribusiHewan.Location = new Point(52, 242);
             dgvDistribusiHewan.Name = "dgvDistribusiHewan";
             dgvDistribusiHewan.RowHeadersWidth = 51;
             dgvDistribusiHewan.Size = new Size(1416, 525);
@@ -48,8 +48,9 @@
             // lblTerkirim
             // 
             lblTerkirim.AutoSize = true;
+            lblTerkirim.BackColor = Color.Transparent;
             lblTerkirim.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTerkirim.Location = new Point(134, 869);
+            lblTerkirim.Location = new Point(164, 842);
             lblTerkirim.Name = "lblTerkirim";
             lblTerkirim.Size = new Size(100, 35);
             lblTerkirim.TabIndex = 1;
@@ -59,8 +60,9 @@
             // lblProses
             // 
             lblProses.AutoSize = true;
+            lblProses.BackColor = Color.Transparent;
             lblProses.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblProses.Location = new Point(445, 869);
+            lblProses.Location = new Point(454, 842);
             lblProses.Name = "lblProses";
             lblProses.Size = new Size(100, 35);
             lblProses.TabIndex = 2;
@@ -69,8 +71,9 @@
             // lblDistribusi
             // 
             lblDistribusi.AutoSize = true;
+            lblDistribusi.BackColor = Color.Transparent;
             lblDistribusi.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDistribusi.Location = new Point(749, 869);
+            lblDistribusi.Location = new Point(752, 842);
             lblDistribusi.Name = "lblDistribusi";
             lblDistribusi.Size = new Size(100, 35);
             lblDistribusi.TabIndex = 3;

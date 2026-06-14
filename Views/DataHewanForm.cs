@@ -21,20 +21,18 @@ namespace project_smt2.Views
         public void LoadData()
         {
             HewanController controller = new HewanController();
-            DataTable dt = controller.GetHewan();
+            dataGridViewDataHewan.DataSource = controller.GetHewan();
 
-            dataGridViewDataHewan.DataSource = dt;
-
-            dataGridViewDataHewan.Columns["hewan_ternak_id"].HeaderText = "ID Hewan";
-            dataGridViewDataHewan.Columns["jenis_hewan"].HeaderText = "Jenis Hewan";
-            dataGridViewDataHewan.Columns["jenis_kelamin"].HeaderText = "Jenis Kelamin";
-            dataGridViewDataHewan.Columns["umur"].HeaderText = "Umur (th)";
-            dataGridViewDataHewan.Columns["berat"].HeaderText = "Berat (kg)";
-            dataGridViewDataHewan.Columns["harga"].HeaderText = "Harga (Rp)";
-            dataGridViewDataHewan.Columns["nama_peternak"].HeaderText = "Peternak";
-            dataGridViewDataHewan.Columns["status_hewan"].HeaderText = "Status Hewan";
-            dataGridViewDataHewan.Columns["kondisi_fisik"].HeaderText = "Kondisi Fisik";
-            dataGridViewDataHewan.Columns["status_qurban"].HeaderText = "Status Qurban";
+            dataGridViewDataHewan.Columns["IDHewan"].HeaderText = "ID Hewan";
+            dataGridViewDataHewan.Columns["JenisHewan"].HeaderText = "Jenis Hewan";
+            dataGridViewDataHewan.Columns["JenisKelamin"].HeaderText = "Jenis Kelamin";
+            dataGridViewDataHewan.Columns["Umur"].HeaderText = "Umur (th)";
+            dataGridViewDataHewan.Columns["Berat"].HeaderText = "Berat (kg)";
+            dataGridViewDataHewan.Columns["Harga"].HeaderText = "Harga (Rp)";
+            dataGridViewDataHewan.Columns["NamaPeternak"].HeaderText = "Peternak";
+            dataGridViewDataHewan.Columns["StatusHewan"].HeaderText = "Status Hewan";
+            dataGridViewDataHewan.Columns["KondisiFisik"].HeaderText = "Kondisi Fisik";
+            dataGridViewDataHewan.Columns["StatusQurban"].HeaderText = "Status Qurban";
 
             lblhewantersedia.Text = controller.GetTotalTersedia().ToString();
             lbltotalsapi.Text = controller.GetTotalSapi().ToString();
