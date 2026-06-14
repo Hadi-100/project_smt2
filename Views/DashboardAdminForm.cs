@@ -20,7 +20,7 @@ namespace project_smt2.Views
             new AutoScaleHelper(this);
 
             //dataUserForm1.Hide();
-            dataHewanForm1.Hide();
+            dataHewanForm2.Hide();
             distribusiHewanForm1.Hide();
             riwayatTransaksiForm1.Hide();
 
@@ -50,7 +50,12 @@ namespace project_smt2.Views
 
         private void LoadStatistik()
         {
-      
+
+        }
+
+        private void dataHewanForm2_Load(object sender, EventArgs e)
+        {
+
         }
 
         //private void button1_Click(object sender, EventArgs e)

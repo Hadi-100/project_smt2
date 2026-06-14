@@ -47,23 +47,12 @@ namespace project_smt2.Views
             dataUserForm1.Size = new Size(1604, 1029);
             dataUserForm1.TabIndex = 0;
             // 
-            // dataHewanForm1
-            // 
-            dataHewanForm1.BackColor = SystemColors.ButtonShadow;
-            dataHewanForm1.BackgroundImage = (Image)resources.GetObject("dataHewanForm1.BackgroundImage");
-            dataHewanForm1.BackgroundImageLayout = ImageLayout.Stretch;
-            dataHewanForm1.Location = new Point(294, 0);
-            dataHewanForm1.Margin = new Padding(2, 2, 2, 2);
-            dataHewanForm1.Name = "dataHewanForm1";
-            dataHewanForm1.Size = new Size(1609, 1029);
-            dataHewanForm1.TabIndex = 1;
-            // 
             // tambah_hewan_ternak1
             // 
             tambah_hewan_ternak1.BackgroundImage = (Image)resources.GetObject("tambah_hewan_ternak1.BackgroundImage");
             tambah_hewan_ternak1.BackgroundImageLayout = ImageLayout.Stretch;
             tambah_hewan_ternak1.Location = new Point(294, 0);
-            tambah_hewan_ternak1.Margin = new Padding(2, 2, 2, 2);
+            tambah_hewan_ternak1.Margin = new Padding(2);
             tambah_hewan_ternak1.Name = "tambah_hewan_ternak1";
             tambah_hewan_ternak1.Size = new Size(1596, 1029);
             tambah_hewan_ternak1.TabIndex = 2;
@@ -73,7 +62,7 @@ namespace project_smt2.Views
             riwayatTransaksiForm1.BackgroundImage = (Image)resources.GetObject("riwayatTransaksiForm1.BackgroundImage");
             riwayatTransaksiForm1.BackgroundImageLayout = ImageLayout.Stretch;
             riwayatTransaksiForm1.Location = new Point(294, 0);
-            riwayatTransaksiForm1.Margin = new Padding(2, 2, 2, 2);
+            riwayatTransaksiForm1.Margin = new Padding(2);
             riwayatTransaksiForm1.Name = "riwayatTransaksiForm1";
             riwayatTransaksiForm1.Size = new Size(1609, 1029);
             riwayatTransaksiForm1.TabIndex = 3;
@@ -83,11 +72,10 @@ namespace project_smt2.Views
             distribusiHewanForm1.BackgroundImage = (Image)resources.GetObject("distribusiHewanForm1.BackgroundImage");
             distribusiHewanForm1.BackgroundImageLayout = ImageLayout.Stretch;
             distribusiHewanForm1.Location = new Point(294, 0);
-            distribusiHewanForm1.Margin = new Padding(2, 2, 2, 2);
+            distribusiHewanForm1.Margin = new Padding(2);
             distribusiHewanForm1.Name = "distribusiHewanForm1";
             distribusiHewanForm1.Size = new Size(1609, 1029);
             distribusiHewanForm1.TabIndex = 4;
-            distribusiHewanForm1.Load += distribusiHewanForm1_Load;
             // 
             // dataHewanForm2
             // 
