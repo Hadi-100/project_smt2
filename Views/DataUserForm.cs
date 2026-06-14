@@ -16,6 +16,7 @@ namespace project_smt2.Views
         public DataUserForm()
         {
             InitializeComponent();
+            new AutoScaleHelper(this);
 
             LoadDataUser();
         }
