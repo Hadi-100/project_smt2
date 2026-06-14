@@ -162,7 +162,12 @@ namespace project_smt2.Views
 
         private void LoadStatistik()
         {
-      
+
+        }
+
+        private void tambah_hewan_ternak1_Load(object sender, EventArgs e)
+        {
+
         }
 
         //private void button1_Click(object sender, EventArgs e)
