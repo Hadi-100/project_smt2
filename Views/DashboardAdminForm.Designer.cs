@@ -63,7 +63,7 @@ namespace project_smt2.Views
             dataUserForm1.Size = new Size(1536, 988);
             dataUserForm1.TabIndex = 0;
             // 
-            // dataHewanForm1
+            //dataHewanForm1
             // 
             dataHewanForm1.BackColor = SystemColors.ButtonShadow;
             dataHewanForm1.BackgroundImage = (Image)resources.GetObject("dataHewanForm1.BackgroundImage");

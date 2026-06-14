@@ -12,7 +12,7 @@ namespace project_smt2
     {
         public Registrasi()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }
