@@ -18,13 +18,16 @@ namespace project_smt2.Controllers
 
                 string query =
                 @"SELECT
-                    hewan_ternak_id,
-                    jenis_hewan,
-                    umur,
-                    berat,
-                    harga,
-                    nama_peternak,
-                    status_qurban
+                hewan_ternak_id,
+                jenis_hewan,
+                jenis_kelamin,
+                umur,
+                berat,
+                harga,
+                nama_peternak,
+                status_hewan,
+                kondisi_fisik,
+                status_qurban
                 FROM view_hewan_siap_jual";
 
                 NpgsqlDataAdapter da =
@@ -36,6 +39,49 @@ namespace project_smt2.Controllers
             }
 
             return dt;
+        }
+        public int GetTotalTersedia()
+        {
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                var cmd = new NpgsqlCommand(
+                    "SELECT COUNT(*) FROM hewan_ternak WHERE status_hewan = 'Tersedia'", conn);
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
+        public int GetTotalTerjual()
+        {
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                var cmd = new NpgsqlCommand(
+                    "SELECT COUNT(*) FROM hewan_ternak WHERE status_hewan = 'Terjual'", conn);
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
+        public int GetTotalSapi()
+        {
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                var cmd = new NpgsqlCommand(
+                    "SELECT COUNT(*) FROM hewan_ternak WHERE jenis_hewan = 'Sapi' AND status_hewan = 'Tersedia'", conn);
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
+        public int GetTotalKambing()
+        {
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                var cmd = new NpgsqlCommand(
+                    "SELECT COUNT(*) FROM hewan_ternak WHERE jenis_hewan = 'Kambing' AND status_hewan = 'Tersedia'", conn);
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
         }
     }
 }

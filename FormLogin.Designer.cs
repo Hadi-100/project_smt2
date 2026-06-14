@@ -54,10 +54,9 @@
             pnlLogin.Controls.Add(btnLogin);
             pnlLogin.Controls.Add(tbMasukPass);
             pnlLogin.Controls.Add(tbMasukEmail);
-            pnlLogin.Location = new Point(1176, 0);
-            pnlLogin.Margin = new Padding(5);
+            pnlLogin.Location = new Point(724, 0);
             pnlLogin.Name = "pnlLogin";
-            pnlLogin.Size = new Size(723, 1030);
+            pnlLogin.Size = new Size(445, 644);
             pnlLogin.TabIndex = 0;
             // 
             // btnRegist
@@ -66,10 +65,9 @@
             btnRegist.BackgroundImageLayout = ImageLayout.Stretch;
             btnRegist.FlatStyle = FlatStyle.Flat;
             btnRegist.ForeColor = SystemColors.AppWorkspace;
-            btnRegist.Location = new Point(229, 840);
-            btnRegist.Margin = new Padding(5);
+            btnRegist.Location = new Point(141, 525);
             btnRegist.Name = "btnRegist";
-            btnRegist.Size = new Size(247, 61);
+            btnRegist.Size = new Size(152, 38);
             btnRegist.TabIndex = 2;
             btnRegist.Text = "Register";
             btnRegist.UseVisualStyleBackColor = false;
@@ -82,10 +80,9 @@
             btnLogin.FlatStyle = FlatStyle.Popup;
             btnLogin.Font = new Font("Microsoft Sans Serif", 9F);
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(229, 739);
-            btnLogin.Margin = new Padding(5);
+            btnLogin.Location = new Point(141, 462);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(247, 61);
+            btnLogin.Size = new Size(152, 38);
             btnLogin.TabIndex = 1;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = true;
@@ -94,20 +91,18 @@
             // tbMasukPass
             // 
             tbMasukPass.BorderStyle = BorderStyle.None;
-            tbMasukPass.Location = new Point(86, 627);
-            tbMasukPass.Margin = new Padding(5);
+            tbMasukPass.Location = new Point(53, 392);
             tbMasukPass.Name = "tbMasukPass";
-            tbMasukPass.Size = new Size(566, 32);
+            tbMasukPass.Size = new Size(348, 20);
             tbMasukPass.TabIndex = 1;
             tbMasukPass.Text = "Masukkan Password";
             // 
             // tbMasukEmail
             // 
             tbMasukEmail.BorderStyle = BorderStyle.None;
-            tbMasukEmail.Location = new Point(86, 448);
-            tbMasukEmail.Margin = new Padding(5);
+            tbMasukEmail.Location = new Point(53, 280);
             tbMasukEmail.Name = "tbMasukEmail";
-            tbMasukEmail.Size = new Size(566, 32);
+            tbMasukEmail.Size = new Size(348, 20);
             tbMasukEmail.TabIndex = 0;
             tbMasukEmail.Text = "Masukkan Email";
             // 
@@ -122,29 +117,26 @@
             pnlRegist.Controls.Add(tbRegEmail);
             pnlRegist.Controls.Add(btnRegConfirm);
             pnlRegist.ForeColor = SystemColors.ButtonHighlight;
-            pnlRegist.Location = new Point(1176, 0);
-            pnlRegist.Margin = new Padding(5);
+            pnlRegist.Location = new Point(724, 0);
             pnlRegist.Name = "pnlRegist";
-            pnlRegist.Size = new Size(723, 1030);
+            pnlRegist.Size = new Size(445, 644);
             pnlRegist.TabIndex = 3;
             // 
             // tbRegPass
             // 
             tbRegPass.BorderStyle = BorderStyle.None;
-            tbRegPass.Location = new Point(86, 621);
-            tbRegPass.Margin = new Padding(5);
+            tbRegPass.Location = new Point(53, 388);
             tbRegPass.Name = "tbRegPass";
-            tbRegPass.Size = new Size(566, 32);
+            tbRegPass.Size = new Size(348, 20);
             tbRegPass.TabIndex = 5;
             tbRegPass.Text = "Masukkan Password";
             // 
             // tbRegTelp
             // 
             tbRegTelp.BorderStyle = BorderStyle.None;
-            tbRegTelp.Location = new Point(86, 373);
-            tbRegTelp.Margin = new Padding(5);
+            tbRegTelp.Location = new Point(53, 233);
             tbRegTelp.Name = "tbRegTelp";
-            tbRegTelp.Size = new Size(566, 32);
+            tbRegTelp.Size = new Size(348, 20);
             tbRegTelp.TabIndex = 3;
             tbRegTelp.Text = "Masukkan No Hp";
             tbRegTelp.TextChanged += tbRegTelp_TextChanged;
@@ -155,10 +147,9 @@
             btnRegBack.BackgroundImageLayout = ImageLayout.Stretch;
             btnRegBack.FlatStyle = FlatStyle.Flat;
             btnRegBack.ForeColor = Color.DimGray;
-            btnRegBack.Location = new Point(229, 840);
-            btnRegBack.Margin = new Padding(5);
+            btnRegBack.Location = new Point(141, 525);
             btnRegBack.Name = "btnRegBack";
-            btnRegBack.Size = new Size(247, 61);
+            btnRegBack.Size = new Size(152, 38);
             btnRegBack.TabIndex = 2;
             btnRegBack.Text = "Back";
             btnRegBack.UseVisualStyleBackColor = false;
@@ -167,20 +158,18 @@
             // tbRegUsn
             // 
             tbRegUsn.BorderStyle = BorderStyle.None;
-            tbRegUsn.Location = new Point(86, 246);
-            tbRegUsn.Margin = new Padding(5);
+            tbRegUsn.Location = new Point(53, 154);
             tbRegUsn.Name = "tbRegUsn";
-            tbRegUsn.Size = new Size(566, 32);
+            tbRegUsn.Size = new Size(348, 20);
             tbRegUsn.TabIndex = 0;
             tbRegUsn.Text = "Masukkan Username";
             // 
             // tbRegEmail
             // 
             tbRegEmail.BorderStyle = BorderStyle.None;
-            tbRegEmail.Location = new Point(86, 496);
-            tbRegEmail.Margin = new Padding(5);
+            tbRegEmail.Location = new Point(53, 310);
             tbRegEmail.Name = "tbRegEmail";
-            tbRegEmail.Size = new Size(548, 32);
+            tbRegEmail.Size = new Size(337, 20);
             tbRegEmail.TabIndex = 4;
             tbRegEmail.Text = "Masukkan Email";
             tbRegEmail.TextChanged += tbRegEmail_TextChanged;
@@ -192,10 +181,9 @@
             btnRegConfirm.FlatStyle = FlatStyle.Popup;
             btnRegConfirm.Font = new Font("Microsoft Sans Serif", 9F);
             btnRegConfirm.ForeColor = Color.WhiteSmoke;
-            btnRegConfirm.Location = new Point(229, 739);
-            btnRegConfirm.Margin = new Padding(5);
+            btnRegConfirm.Location = new Point(141, 462);
             btnRegConfirm.Name = "btnRegConfirm";
-            btnRegConfirm.Size = new Size(247, 61);
+            btnRegConfirm.Size = new Size(152, 38);
             btnRegConfirm.TabIndex = 1;
             btnRegConfirm.Text = "Confirm";
             btnRegConfirm.UseVisualStyleBackColor = false;
@@ -203,18 +191,18 @@
             // 
             // FormLogin
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnablePreventFocusChange;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1898, 1029);
+            ClientSize = new Size(1168, 643);
             Controls.Add(pnlRegist);
             Controls.Add(pnlLogin);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(5);
             Name = "FormLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormLogin";
             WindowState = FormWindowState.Maximized;
             Load += FormLogin_Load_1;
