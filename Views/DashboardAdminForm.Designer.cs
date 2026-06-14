@@ -83,7 +83,7 @@ namespace project_smt2.Views
             distribusiHewanForm1.BackgroundImage = (Image)resources.GetObject("distribusiHewanForm1.BackgroundImage");
             distribusiHewanForm1.BackgroundImageLayout = ImageLayout.Stretch;
             distribusiHewanForm1.Location = new Point(294, 0);
-            distribusiHewanForm1.Margin = new Padding(2, 2, 2, 2);
+            distribusiHewanForm1.Margin = new Padding(2);
             distribusiHewanForm1.Name = "distribusiHewanForm1";
             distribusiHewanForm1.Size = new Size(1609, 1029);
             distribusiHewanForm1.TabIndex = 4;
