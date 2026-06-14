@@ -28,7 +28,7 @@ namespace project_smt2.Controllers
                 status_hewan,
                 kondisi_fisik,
                 status_qurban
-                FROM view_hewan_siap_jual";
+                FROM view_list_hewan";
 
                 NpgsqlDataAdapter da =
                     new NpgsqlDataAdapter(
