@@ -109,7 +109,7 @@
             DoubleBuffered = true;
             Margin = new Padding(2);
             Name = "RiwayatTransaksiForm";
-            Size = new Size(1600, 1020);
+            Size = new Size(985, 638);
             Load += RiwayatTransaksiForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewRiwayat).EndInit();
             ResumeLayout(false);

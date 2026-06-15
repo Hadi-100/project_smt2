@@ -24,6 +24,16 @@ namespace project_smt2
             PanellHelper.MakeButtonRounded(btnRegBack, 10);
             new AutoScaleHelper(this);
             pnlRegist.Hide();
+
+            // Setup placeholders for login panel
+            SetupLoginPlaceholder(tbMasukEmail, "Masukkan Email");
+            SetupLoginPlaceholder(tbMasukPass, "Masukkan Password", isPassword: true);
+
+            // Setup placeholders for register panel
+            SetupLoginPlaceholder(tbRegUsn, "Masukkan Username");
+            SetupLoginPlaceholder(tbRegTelp, "Masukkan No Hp");
+            SetupLoginPlaceholder(tbRegEmail, "Masukkan Email");
+            SetupLoginPlaceholder(tbRegPass, "Masukkan Password", isPassword: true);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -100,16 +110,76 @@ namespace project_smt2
         private void ResetFromLogin()
         {
             tbMasukEmail.Text = "Masukkan Email";
+            tbMasukEmail.ForeColor = Color.Gray;
+
             tbMasukPass.Text = "Masukkan Password";
+            tbMasukPass.ForeColor = Color.Gray;
+            tbMasukPass.UseSystemPasswordChar = false;
 
         }
 
         private void ResetFormRegister()
         {
             tbRegUsn.Text = "Masukkan Username";
-            tbRegTelp.Text = "Masukkan No. Hp";
+            tbRegTelp.Text = "Masukkan No Hp";
             tbRegEmail.Text = "Masukkan Email";
             tbRegPass.Text = "Masukkan Password";
+            tbRegPass.UseSystemPasswordChar = false;
+        }
+
+        private void SetupLoginPlaceholder(TextBox tb, string placeholder, bool isPassword = false)
+        {
+            if (string.IsNullOrEmpty(tb.Text) || tb.Text == placeholder)
+            {
+                tb.Text = placeholder;
+                tb.ForeColor = Color.Gray;
+                if (isPassword)
+                    tb.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                tb.ForeColor = Color.Black;
+                if (isPassword)
+                    tb.UseSystemPasswordChar = true;
+            }
+
+            tb.GotFocus += (s, e) =>
+            {
+                if (tb.Text == placeholder)
+                {
+                    tb.Text = string.Empty;
+                    tb.ForeColor = Color.Black;
+                    if (isPassword)
+                        tb.UseSystemPasswordChar = true;
+                }
+            };
+
+            tb.LostFocus += (s, e) =>
+            {
+                if (string.IsNullOrWhiteSpace(tb.Text))
+                {
+                    tb.Text = placeholder;
+                    tb.ForeColor = Color.Gray;
+                    if (isPassword)
+                        tb.UseSystemPasswordChar = false;
+                }
+                else
+                {
+                    tb.ForeColor = Color.Black;
+                    if (isPassword)
+                        tb.UseSystemPasswordChar = true;
+                }
+            };
+
+            tb.TextChanged += (s, e) =>
+            {
+                if (tb.Text != placeholder && !string.IsNullOrEmpty(tb.Text))
+                {
+                    tb.ForeColor = Color.Black;
+                    if (isPassword)
+                        tb.UseSystemPasswordChar = true;
+                }
+            };
         }
 
         private void btnRegBack_Click(object sender, EventArgs e)

@@ -48,6 +48,7 @@
             // lblTerkirim
             // 
             lblTerkirim.AutoSize = true;
+            lblTerkirim.BackColor = Color.Transparent;
             lblTerkirim.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTerkirim.Location = new Point(144, 836);
             lblTerkirim.Name = "lblTerkirim";
@@ -59,6 +60,7 @@
             // lblProses
             // 
             lblProses.AutoSize = true;
+            lblProses.BackColor = Color.Transparent;
             lblProses.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblProses.Location = new Point(452, 836);
             lblProses.Name = "lblProses";
@@ -69,6 +71,7 @@
             // lblDistribusi
             // 
             lblDistribusi.AutoSize = true;
+            lblDistribusi.BackColor = Color.Transparent;
             lblDistribusi.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDistribusi.Location = new Point(752, 836);
             lblDistribusi.Name = "lblDistribusi";
