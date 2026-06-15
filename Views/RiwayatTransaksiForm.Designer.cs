@@ -36,58 +36,61 @@
             dataGridViewRiwayat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewRiwayat.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewRiwayat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewRiwayat.Location = new Point(46, 252);
-            dataGridViewRiwayat.Margin = new Padding(2, 2, 2, 2);
+            dataGridViewRiwayat.Location = new Point(100, 403);
+            dataGridViewRiwayat.Margin = new Padding(2);
             dataGridViewRiwayat.Name = "dataGridViewRiwayat";
             dataGridViewRiwayat.RowHeadersWidth = 82;
-            dataGridViewRiwayat.Size = new Size(884, 336);
+            dataGridViewRiwayat.Size = new Size(1389, 530);
             dataGridViewRiwayat.TabIndex = 0;
             dataGridViewRiwayat.CellContentClick += dataGridViewRiwayat_CellContentClick;
             // 
             // lblTotalTransaksi
             // 
-            lblTotalTransaksi.AutoSize = true;
             lblTotalTransaksi.BackColor = Color.Transparent;
-            lblTotalTransaksi.Location = new Point(111, 185);
+            lblTotalTransaksi.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalTransaksi.Location = new Point(128, 276);
             lblTotalTransaksi.Margin = new Padding(2, 0, 2, 0);
             lblTotalTransaksi.Name = "lblTotalTransaksi";
-            lblTotalTransaksi.Size = new Size(50, 20);
+            lblTotalTransaksi.Size = new Size(120, 40);
             lblTotalTransaksi.TabIndex = 1;
             lblTotalTransaksi.Text = "label1";
+            lblTotalTransaksi.TextAlign = ContentAlignment.MiddleCenter;
             lblTotalTransaksi.Click += lblTotalTransaksi_Click;
             // 
             // lblbelumbayar
             // 
-            lblbelumbayar.AutoSize = true;
             lblbelumbayar.BackColor = Color.Transparent;
-            lblbelumbayar.Location = new Point(279, 185);
+            lblbelumbayar.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblbelumbayar.Location = new Point(425, 279);
             lblbelumbayar.Margin = new Padding(2, 0, 2, 0);
             lblbelumbayar.Name = "lblbelumbayar";
-            lblbelumbayar.Size = new Size(50, 20);
+            lblbelumbayar.Size = new Size(120, 40);
             lblbelumbayar.TabIndex = 2;
             lblbelumbayar.Text = "label1";
+            lblbelumbayar.TextAlign = ContentAlignment.MiddleCenter;
             lblbelumbayar.Click += lblbelumbayar_Click;
             // 
             // lblbelumlunas
             // 
-            lblbelumlunas.AutoSize = true;
             lblbelumlunas.BackColor = Color.Transparent;
-            lblbelumlunas.Location = new Point(465, 185);
+            lblbelumlunas.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblbelumlunas.Location = new Point(710, 279);
             lblbelumlunas.Margin = new Padding(2, 0, 2, 0);
             lblbelumlunas.Name = "lblbelumlunas";
-            lblbelumlunas.Size = new Size(50, 20);
+            lblbelumlunas.Size = new Size(120, 40);
             lblbelumlunas.TabIndex = 3;
             lblbelumlunas.Text = "label1";
+            lblbelumlunas.TextAlign = ContentAlignment.MiddleCenter;
             lblbelumlunas.Click += lblbelumlunas_Click;
             // 
             // lblnilaitotal
             // 
-            lblnilaitotal.AutoSize = true;
             lblnilaitotal.BackColor = Color.Transparent;
-            lblnilaitotal.Location = new Point(809, 185);
+            lblnilaitotal.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblnilaitotal.Location = new Point(1059, 279);
             lblnilaitotal.Margin = new Padding(2, 0, 2, 0);
             lblnilaitotal.Name = "lblnilaitotal";
-            lblnilaitotal.Size = new Size(50, 20);
+            lblnilaitotal.Size = new Size(250, 40);
             lblnilaitotal.TabIndex = 4;
             lblnilaitotal.Text = "label1";
             lblnilaitotal.Click += lblnilaitotal_Click;
@@ -104,13 +107,12 @@
             Controls.Add(lblTotalTransaksi);
             Controls.Add(dataGridViewRiwayat);
             DoubleBuffered = true;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "RiwayatTransaksiForm";
             Size = new Size(985, 638);
             Load += RiwayatTransaksiForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewRiwayat).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         private DataGridView dataGridViewRiwayat;

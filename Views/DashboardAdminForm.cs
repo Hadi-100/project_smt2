@@ -39,6 +39,7 @@ namespace project_smt2.Views
             riwayatTransaksiForm1.Hide();
             dataHewanForm2.BtnTambahClicked += DataHewanForm2_BtnTambahClicked;
             tambah_hewan_ternak1.BtnBatalClicked += Tambah_hewan_ternak1_BtnBatalClicked;
+            //distribusiHewanForm1.Hide();
         }
 
         private void DashboardAdminForm_Load(object sender, EventArgs e)
