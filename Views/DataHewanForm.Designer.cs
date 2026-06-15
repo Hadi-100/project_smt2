@@ -44,10 +44,10 @@
             dataGridViewDataHewan.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewDataHewan.BorderStyle = BorderStyle.None;
             dataGridViewDataHewan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewDataHewan.Location = new Point(76, 410);
+            dataGridViewDataHewan.Location = new Point(79, 405);
             dataGridViewDataHewan.Name = "dataGridViewDataHewan";
             dataGridViewDataHewan.RowHeadersWidth = 82;
-            dataGridViewDataHewan.Size = new Size(1409, 531);
+            dataGridViewDataHewan.Size = new Size(1402, 542);
             dataGridViewDataHewan.TabIndex = 0;
             dataGridViewDataHewan.CellContentClick += dataGridViewDataHewan_CellContentClick;
             // 

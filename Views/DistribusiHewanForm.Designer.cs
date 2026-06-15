@@ -39,11 +39,11 @@
             // dgvDistribusiHewan
             // 
             dgvDistribusiHewan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDistribusiHewan.Location = new Point(55, 253);
-            dgvDistribusiHewan.Margin = new Padding(5, 5, 5, 5);
+            dgvDistribusiHewan.Location = new Point(52, 230);
+            dgvDistribusiHewan.Margin = new Padding(5);
             dgvDistribusiHewan.Name = "dgvDistribusiHewan";
             dgvDistribusiHewan.RowHeadersWidth = 51;
-            dgvDistribusiHewan.Size = new Size(1432, 526);
+            dgvDistribusiHewan.Size = new Size(1383, 538);
             dgvDistribusiHewan.TabIndex = 0;
             // 
             // lblTerkirim

@@ -59,7 +59,7 @@ namespace project_smt2.Views
             dataUserForm1.Location = new Point(280, 0);
             dataUserForm1.Margin = new Padding(2);
             dataUserForm1.Name = "dataUserForm1";
-            dataUserForm1.Size = new Size(1536, 988);
+            dataUserForm1.Size = new Size(1538, 987);
             dataUserForm1.TabIndex = 0;
             // 
             // tambah_hewan_ternak1
@@ -69,7 +69,7 @@ namespace project_smt2.Views
             tambah_hewan_ternak1.Location = new Point(280, 0);
             tambah_hewan_ternak1.Margin = new Padding(2);
             tambah_hewan_ternak1.Name = "tambah_hewan_ternak1";
-            tambah_hewan_ternak1.Size = new Size(1536, 986);
+            tambah_hewan_ternak1.Size = new Size(1538, 987);
             tambah_hewan_ternak1.TabIndex = 2;
             // 
             // riwayatTransaksiForm1
@@ -244,9 +244,9 @@ namespace project_smt2.Views
             dataHewanForm2.BackgroundImage = (Image)resources.GetObject("dataHewanForm2.BackgroundImage");
             dataHewanForm2.BackgroundImageLayout = ImageLayout.Stretch;
             dataHewanForm2.Font = new Font("Arial", 9F);
-            dataHewanForm2.Location = new Point(280, 2);
+            dataHewanForm2.Location = new Point(280, 0);
             dataHewanForm2.Name = "dataHewanForm2";
-            dataHewanForm2.Size = new Size(1538, 986);
+            dataHewanForm2.Size = new Size(1538, 987);
             dataHewanForm2.TabIndex = 18;
             dataHewanForm2.Load += dataHewanForm2_Load;
             // 
@@ -254,9 +254,9 @@ namespace project_smt2.Views
             // 
             distribusiHewanForm1.BackgroundImage = (Image)resources.GetObject("distribusiHewanForm1.BackgroundImage");
             distribusiHewanForm1.BackgroundImageLayout = ImageLayout.Stretch;
-            distribusiHewanForm1.Location = new Point(280, 2);
+            distribusiHewanForm1.Location = new Point(280, 0);
             distribusiHewanForm1.Name = "distribusiHewanForm1";
-            distribusiHewanForm1.Size = new Size(1538, 984);
+            distribusiHewanForm1.Size = new Size(1538, 987);
             distribusiHewanForm1.TabIndex = 19;
             // 
             // DashboardAdminForm
