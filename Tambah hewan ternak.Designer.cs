@@ -34,13 +34,17 @@
             tbUmur = new TextBox();
             tbHarga = new TextBox();
             tbBerat = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
-            comboBox1 = new ComboBox();
+            dtpTanggalLahir = new DateTimePicker();
+            cbxKondisiFisik = new ComboBox();
+            btnTambah = new Button();
+            btnBatal = new Button();
+            cbxNamaPeternak = new ComboBox();
             SuspendLayout();
             // 
             // cbxJenisHewan
             // 
             cbxJenisHewan.Font = new Font("Arial", 22.5F);
+            cbxJenisHewan.ForeColor = Color.Gray;
             cbxJenisHewan.FormattingEnabled = true;
             cbxJenisHewan.Items.AddRange(new object[] { "Sapi", "Kambing", "Sapi Limousin", "Kambing Khas Ngawi", "Sapi Mas Hambali" });
             cbxJenisHewan.Location = new Point(160, 307);
@@ -53,9 +57,10 @@
             // cbxJenisKelamin
             // 
             cbxJenisKelamin.Font = new Font("Arial", 22.5F);
+            cbxJenisKelamin.ForeColor = Color.Gray;
             cbxJenisKelamin.FormattingEnabled = true;
             cbxJenisKelamin.Items.AddRange(new object[] { "Jantan", "Betina" });
-            cbxJenisKelamin.Location = new Point(160, 407);
+            cbxJenisKelamin.Location = new Point(160, 409);
             cbxJenisKelamin.Name = "cbxJenisKelamin";
             cbxJenisKelamin.Size = new Size(521, 50);
             cbxJenisKelamin.TabIndex = 1;
@@ -64,6 +69,7 @@
             // tbUmur
             // 
             tbUmur.Font = new Font("Arial", 22.5F);
+            tbUmur.ForeColor = Color.Black;
             tbUmur.Location = new Point(160, 689);
             tbUmur.Name = "tbUmur";
             tbUmur.Size = new Size(521, 51);
@@ -73,6 +79,7 @@
             // tbHarga
             // 
             tbHarga.Font = new Font("Arial", 22.5F);
+            tbHarga.ForeColor = Color.Black;
             tbHarga.Location = new Point(160, 598);
             tbHarga.Name = "tbHarga";
             tbHarga.Size = new Size(521, 51);
@@ -82,31 +89,79 @@
             // tbBerat
             // 
             tbBerat.Font = new Font("Arial", 22.2F);
-            tbBerat.Location = new Point(160, 497);
+            tbBerat.ForeColor = Color.Gray;
+            tbBerat.Location = new Point(160, 499);
             tbBerat.Name = "tbBerat";
             tbBerat.Size = new Size(521, 50);
             tbBerat.TabIndex = 4;
             tbBerat.Text = "Berat (KG)";
             // 
-            // dateTimePicker1
+            // dtpTanggalLahir
             // 
-            dateTimePicker1.CalendarFont = new Font("Arial", 22.5F);
-            dateTimePicker1.Font = new Font("Microsoft Sans Serif", 22.2F);
-            dateTimePicker1.Location = new Point(759, 308);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(518, 49);
-            dateTimePicker1.TabIndex = 5;
+            dtpTanggalLahir.CalendarFont = new Font("Arial", 22.5F);
+            dtpTanggalLahir.CalendarForeColor = Color.Gray;
+            dtpTanggalLahir.CalendarTitleBackColor = SystemColors.ActiveBorder;
+            dtpTanggalLahir.CalendarTitleForeColor = Color.Gray;
+            dtpTanggalLahir.Font = new Font("Arial Narrow", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dtpTanggalLahir.Location = new Point(759, 308);
+            dtpTanggalLahir.Name = "dtpTanggalLahir";
+            dtpTanggalLahir.Size = new Size(518, 50);
+            dtpTanggalLahir.TabIndex = 5;
+            dtpTanggalLahir.Tag = "";
             // 
-            // comboBox1
+            // cbxKondisiFisik
             // 
-            comboBox1.Font = new Font("Arial", 22.5F);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Sehat", "Sakit" });
-            comboBox1.Location = new Point(759, 408);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(518, 50);
-            comboBox1.TabIndex = 6;
-            comboBox1.Text = "Kondisi Fisik";
+            cbxKondisiFisik.Font = new Font("Arial", 22.5F);
+            cbxKondisiFisik.ForeColor = Color.Gray;
+            cbxKondisiFisik.FormattingEnabled = true;
+            cbxKondisiFisik.Items.AddRange(new object[] { "Sehat", "Sakit" });
+            cbxKondisiFisik.Location = new Point(759, 408);
+            cbxKondisiFisik.Name = "cbxKondisiFisik";
+            cbxKondisiFisik.Size = new Size(518, 50);
+            cbxKondisiFisik.TabIndex = 6;
+            cbxKondisiFisik.Text = "Kondisi Fisik";
+            // 
+            // btnTambah
+            // 
+            btnTambah.BackColor = Color.Green;
+            btnTambah.BackgroundImageLayout = ImageLayout.Stretch;
+            btnTambah.FlatStyle = FlatStyle.Popup;
+            btnTambah.Font = new Font("Arial", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTambah.ForeColor = Color.WhiteSmoke;
+            btnTambah.Location = new Point(1203, 828);
+            btnTambah.Name = "btnTambah";
+            btnTambah.Size = new Size(146, 73);
+            btnTambah.TabIndex = 7;
+            btnTambah.Text = "Tambah";
+            btnTambah.UseVisualStyleBackColor = false;
+            btnTambah.Click += btnTambah_Click;
+            // 
+            // btnBatal
+            // 
+            btnBatal.BackColor = Color.Silver;
+            btnBatal.BackgroundImageLayout = ImageLayout.Stretch;
+            btnBatal.FlatStyle = FlatStyle.Popup;
+            btnBatal.Font = new Font("Arial", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBatal.ForeColor = Color.WhiteSmoke;
+            btnBatal.Location = new Point(997, 833);
+            btnBatal.Name = "btnBatal";
+            btnBatal.Size = new Size(146, 73);
+            btnBatal.TabIndex = 8;
+            btnBatal.Text = "Batal";
+            btnBatal.UseVisualStyleBackColor = false;
+            btnBatal.Click += button1_Click;
+            // 
+            // cbxNamaPeternak
+            // 
+            cbxNamaPeternak.Font = new Font("Arial", 22.5F);
+            cbxNamaPeternak.ForeColor = Color.Gray;
+            cbxNamaPeternak.FormattingEnabled = true;
+            cbxNamaPeternak.Items.AddRange(new object[] { "1 (Pak Ali)", "2 (Bu Rina) ", "3 (Pak Budi)", "3 (Bu Sari)", "4 (Pak Joko)", "5 (Bu Maya) ", "6 (Pak Tono)" });
+            cbxNamaPeternak.Location = new Point(759, 499);
+            cbxNamaPeternak.Name = "cbxNamaPeternak";
+            cbxNamaPeternak.Size = new Size(518, 50);
+            cbxNamaPeternak.TabIndex = 9;
+            cbxNamaPeternak.Text = "Peternak";
             // 
             // Tambah_hewan_ternak
             // 
@@ -114,8 +169,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            Controls.Add(comboBox1);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(cbxNamaPeternak);
+            Controls.Add(btnBatal);
+            Controls.Add(btnTambah);
+            Controls.Add(cbxKondisiFisik);
+            Controls.Add(dtpTanggalLahir);
             Controls.Add(tbBerat);
             Controls.Add(tbHarga);
             Controls.Add(tbUmur);
@@ -136,7 +194,10 @@
         private TextBox tbUmur;
         private TextBox tbHarga;
         private TextBox tbBerat;
-        private DateTimePicker dateTimePicker1;
-        private ComboBox comboBox1;
+        private DateTimePicker dtpTanggalLahir;
+        private ComboBox cbxKondisiFisik;
+        private Button btnTambah;
+        private Button btnBatal;
+        private ComboBox cbxNamaPeternak;
     }
 }

@@ -11,6 +11,9 @@ namespace project_smt2.Views
 {
     public partial class DataHewanForm : UserControl
     {
+        // Event raised when the Tambah button is clicked so parent forms can respond
+        public event EventHandler BtnTambahClicked;
+
         public DataHewanForm()
         {
             InitializeComponent();
@@ -22,20 +25,20 @@ namespace project_smt2.Views
         {
             HewanController controller = new HewanController();
             DataTable dt = controller.GetHewan();
-
-            dataGridViewDataHewan.DataSource = dt;
-
-            dataGridViewDataHewan.Columns["hewan_ternak_id"].HeaderText = "ID Hewan";
-            dataGridViewDataHewan.Columns["jenis_hewan"].HeaderText = "Jenis Hewan";
-            dataGridViewDataHewan.Columns["jenis_kelamin"].HeaderText = "Jenis Kelamin";
-            dataGridViewDataHewan.Columns["umur"].HeaderText = "Umur (th)";
-            dataGridViewDataHewan.Columns["berat"].HeaderText = "Berat (kg)";
-            dataGridViewDataHewan.Columns["harga"].HeaderText = "Harga (Rp)";
-            dataGridViewDataHewan.Columns["nama_peternak"].HeaderText = "Peternak";
-            dataGridViewDataHewan.Columns["status_hewan"].HeaderText = "Status Hewan";
-            dataGridViewDataHewan.Columns["kondisi_fisik"].HeaderText = "Kondisi Fisik";
-            dataGridViewDataHewan.Columns["status_qurban"].HeaderText = "Status Qurban";
-
+            PanellHelper.MakeButtonRounded(btnTambah, 25);
+            dgvDataHewan.DataSource = dt;
+            dgvDataHewan.AutoResizeColumns();
+            dgvDataHewan.AutoResizeRows();
+            dgvDataHewan.Columns["hewan_ternak_id"].HeaderText = "ID Hewan";
+            dgvDataHewan.Columns["jenis_hewan"].HeaderText = "Jenis Hewan";
+            dgvDataHewan.Columns["jenis_kelamin"].HeaderText = "Jenis Kelamin";
+            dgvDataHewan.Columns["umur"].HeaderText = "Umur (th)";
+            dgvDataHewan.Columns["berat"].HeaderText = "Berat (kg)";
+            dgvDataHewan.Columns["harga"].HeaderText = "Harga (Rp)";
+            dgvDataHewan.Columns["nama_peternak"].HeaderText = "Peternak";
+            dgvDataHewan.Columns["status_hewan"].HeaderText = "Status Hewan";
+            dgvDataHewan.Columns["kondisi_fisik"].HeaderText = "Kondisi Fisik";
+            dgvDataHewan.Columns["status_qurban"].HeaderText = "Status Qurban";
             lblhewantersedia.Text = controller.GetTotalTersedia().ToString();
             lbltotalsapi.Text = controller.GetTotalSapi().ToString();
             lbltotalkambing.Text = controller.GetTotalKambing().ToString();
@@ -70,6 +73,12 @@ namespace project_smt2.Views
         private void dataGridViewDataHewan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        public void btnTambah_Click(object sender, EventArgs e)
+        {
+            BtnTambahClicked?.Invoke(this, e);
+            LoadData();
         }
     }
 }

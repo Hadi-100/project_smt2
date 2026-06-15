@@ -83,5 +83,31 @@ namespace project_smt2.Controllers
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
+
+        public void TambahkanHewanTernak(
+            string jenis_hewan,
+            string jenis_kelamin,
+            int umur,
+            int berat,
+            int harga,
+            int peternak_id)
+        {
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                var cmd = new NpgsqlCommand(
+                    @"INSERT INTO hewan_ternak (jenis_hewan, jenis_kelamin, umur, berat, harga, peternak_id)
+                      VALUES (@jenis_hewan, @jenis_kelamin, @umur, @berat, @harga, @peternak_id", conn);
+
+                cmd.Parameters.AddWithValue("@jenis_hewan", jenis_hewan);
+                cmd.Parameters.AddWithValue("@jenis_kelamin", jenis_kelamin);
+                cmd.Parameters.AddWithValue("@umur", umur);
+                cmd.Parameters.AddWithValue("@berat", berat);
+                cmd.Parameters.AddWithValue("@harga", harga);
+                cmd.Parameters.AddWithValue("@peternak_id", peternak_id);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

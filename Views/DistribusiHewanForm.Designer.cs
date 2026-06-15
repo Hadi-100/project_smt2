@@ -39,8 +39,9 @@
             // dgvDistribusiHewan
             // 
             dgvDistribusiHewan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDistribusiHewan.Location = new Point(52, 230);
-            dgvDistribusiHewan.Margin = new Padding(5);
+            dgvDistribusiHewan.Location = new Point(55, 253);
+            dgvDistribusiHewan.Margin = new Padding(5, 5, 5, 5);
+            dgvDistribusiHewan.Location = new Point(52, 242);
             dgvDistribusiHewan.Name = "dgvDistribusiHewan";
             dgvDistribusiHewan.RowHeadersWidth = 51;
             dgvDistribusiHewan.Size = new Size(1383, 538);
@@ -49,9 +50,11 @@
             // lblTerkirim
             // 
             lblTerkirim.AutoSize = true;
+            lblTerkirim.BackColor = Color.Transparent;
             lblTerkirim.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTerkirim.Location = new Point(218, 1390);
             lblTerkirim.Margin = new Padding(5, 0, 5, 0);
+            lblTerkirim.Location = new Point(164, 842);
             lblTerkirim.Name = "lblTerkirim";
             lblTerkirim.Size = new Size(160, 56);
             lblTerkirim.TabIndex = 1;
@@ -61,9 +64,11 @@
             // lblProses
             // 
             lblProses.AutoSize = true;
+            lblProses.BackColor = Color.Transparent;
             lblProses.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblProses.Location = new Point(723, 1390);
             lblProses.Margin = new Padding(5, 0, 5, 0);
+            lblProses.Location = new Point(454, 842);
             lblProses.Name = "lblProses";
             lblProses.Size = new Size(160, 56);
             lblProses.TabIndex = 2;
@@ -72,9 +77,11 @@
             // lblDistribusi
             // 
             lblDistribusi.AutoSize = true;
+            lblDistribusi.BackColor = Color.Transparent;
             lblDistribusi.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDistribusi.Location = new Point(1217, 1390);
             lblDistribusi.Margin = new Padding(5, 0, 5, 0);
+            lblDistribusi.Location = new Point(752, 842);
             lblDistribusi.Name = "lblDistribusi";
             lblDistribusi.Size = new Size(160, 56);
             lblDistribusi.TabIndex = 3;

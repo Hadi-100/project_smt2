@@ -49,14 +49,13 @@ namespace project_smt2.Views
             lbDistribusi = new Label();
             lbPendapatanTotal = new Label();
             dataHewanForm2 = new DataHewanForm();
-            distribusiHewanForm1 = new DistribusiHewanForm();
             SuspendLayout();
             // 
             // dataUserForm1
             // 
             dataUserForm1.BackgroundImage = (Image)resources.GetObject("dataUserForm1.BackgroundImage");
             dataUserForm1.BackgroundImageLayout = ImageLayout.Stretch;
-            dataUserForm1.Location = new Point(280, 0);
+            dataUserForm1.Location = new Point(281, 0);
             dataUserForm1.Margin = new Padding(2);
             dataUserForm1.Name = "dataUserForm1";
             dataUserForm1.Size = new Size(1538, 987);
@@ -66,7 +65,7 @@ namespace project_smt2.Views
             // 
             tambah_hewan_ternak1.BackgroundImage = (Image)resources.GetObject("tambah_hewan_ternak1.BackgroundImage");
             tambah_hewan_ternak1.BackgroundImageLayout = ImageLayout.Stretch;
-            tambah_hewan_ternak1.Location = new Point(280, 0);
+            tambah_hewan_ternak1.Location = new Point(281, 0);
             tambah_hewan_ternak1.Margin = new Padding(2);
             tambah_hewan_ternak1.Name = "tambah_hewan_ternak1";
             tambah_hewan_ternak1.Size = new Size(1538, 987);
@@ -76,7 +75,7 @@ namespace project_smt2.Views
             // 
             riwayatTransaksiForm1.BackgroundImage = (Image)resources.GetObject("riwayatTransaksiForm1.BackgroundImage");
             riwayatTransaksiForm1.BackgroundImageLayout = ImageLayout.Stretch;
-            riwayatTransaksiForm1.Location = new Point(280, 0);
+            riwayatTransaksiForm1.Location = new Point(281, 0);
             riwayatTransaksiForm1.Margin = new Padding(2);
             riwayatTransaksiForm1.Name = "riwayatTransaksiForm1";
             riwayatTransaksiForm1.Size = new Size(1538, 987);
@@ -184,7 +183,7 @@ namespace project_smt2.Views
             lbJumlahuser.Font = new Font("Arial", 15F);
             lbJumlahuser.Location = new Point(426, 306);
             lbJumlahuser.Name = "lbJumlahuser";
-            lbJumlahuser.Size = new Size(86, 45);
+            lbJumlahuser.Size = new Size(56, 28);
             lbJumlahuser.TabIndex = 11;
             lbJumlahuser.Text = "Null";
             // 
@@ -194,7 +193,7 @@ namespace project_smt2.Views
             lbTotalTransaksi.Font = new Font("Arial", 15F);
             lbTotalTransaksi.Location = new Point(690, 306);
             lbTotalTransaksi.Name = "lbTotalTransaksi";
-            lbTotalTransaksi.Size = new Size(86, 45);
+            lbTotalTransaksi.Size = new Size(56, 28);
             lbTotalTransaksi.TabIndex = 12;
             lbTotalTransaksi.Text = "Null";
             // 
@@ -204,7 +203,7 @@ namespace project_smt2.Views
             lbHewanTersedia.Font = new Font("Arial", 15F);
             lbHewanTersedia.Location = new Point(982, 306);
             lbHewanTersedia.Name = "lbHewanTersedia";
-            lbHewanTersedia.Size = new Size(86, 45);
+            lbHewanTersedia.Size = new Size(56, 28);
             lbHewanTersedia.TabIndex = 13;
             lbHewanTersedia.Text = "Null";
             // 
@@ -214,7 +213,7 @@ namespace project_smt2.Views
             lbHewanTerjual.Font = new Font("Arial", 15F);
             lbHewanTerjual.Location = new Point(1296, 306);
             lbHewanTerjual.Name = "lbHewanTerjual";
-            lbHewanTerjual.Size = new Size(86, 45);
+            lbHewanTerjual.Size = new Size(56, 28);
             lbHewanTerjual.TabIndex = 14;
             lbHewanTerjual.Text = "Null";
             // 
@@ -224,7 +223,7 @@ namespace project_smt2.Views
             lbDistribusi.Font = new Font("Arial", 15F);
             lbDistribusi.Location = new Point(1596, 306);
             lbDistribusi.Name = "lbDistribusi";
-            lbDistribusi.Size = new Size(86, 45);
+            lbDistribusi.Size = new Size(56, 28);
             lbDistribusi.TabIndex = 15;
             lbDistribusi.Text = "Null";
             // 
@@ -234,7 +233,7 @@ namespace project_smt2.Views
             lbPendapatanTotal.Font = new Font("Arial", 15F);
             lbPendapatanTotal.Location = new Point(1466, 514);
             lbPendapatanTotal.Name = "lbPendapatanTotal";
-            lbPendapatanTotal.Size = new Size(86, 45);
+            lbPendapatanTotal.Size = new Size(56, 28);
             lbPendapatanTotal.TabIndex = 16;
             lbPendapatanTotal.Text = "Null";
             // 
@@ -244,20 +243,12 @@ namespace project_smt2.Views
             dataHewanForm2.BackgroundImage = (Image)resources.GetObject("dataHewanForm2.BackgroundImage");
             dataHewanForm2.BackgroundImageLayout = ImageLayout.Stretch;
             dataHewanForm2.Font = new Font("Arial", 9F);
-            dataHewanForm2.Location = new Point(280, 0);
+            dataHewanForm2.Location = new Point(281, 0);
+            dataHewanForm2.Margin = new Padding(2);
             dataHewanForm2.Name = "dataHewanForm2";
-            dataHewanForm2.Size = new Size(1538, 987);
+            dataHewanForm2.Size = new Size(1538, 988);
             dataHewanForm2.TabIndex = 18;
             dataHewanForm2.Load += dataHewanForm2_Load;
-            // 
-            // distribusiHewanForm1
-            // 
-            distribusiHewanForm1.BackgroundImage = (Image)resources.GetObject("distribusiHewanForm1.BackgroundImage");
-            distribusiHewanForm1.BackgroundImageLayout = ImageLayout.Stretch;
-            distribusiHewanForm1.Location = new Point(280, 0);
-            distribusiHewanForm1.Name = "distribusiHewanForm1";
-            distribusiHewanForm1.Size = new Size(1538, 987);
-            distribusiHewanForm1.TabIndex = 19;
             // 
             // DashboardAdminForm
             // 
@@ -267,7 +258,6 @@ namespace project_smt2.Views
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1817, 988);
-            Controls.Add(distribusiHewanForm1);
             Controls.Add(dataHewanForm2);
             Controls.Add(lbPendapatanTotal);
             Controls.Add(lbDistribusi);
@@ -296,7 +286,6 @@ namespace project_smt2.Views
         }
 
         private DataUserForm dataUserForm1;
-        private DataHewanForm dataHewanForm1;
         private Tambah_hewan_ternak tambah_hewan_ternak1;
         private RiwayatTransaksiForm riwayatTransaksiForm1;
         private Button btnDashboard;
@@ -313,6 +302,7 @@ namespace project_smt2.Views
         private Label lbPendapatanTotal;
         private DataHewanForm dataHewanForm2;
         private DistribusiHewanForm distribusiHewanForm1;
+        //private DistribusiHewanForm distribusiHewanForm1;
     }
     #endregion
 }

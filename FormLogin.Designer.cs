@@ -125,18 +125,22 @@
             // tbRegPass
             // 
             tbRegPass.BorderStyle = BorderStyle.None;
-            tbRegPass.Location = new Point(53, 388);
+            tbRegPass.Font = new Font("Arial", 9F);
+            tbRegPass.ForeColor = Color.Gray;
+            tbRegPass.Location = new Point(53, 389);
             tbRegPass.Name = "tbRegPass";
-            tbRegPass.Size = new Size(348, 20);
+            tbRegPass.Size = new Size(348, 18);
             tbRegPass.TabIndex = 5;
             tbRegPass.Text = "Masukkan Password";
             // 
             // tbRegTelp
             // 
             tbRegTelp.BorderStyle = BorderStyle.None;
-            tbRegTelp.Location = new Point(53, 233);
+            tbRegTelp.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbRegTelp.ForeColor = Color.Gray;
+            tbRegTelp.Location = new Point(53, 234);
             tbRegTelp.Name = "tbRegTelp";
-            tbRegTelp.Size = new Size(348, 20);
+            tbRegTelp.Size = new Size(348, 18);
             tbRegTelp.TabIndex = 3;
             tbRegTelp.Text = "Masukkan No Hp";
             tbRegTelp.TextChanged += tbRegTelp_TextChanged;
@@ -158,18 +162,22 @@
             // tbRegUsn
             // 
             tbRegUsn.BorderStyle = BorderStyle.None;
-            tbRegUsn.Location = new Point(53, 154);
+            tbRegUsn.Font = new Font("Arial", 9F);
+            tbRegUsn.ForeColor = Color.Gray;
+            tbRegUsn.Location = new Point(53, 156);
             tbRegUsn.Name = "tbRegUsn";
-            tbRegUsn.Size = new Size(348, 20);
+            tbRegUsn.Size = new Size(348, 18);
             tbRegUsn.TabIndex = 0;
             tbRegUsn.Text = "Masukkan Username";
             // 
             // tbRegEmail
             // 
             tbRegEmail.BorderStyle = BorderStyle.None;
-            tbRegEmail.Location = new Point(53, 310);
+            tbRegEmail.Font = new Font("Arial", 9F);
+            tbRegEmail.ForeColor = Color.Gray;
+            tbRegEmail.Location = new Point(53, 312);
             tbRegEmail.Name = "tbRegEmail";
-            tbRegEmail.Size = new Size(337, 20);
+            tbRegEmail.Size = new Size(337, 18);
             tbRegEmail.TabIndex = 4;
             tbRegEmail.Text = "Masukkan Email";
             tbRegEmail.TextChanged += tbRegEmail_TextChanged;

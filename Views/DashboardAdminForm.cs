@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Windows.Forms;
 using project_smt2.Controllers;
@@ -25,11 +26,20 @@ namespace project_smt2.Views
             PanellHelper.MakeButtonRounded(btnDistribusi, 10);
             new AutoScaleHelper(this);
 
+            //lbDistribusi.Hide();
+            //lbJumlahuser.Hide();
+            //lbTotalTransaksi.Hide();
+            //lbHewanTersedia.Hide();
+            //lbHewanTerjual.Hide();
+            //lbPendapatanTotal.Hide();
+            //dgvRiwayatTransaksi.Hide();
             dataUserForm1.Hide();
             dataHewanForm2.Hide();
             tambah_hewan_ternak1.Hide();
             riwayatTransaksiForm1.Hide();
-            distribusiHewanForm1.Hide();
+            dataHewanForm2.BtnTambahClicked += DataHewanForm2_BtnTambahClicked;
+            tambah_hewan_ternak1.BtnBatalClicked += Tambah_hewan_ternak1_BtnBatalClicked;
+            //distribusiHewanForm1.Hide();
         }
 
         private void DashboardAdminForm_Load(object sender, EventArgs e)
@@ -73,6 +83,8 @@ namespace project_smt2.Views
         {
             dataUserForm1.Show();
             dataHewanForm2.Hide();
+            riwayatTransaksiForm1.Hide();
+            tambah_hewan_ternak1.Hide();
             lbDistribusi.Hide();
             lbJumlahuser.Hide();
             lbTotalTransaksi.Hide();
@@ -88,7 +100,7 @@ namespace project_smt2.Views
             dataUserForm1.Hide();
             dataHewanForm2.Show();
             tambah_hewan_ternak1.Hide();
-            distribusiHewanForm1.Hide();
+            //distribusiHewanForm1.Hide();
             riwayatTransaksiForm1.Hide();
             lbDistribusi.Hide();
             lbJumlahuser.Hide();
@@ -103,7 +115,7 @@ namespace project_smt2.Views
             riwayatTransaksiForm1.Show();
             dataHewanForm2.Hide();
             dataUserForm1.Hide();
-            distribusiHewanForm1.Hide();
+            //distribusiHewanForm1.Hide();
             lbDistribusi.Hide();
             lbJumlahuser.Hide();
             lbTotalTransaksi.Hide();
@@ -114,7 +126,7 @@ namespace project_smt2.Views
 
         private void btnDistribusi_Click(object sender, EventArgs e)
         {
-            distribusiHewanForm1.Show();
+            //distribusiHewanForm1.Show();
             dataHewanForm2.Hide();
             dataUserForm1.Hide();
             riwayatTransaksiForm1.Hide();
@@ -128,7 +140,7 @@ namespace project_smt2.Views
 
         private void btnLaporan_Click(object sender, EventArgs e)
         {
-            distribusiHewanForm1.Hide();
+            //distribusiHewanForm1.Hide();
             dataHewanForm2.Hide();
             dataUserForm1.Hide();
             riwayatTransaksiForm1.Hide();
@@ -142,7 +154,7 @@ namespace project_smt2.Views
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            distribusiHewanForm1.Hide();
+            //distribusiHewanForm1.Hide();
             dataHewanForm2.Hide();
             dataUserForm1.Hide();
             riwayatTransaksiForm1.Hide();
@@ -169,10 +181,25 @@ namespace project_smt2.Views
 
         }
 
+        private void DataHewanForm2_BtnTambahClicked(object sender, EventArgs e)
+        {
+            dataHewanForm2.Hide();
+            tambah_hewan_ternak1.Show();
+        }
+
+        private void Tambah_hewan_ternak1_BtnBatalClicked(object sender, EventArgs e)
+        {
+            // Hide tambah form and show data list again
+            tambah_hewan_ternak1.Hide();
+            dataHewanForm2.Show();
+        }
+
         private void distribusiHewanForm1_Load(object sender, EventArgs e)
         {
-
+            
         }
+
+        
 
         private void dgvRiwayatTransaksi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
