@@ -44,7 +44,7 @@ namespace project_smt2.Views
 
         private void DashboardAdminForm_Load(object sender, EventArgs e)
         {
-
+            //kvmdd
         }
 
         private void button1_Click(object sender, EventArgs e)

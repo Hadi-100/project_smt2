@@ -39,19 +39,19 @@
             SuspendLayout();
             // 
             // dataGridViewDataHewan
-            // 
-            dataGridViewDataHewan.Anchor = AnchorStyles.None;
-            dataGridViewDataHewan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewDataHewan.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewDataHewan.BorderStyle = BorderStyle.None;
-            dataGridViewDataHewan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewDataHewan.Location = new Point(106, 409);
-            dataGridViewDataHewan.Margin = new Padding(2);
-            dataGridViewDataHewan.Name = "dataGridViewDataHewan";
-            dataGridViewDataHewan.RowHeadersWidth = 82;
-            dataGridViewDataHewan.Size = new Size(1346, 530);
-            dataGridViewDataHewan.TabIndex = 0;
-            dataGridViewDataHewan.CellContentClick += dataGridViewDataHewan_CellContentClick;
+            //// 
+            //dataGridViewDataHewan.Anchor = AnchorStyles.None;
+            //dataGridViewDataHewan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //dataGridViewDataHewan.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            //dataGridViewDataHewan.BorderStyle = BorderStyle.None;
+            //dataGridViewDataHewan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            //dataGridViewDataHewan.Location = new Point(106, 409);
+            //dataGridViewDataHewan.Margin = new Padding(2);
+            //dataGridViewDataHewan.Name = "dataGridViewDataHewan";
+            //dataGridViewDataHewan.RowHeadersWidth = 82;
+            //dataGridViewDataHewan.Size = new Size(1346, 530);
+            //dataGridViewDataHewan.TabIndex = 0;
+            //dataGridViewDataHewan.CellContentClick += dataGridViewDataHewan_CellContentClick;
             // 
             // lblhewantersedia
             // 
