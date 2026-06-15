@@ -39,21 +39,19 @@
             // dgvDistribusiHewan
             // 
             dgvDistribusiHewan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDistribusiHewan.Location = new Point(55, 253);
-            dgvDistribusiHewan.Margin = new Padding(5, 5, 5, 5);
+            dgvDistribusiHewan.Location = new Point(53, 230);
             dgvDistribusiHewan.Name = "dgvDistribusiHewan";
             dgvDistribusiHewan.RowHeadersWidth = 51;
-            dgvDistribusiHewan.Size = new Size(1432, 526);
+            dgvDistribusiHewan.Size = new Size(1380, 530);
             dgvDistribusiHewan.TabIndex = 0;
             // 
             // lblTerkirim
             // 
             lblTerkirim.AutoSize = true;
             lblTerkirim.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTerkirim.Location = new Point(218, 1390);
-            lblTerkirim.Margin = new Padding(5, 0, 5, 0);
+            lblTerkirim.Location = new Point(144, 836);
             lblTerkirim.Name = "lblTerkirim";
-            lblTerkirim.Size = new Size(160, 56);
+            lblTerkirim.Size = new Size(100, 35);
             lblTerkirim.TabIndex = 1;
             lblTerkirim.Text = "label1";
             lblTerkirim.Click += label1_Click;
@@ -62,10 +60,9 @@
             // 
             lblProses.AutoSize = true;
             lblProses.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblProses.Location = new Point(723, 1390);
-            lblProses.Margin = new Padding(5, 0, 5, 0);
+            lblProses.Location = new Point(452, 836);
             lblProses.Name = "lblProses";
-            lblProses.Size = new Size(160, 56);
+            lblProses.Size = new Size(100, 35);
             lblProses.TabIndex = 2;
             lblProses.Text = "label2";
             // 
@@ -73,17 +70,16 @@
             // 
             lblDistribusi.AutoSize = true;
             lblDistribusi.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDistribusi.Location = new Point(1217, 1390);
-            lblDistribusi.Margin = new Padding(5, 0, 5, 0);
+            lblDistribusi.Location = new Point(752, 836);
             lblDistribusi.Name = "lblDistribusi";
-            lblDistribusi.Size = new Size(160, 56);
+            lblDistribusi.Size = new Size(100, 35);
             lblDistribusi.TabIndex = 3;
             lblDistribusi.Text = "label3";
             lblDistribusi.Click += lblDistribusi_Click;
             // 
             // DistribusiHewanForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
@@ -92,6 +88,7 @@
             Controls.Add(lblTerkirim);
             Controls.Add(dgvDistribusiHewan);
             DoubleBuffered = true;
+            Margin = new Padding(2);
             Name = "DistribusiHewanForm";
             Size = new Size(1600, 1020);
             Load += DistribusiHewanForm_Load;
