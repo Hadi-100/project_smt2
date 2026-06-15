@@ -29,46 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataHewanForm));
-            dataGridViewDataHewan = new DataGridView();
             lblhewantersedia = new Label();
             lbltotalsapi = new Label();
             lbltotalkambing = new Label();
             lblhewanterjual = new Label();
-            IDHewan = new DataGridViewTextBoxColumn();
-            JenisHewan = new DataGridViewTextBoxColumn();
-            JenisKelamin = new DataGridViewTextBoxColumn();
-            Umur = new DataGridViewTextBoxColumn();
-            Berat = new DataGridViewTextBoxColumn();
-            Harga = new DataGridViewTextBoxColumn();
-            Peternak = new DataGridViewTextBoxColumn();
-            StatusHewan = new DataGridViewTextBoxColumn();
-            KondisiFisik = new DataGridViewTextBoxColumn();
-            StatusQurban = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewDataHewan).BeginInit();
+            btnTambah = new Button();
+            dgvDataHewan = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvDataHewan).BeginInit();
             SuspendLayout();
-            // 
-            // dataGridViewDataHewan
-            // 
-            dataGridViewDataHewan.Anchor = AnchorStyles.None;
-            dataGridViewDataHewan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewDataHewan.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewDataHewan.BorderStyle = BorderStyle.None;
-            dataGridViewDataHewan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewDataHewan.Columns.AddRange(new DataGridViewColumn[] { IDHewan, JenisHewan, JenisKelamin, Umur, Berat, Harga, Peternak, StatusHewan, KondisiFisik, StatusQurban });
-            dataGridViewDataHewan.Location = new Point(47, 256);
-            dataGridViewDataHewan.Margin = new Padding(2, 2, 2, 2);
-            dataGridViewDataHewan.Name = "dataGridViewDataHewan";
-            dataGridViewDataHewan.RowHeadersWidth = 82;
-            dataGridViewDataHewan.Size = new Size(867, 332);
-            dataGridViewDataHewan.TabIndex = 0;
-            dataGridViewDataHewan.CellContentClick += dataGridViewDataHewan_CellContentClick;
             // 
             // lblhewantersedia
             // 
             lblhewantersedia.AutoSize = true;
             lblhewantersedia.BackColor = Color.Transparent;
             lblhewantersedia.Font = new Font("Arial", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblhewantersedia.Location = new Point(110, 178);
+            lblhewantersedia.Location = new Point(187, 287);
             lblhewantersedia.Margin = new Padding(2, 0, 2, 0);
             lblhewantersedia.Name = "lblhewantersedia";
             lblhewantersedia.Size = new Size(41, 30);
@@ -81,7 +56,7 @@
             lbltotalsapi.AutoSize = true;
             lbltotalsapi.BackColor = Color.Transparent;
             lbltotalsapi.Font = new Font("Arial", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbltotalsapi.Location = new Point(290, 178);
+            lbltotalsapi.Location = new Point(466, 287);
             lbltotalsapi.Margin = new Padding(2, 0, 2, 0);
             lbltotalsapi.Name = "lbltotalsapi";
             lbltotalsapi.Size = new Size(41, 30);
@@ -94,7 +69,7 @@
             lbltotalkambing.AutoSize = true;
             lbltotalkambing.BackColor = Color.Transparent;
             lbltotalkambing.Font = new Font("Arial", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbltotalkambing.Location = new Point(473, 178);
+            lbltotalkambing.Location = new Point(752, 287);
             lbltotalkambing.Margin = new Padding(2, 0, 2, 0);
             lbltotalkambing.Name = "lbltotalkambing";
             lbltotalkambing.Size = new Size(41, 30);
@@ -107,7 +82,7 @@
             lblhewanterjual.AutoSize = true;
             lblhewanterjual.BackColor = Color.Transparent;
             lblhewanterjual.Font = new Font("Arial", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblhewanterjual.Location = new Point(656, 178);
+            lblhewanterjual.Location = new Point(1053, 287);
             lblhewanterjual.Margin = new Padding(2, 0, 2, 0);
             lblhewanterjual.Name = "lblhewanterjual";
             lblhewanterjual.Size = new Size(41, 30);
@@ -115,104 +90,61 @@
             lblhewanterjual.Text = "10";
             lblhewanterjual.Click += lblhewanterjual_Click;
             // 
-            // IDHewan
+            // btnTambah
             // 
-            IDHewan.HeaderText = "ID Hewan";
-            IDHewan.MinimumWidth = 6;
-            IDHewan.Name = "IDHewan";
+            btnTambah.BackColor = Color.Green;
+            btnTambah.BackgroundImageLayout = ImageLayout.Stretch;
+            btnTambah.FlatStyle = FlatStyle.Popup;
+            btnTambah.Font = new Font("Arial", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTambah.ForeColor = Color.WhiteSmoke;
+            btnTambah.Location = new Point(1281, 287);
+            btnTambah.Name = "btnTambah";
+            btnTambah.Size = new Size(147, 74);
+            btnTambah.TabIndex = 5;
+            btnTambah.Text = "Tambah";
+            btnTambah.UseVisualStyleBackColor = false;
+            btnTambah.Click += btnTambah_Click;
             // 
-            // JenisHewan
+            // dgvDataHewan
             // 
-            JenisHewan.HeaderText = "Jenis Hewan";
-            JenisHewan.MinimumWidth = 6;
-            JenisHewan.Name = "JenisHewan";
-            // 
-            // JenisKelamin
-            // 
-            JenisKelamin.HeaderText = "Jenis Kelamin";
-            JenisKelamin.MinimumWidth = 6;
-            JenisKelamin.Name = "JenisKelamin";
-            // 
-            // Umur
-            // 
-            Umur.HeaderText = "Umur (th)";
-            Umur.MinimumWidth = 6;
-            Umur.Name = "Umur";
-            // 
-            // Berat
-            // 
-            Berat.HeaderText = "Berat (kg)";
-            Berat.MinimumWidth = 6;
-            Berat.Name = "Berat";
-            // 
-            // Harga
-            // 
-            Harga.HeaderText = "Harga (Rp)";
-            Harga.MinimumWidth = 6;
-            Harga.Name = "Harga";
-            // 
-            // Peternak
-            // 
-            Peternak.HeaderText = "Peternak";
-            Peternak.MinimumWidth = 6;
-            Peternak.Name = "Peternak";
-            // 
-            // StatusHewan
-            // 
-            StatusHewan.HeaderText = "Status Hewan";
-            StatusHewan.MinimumWidth = 6;
-            StatusHewan.Name = "StatusHewan";
-            // 
-            // KondisiFisik
-            // 
-            KondisiFisik.HeaderText = "Kondisi Fisik";
-            KondisiFisik.MinimumWidth = 6;
-            KondisiFisik.Name = "KondisiFisik";
-            // 
-            // StatusQurban
-            // 
-            StatusQurban.HeaderText = "Status Qurban";
-            StatusQurban.MinimumWidth = 6;
-            StatusQurban.Name = "StatusQurban";
+            dgvDataHewan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDataHewan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDataHewan.Location = new Point(76, 392);
+            dgvDataHewan.Margin = new Padding(3, 3, 3, 7);
+            dgvDataHewan.Name = "dgvDataHewan";
+            dgvDataHewan.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dgvDataHewan.Size = new Size(1349, 541);
+            dgvDataHewan.TabIndex = 6;
             // 
             // DataHewanForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ButtonShadow;
+            BackColor = Color.Transparent;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
+            Controls.Add(dgvDataHewan);
+            Controls.Add(btnTambah);
             Controls.Add(lblhewanterjual);
             Controls.Add(lbltotalkambing);
             Controls.Add(lbltotalsapi);
             Controls.Add(lblhewantersedia);
-            Controls.Add(dataGridViewDataHewan);
             DoubleBuffered = true;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "DataHewanForm";
-            Size = new Size(985, 638);
+            Size = new Size(1600, 1020);
             Load += DataHewanForm_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridViewDataHewan).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDataHewan).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private DataGridView dataGridViewDataHewan;
         private Label lblhewantersedia;
         private Label lbltotalsapi;
         private Label lbltotalkambing;
         private Label lblhewanterjual;
-        private DataGridViewTextBoxColumn IDHewan;
-        private DataGridViewTextBoxColumn JenisHewan;
-        private DataGridViewTextBoxColumn JenisKelamin;
-        private DataGridViewTextBoxColumn Umur;
-        private DataGridViewTextBoxColumn Berat;
-        private DataGridViewTextBoxColumn Harga;
-        private DataGridViewTextBoxColumn Peternak;
-        private DataGridViewTextBoxColumn StatusHewan;
-        private DataGridViewTextBoxColumn KondisiFisik;
-        private DataGridViewTextBoxColumn StatusQurban;
+        private Button btnTambah;
+        private DataGridView dgvDataHewan;
     }
 }
