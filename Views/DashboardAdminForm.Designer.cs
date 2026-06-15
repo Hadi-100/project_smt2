@@ -48,6 +48,8 @@ namespace project_smt2.Views
             lbHewanTerjual = new Label();
             lbDistribusi = new Label();
             lbPendapatanTotal = new Label();
+            dataHewanForm2 = new DataHewanForm();
+            distribusiHewanForm1 = new DistribusiHewanForm();
             dgvRiwayatTransaksi = new DataGridView();
             distribusiHewanForm1 = new DistribusiHewanForm();
             ((System.ComponentModel.ISupportInitialize)dgvRiwayatTransaksi).BeginInit();
@@ -78,7 +80,7 @@ namespace project_smt2.Views
             riwayatTransaksiForm1.BackgroundImage = (Image)resources.GetObject("riwayatTransaksiForm1.BackgroundImage");
             riwayatTransaksiForm1.BackgroundImageLayout = ImageLayout.Stretch;
             riwayatTransaksiForm1.Location = new Point(280, 0);
-            riwayatTransaksiForm1.Margin = new Padding(2, 2, 2, 2);
+            riwayatTransaksiForm1.Margin = new Padding(2);
             riwayatTransaksiForm1.Name = "riwayatTransaksiForm1";
             riwayatTransaksiForm1.Size = new Size(1538, 987);
             riwayatTransaksiForm1.TabIndex = 3;
@@ -185,7 +187,7 @@ namespace project_smt2.Views
             lbJumlahuser.Font = new Font("Arial", 15F);
             lbJumlahuser.Location = new Point(426, 306);
             lbJumlahuser.Name = "lbJumlahuser";
-            lbJumlahuser.Size = new Size(56, 28);
+            lbJumlahuser.Size = new Size(86, 45);
             lbJumlahuser.TabIndex = 11;
             lbJumlahuser.Text = "Null";
             // 
@@ -195,7 +197,7 @@ namespace project_smt2.Views
             lbTotalTransaksi.Font = new Font("Arial", 15F);
             lbTotalTransaksi.Location = new Point(690, 306);
             lbTotalTransaksi.Name = "lbTotalTransaksi";
-            lbTotalTransaksi.Size = new Size(56, 28);
+            lbTotalTransaksi.Size = new Size(86, 45);
             lbTotalTransaksi.TabIndex = 12;
             lbTotalTransaksi.Text = "Null";
             // 
@@ -205,7 +207,7 @@ namespace project_smt2.Views
             lbHewanTersedia.Font = new Font("Arial", 15F);
             lbHewanTersedia.Location = new Point(982, 306);
             lbHewanTersedia.Name = "lbHewanTersedia";
-            lbHewanTersedia.Size = new Size(56, 28);
+            lbHewanTersedia.Size = new Size(86, 45);
             lbHewanTersedia.TabIndex = 13;
             lbHewanTersedia.Text = "Null";
             // 
@@ -215,7 +217,7 @@ namespace project_smt2.Views
             lbHewanTerjual.Font = new Font("Arial", 15F);
             lbHewanTerjual.Location = new Point(1296, 306);
             lbHewanTerjual.Name = "lbHewanTerjual";
-            lbHewanTerjual.Size = new Size(56, 28);
+            lbHewanTerjual.Size = new Size(86, 45);
             lbHewanTerjual.TabIndex = 14;
             lbHewanTerjual.Text = "Null";
             // 
@@ -225,7 +227,7 @@ namespace project_smt2.Views
             lbDistribusi.Font = new Font("Arial", 15F);
             lbDistribusi.Location = new Point(1596, 306);
             lbDistribusi.Name = "lbDistribusi";
-            lbDistribusi.Size = new Size(56, 28);
+            lbDistribusi.Size = new Size(86, 45);
             lbDistribusi.TabIndex = 15;
             lbDistribusi.Text = "Null";
             // 
@@ -235,18 +237,30 @@ namespace project_smt2.Views
             lbPendapatanTotal.Font = new Font("Arial", 15F);
             lbPendapatanTotal.Location = new Point(1466, 514);
             lbPendapatanTotal.Name = "lbPendapatanTotal";
-            lbPendapatanTotal.Size = new Size(56, 28);
+            lbPendapatanTotal.Size = new Size(86, 45);
             lbPendapatanTotal.TabIndex = 16;
             lbPendapatanTotal.Text = "Null";
             // 
-            // dgvRiwayatTransaksi
+            // dataHewanForm2
             // 
-            dgvRiwayatTransaksi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvRiwayatTransaksi.Location = new Point(358, 466);
-            dgvRiwayatTransaksi.Name = "dgvRiwayatTransaksi";
-            dgvRiwayatTransaksi.RowHeadersWidth = 51;
-            dgvRiwayatTransaksi.Size = new Size(840, 454);
-            dgvRiwayatTransaksi.TabIndex = 17;
+            dataHewanForm2.BackColor = SystemColors.ButtonShadow;
+            dataHewanForm2.BackgroundImage = (Image)resources.GetObject("dataHewanForm2.BackgroundImage");
+            dataHewanForm2.BackgroundImageLayout = ImageLayout.Stretch;
+            dataHewanForm2.Font = new Font("Arial", 9F);
+            dataHewanForm2.Location = new Point(280, 2);
+            dataHewanForm2.Name = "dataHewanForm2";
+            dataHewanForm2.Size = new Size(1538, 986);
+            dataHewanForm2.TabIndex = 18;
+            dataHewanForm2.Load += dataHewanForm2_Load;
+            // 
+            // distribusiHewanForm1
+            // 
+            distribusiHewanForm1.BackgroundImage = (Image)resources.GetObject("distribusiHewanForm1.BackgroundImage");
+            distribusiHewanForm1.BackgroundImageLayout = ImageLayout.Stretch;
+            distribusiHewanForm1.Location = new Point(280, 2);
+            distribusiHewanForm1.Name = "distribusiHewanForm1";
+            distribusiHewanForm1.Size = new Size(1538, 984);
+            distribusiHewanForm1.TabIndex = 19;
             // 
             // distribusiHewanForm1
             // 
@@ -266,6 +280,8 @@ namespace project_smt2.Views
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1817, 988);
+            Controls.Add(distribusiHewanForm1);
+            Controls.Add(dataHewanForm2);
             Controls.Add(distribusiHewanForm1);
             Controls.Add(dgvRiwayatTransaksi);
             Controls.Add(lbPendapatanTotal);
@@ -290,7 +306,6 @@ namespace project_smt2.Views
             StartPosition = FormStartPosition.CenterScreen;
             WindowState = FormWindowState.Maximized;
             Load += DashboardAdminForm_Load_1;
-            ((System.ComponentModel.ISupportInitialize)dgvRiwayatTransaksi).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -310,6 +325,8 @@ namespace project_smt2.Views
         private Label lbHewanTerjual;
         private Label lbDistribusi;
         private Label lbPendapatanTotal;
+        private DataHewanForm dataHewanForm2;
+        private DistribusiHewanForm distribusiHewanForm1;
         private DataGridView dgvRiwayatTransaksi;
         private DistribusiHewanForm distribusiHewanForm1;
     }
