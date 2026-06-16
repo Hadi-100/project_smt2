@@ -83,6 +83,7 @@ namespace project_smt2
             }
             else if (role == "user")
             {
+                //MessageBox.Show("Role User Terdeteksi");
                 DashboardUserForm frmUser =
                     new DashboardUserForm();
 
