@@ -38,12 +38,29 @@
             ((System.ComponentModel.ISupportInitialize)dgvDataHewan).BeginInit();
             SuspendLayout();
             // 
+            // dataGridViewDataHewan
+            //// 
+            //dataGridViewDataHewan.Anchor = AnchorStyles.None;
+            //dataGridViewDataHewan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //dataGridViewDataHewan.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            //dataGridViewDataHewan.BorderStyle = BorderStyle.None;
+            //dataGridViewDataHewan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            //dataGridViewDataHewan.Location = new Point(106, 409);
+            //dataGridViewDataHewan.Margin = new Padding(2);
+            //dataGridViewDataHewan.Name = "dataGridViewDataHewan";
+            //dataGridViewDataHewan.RowHeadersWidth = 82;
+            //dataGridViewDataHewan.Size = new Size(1346, 530);
+            //dataGridViewDataHewan.TabIndex = 0;
+            //dataGridViewDataHewan.CellContentClick += dataGridViewDataHewan_CellContentClick;
+            // 
             // lblhewantersedia
             // 
             lblhewantersedia.AutoSize = true;
             lblhewantersedia.BackColor = Color.Transparent;
             lblhewantersedia.Font = new Font("Arial", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblhewantersedia.Location = new Point(187, 287);
+            lblhewantersedia.Margin = new Padding(2, 0, 2, 0);
+            lblhewantersedia.Location = new Point(177, 290);
             lblhewantersedia.Margin = new Padding(2, 0, 2, 0);
             lblhewantersedia.Name = "lblhewantersedia";
             lblhewantersedia.Size = new Size(41, 30);
@@ -58,6 +75,8 @@
             lbltotalsapi.Font = new Font("Arial", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbltotalsapi.Location = new Point(466, 287);
             lbltotalsapi.Margin = new Padding(2, 0, 2, 0);
+            lbltotalsapi.Location = new Point(464, 289);
+            lbltotalsapi.Margin = new Padding(2, 0, 2, 0);
             lbltotalsapi.Name = "lbltotalsapi";
             lbltotalsapi.Size = new Size(41, 30);
             lbltotalsapi.TabIndex = 2;
@@ -71,6 +90,8 @@
             lbltotalkambing.Font = new Font("Arial", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbltotalkambing.Location = new Point(752, 287);
             lbltotalkambing.Margin = new Padding(2, 0, 2, 0);
+            lbltotalkambing.Location = new Point(758, 289);
+            lbltotalkambing.Margin = new Padding(2, 0, 2, 0);
             lbltotalkambing.Name = "lbltotalkambing";
             lbltotalkambing.Size = new Size(41, 30);
             lbltotalkambing.TabIndex = 3;
@@ -83,6 +104,8 @@
             lblhewanterjual.BackColor = Color.Transparent;
             lblhewanterjual.Font = new Font("Arial", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblhewanterjual.Location = new Point(1053, 287);
+            lblhewanterjual.Margin = new Padding(2, 0, 2, 0);
+            lblhewanterjual.Location = new Point(1045, 289);
             lblhewanterjual.Margin = new Padding(2, 0, 2, 0);
             lblhewanterjual.Name = "lblhewanterjual";
             lblhewanterjual.Size = new Size(41, 30);
