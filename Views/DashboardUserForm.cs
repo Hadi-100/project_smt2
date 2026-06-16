@@ -35,10 +35,6 @@ namespace project_smt2.Views
             pesananSaya1 = new PesananSaya();
             lblNamaRole = new Label();
             SuspendLayout();
-
-            pesananSaya1.Hide();
-            riwayat_transaksi_user1.Hide();
-
             // 
             // btnHewanTernak
             // 
@@ -137,11 +133,32 @@ namespace project_smt2.Views
             lblNamaUser.ForeColor = Color.White;
             lblNamaUser.Location = new Point(104, 53);
             lblNamaUser.Name = "lblNamaUser";
-            lblNamaUser.Size = new Size(114, 42);
+            lblNamaUser.Size = new Size(71, 26);
             lblNamaUser.TabIndex = 6;
             lblNamaUser.Text = "label1";
             lblNamaUser.Click += lblNamaUser_Click_1;
-            //
+            // 
+            // riwayat_transaksi_user1
+            // 
+            riwayat_transaksi_user1.BackgroundImage = (Image)resources.GetObject("riwayat_transaksi_user1.BackgroundImage");
+            riwayat_transaksi_user1.BackgroundImageLayout = ImageLayout.Stretch;
+            riwayat_transaksi_user1.Location = new Point(0, 156);
+            riwayat_transaksi_user1.Margin = new Padding(2, 2, 2, 2);
+            riwayat_transaksi_user1.Name = "riwayat_transaksi_user1";
+            riwayat_transaksi_user1.Size = new Size(1538, 832);
+            riwayat_transaksi_user1.TabIndex = 7;
+            riwayat_transaksi_user1.Load += riwayat_transaksi_user1_Load;
+            // 
+            // pesananSaya1
+            // 
+            pesananSaya1.BackgroundImage = (Image)resources.GetObject("pesananSaya1.BackgroundImage");
+            pesananSaya1.BackgroundImageLayout = ImageLayout.Stretch;
+            pesananSaya1.Location = new Point(0, 156);
+            pesananSaya1.Margin = new Padding(2);
+            pesananSaya1.Name = "pesananSaya1";
+            pesananSaya1.Size = new Size(1538, 832);
+            pesananSaya1.TabIndex = 8;
+            pesananSaya1.Load += pesananSaya1_Load;
             // 
             // lblNamaRole
             // 
@@ -153,37 +170,8 @@ namespace project_smt2.Views
             lblNamaRole.Location = new Point(104, 82);
             lblNamaRole.Name = "lblNamaRole";
             lblNamaRole.Size = new Size(43, 19);
-            lblNamaRole.TabIndex = 7;
-            lblNamaRole.Text = "User";
-            // 
-            // riwayat_transaksi_user1
-            // 
-            riwayat_transaksi_user1.BackgroundImage = (Image)resources.GetObject("riwayat_transaksi_user1.BackgroundImage");
-            riwayat_transaksi_user1.BackgroundImageLayout = ImageLayout.Stretch;
-            riwayat_transaksi_user1.Location = new Point(0, 156);
-            riwayat_transaksi_user1.Name = "riwayat_transaksi_user1";
-            riwayat_transaksi_user1.Size = new Size(1538, 832);
-            riwayat_transaksi_user1.TabIndex = 7;
-            riwayat_transaksi_user1.Load += riwayat_transaksi_user1_Load;
-            // 
-            // pesananSaya1
-            // 
-            pesananSaya1.BackgroundImage = (Image)resources.GetObject("pesananSaya1.BackgroundImage");
-            pesananSaya1.BackgroundImageLayout = ImageLayout.Stretch;
-            pesananSaya1.Location = new Point(0, 156);
-            pesananSaya1.Name = "pesananSaya1";
-            pesananSaya1.Size = new Size(1538, 832);
-            pesananSaya1.TabIndex = 8;
-            pesananSaya1.Load += pesananSaya1_Load;
-            // 
-            // lblNamaRole
-            // 
-            lblNamaRole.AutoSize = true;
-            lblNamaRole.Location = new Point(123, 107);
-            lblNamaRole.Name = "lblNamaRole";
-            lblNamaRole.Size = new Size(160, 56);
             lblNamaRole.TabIndex = 9;
-            lblNamaRole.Text = "label1";
+            lblNamaRole.Text = "User";
             lblNamaRole.Click += label1_Click;
             // 
             // DashboardUserForm
