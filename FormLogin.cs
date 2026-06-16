@@ -85,7 +85,7 @@ namespace project_smt2
             {
                 //MessageBox.Show("Role User Terdeteksi");
                 DashboardUserForm frmUser =
-                    new DashboardUserForm();
+                    new DashboardUserForm(controller.Username);
 
                 frmUser.Show();
                 this.Hide();
