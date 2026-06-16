@@ -51,10 +51,10 @@
             // 
             lblTotalTransaksiUser.AutoSize = true;
             lblTotalTransaksiUser.BackColor = Color.Transparent;
-            lblTotalTransaksiUser.Font = new Font("Arial", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalTransaksiUser.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTotalTransaksiUser.Location = new Point(353, 226);
             lblTotalTransaksiUser.Name = "lblTotalTransaksiUser";
-            lblTotalTransaksiUser.Size = new Size(92, 32);
+            lblTotalTransaksiUser.Size = new Size(110, 37);
             lblTotalTransaksiUser.TabIndex = 1;
             lblTotalTransaksiUser.Text = "label1";
             lblTotalTransaksiUser.Click += lblTotalTransaksiUser_Click_1;
@@ -63,10 +63,10 @@
             // 
             lblSudahLunas.AutoSize = true;
             lblSudahLunas.BackColor = Color.Transparent;
-            lblSudahLunas.Font = new Font("Arial", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSudahLunas.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSudahLunas.Location = new Point(837, 225);
             lblSudahLunas.Name = "lblSudahLunas";
-            lblSudahLunas.Size = new Size(92, 32);
+            lblSudahLunas.Size = new Size(110, 37);
             lblSudahLunas.TabIndex = 2;
             lblSudahLunas.Text = "label1";
             lblSudahLunas.Click += lblSudahLunas_Click;
@@ -75,10 +75,10 @@
             // 
             lblBelumLunas.AutoSize = true;
             lblBelumLunas.BackColor = Color.Transparent;
-            lblBelumLunas.Font = new Font("Arial", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBelumLunas.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblBelumLunas.Location = new Point(1322, 226);
             lblBelumLunas.Name = "lblBelumLunas";
-            lblBelumLunas.Size = new Size(92, 32);
+            lblBelumLunas.Size = new Size(110, 37);
             lblBelumLunas.TabIndex = 3;
             lblBelumLunas.Text = "label1";
             lblBelumLunas.Click += lblBelumLunas_Click;

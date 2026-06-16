@@ -80,5 +80,10 @@ namespace project_smt2.Views
             BtnTambahClicked?.Invoke(this, e);
             LoadData();
         }
+
+        private void dgvDataHewan_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -34,11 +34,8 @@ namespace project_smt2.Views
             riwayatTransaksiUSER = new RiwayatTransaksiUSER();
             pesananSaya1 = new PesananSaya();
             lblNamaRole = new Label();
+            //masukkanAlamat1 = new MasukkanAlamat();
             SuspendLayout();
-
-            pesananSaya1.Hide();
-            riwayatTransaksiUSER.Hide();
-
             // 
             // btnHewanTernak
             // 
@@ -172,16 +169,27 @@ namespace project_smt2.Views
             lblNamaRole.ForeColor = Color.Yellow;
             lblNamaRole.Location = new Point(106, 80);
             lblNamaRole.Name = "lblNamaRole";
-            lblNamaRole.Size = new Size(65, 24);
+            lblNamaRole.Size = new Size(54, 24);
             lblNamaRole.TabIndex = 9;
             lblNamaRole.Text = "User";
             lblNamaRole.Click += label1_Click;
+            // 
+            // masukkanAlamat1
+            // 
+            // 
+            masukkanAlamat1.BackgroundImageLayout = ImageLayout.Stretch;
+            masukkanAlamat1.Location = new Point(0, 156);
+            masukkanAlamat1.Name = "masukkanAlamat1";
+            masukkanAlamat1.Size = new Size(1538, 832);
+            masukkanAlamat1.TabIndex = 10;
+            masukkanAlamat1.Load += masukkanAlamat1_Load;
             // 
             // DashboardUserForm
             // 
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1538, 988);
+            Controls.Add(masukkanAlamat1);
             Controls.Add(lblNamaRole);
             Controls.Add(pesananSaya1);
             Controls.Add(riwayatTransaksiUSER);
@@ -196,6 +204,7 @@ namespace project_smt2.Views
             Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Name = "DashboardUserForm";
+            Text = "2";
             WindowState = FormWindowState.Maximized;
             ResumeLayout(false);
             PerformLayout();
@@ -275,6 +284,11 @@ namespace project_smt2.Views
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void masukkanAlamat1_Load(object sender, EventArgs e)
         {
 
         }

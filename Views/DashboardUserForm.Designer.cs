@@ -15,5 +15,6 @@ namespace project_smt2.Views
         private RiwayatTransaksiUSER riwayatTransaksiUSER;
         private PesananSaya pesananSaya1;
         private Label lblNamaRole;
+        private MasukkanAlamat masukkanAlamat1;
     }
 }
