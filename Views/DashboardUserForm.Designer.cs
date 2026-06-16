@@ -11,5 +11,8 @@ namespace project_smt2.Views
         {
             //lblJudul.Text = "Dashboard User";
         }
+
+        private Riwayat_transaksi_USER riwayat_transaksi_user1;
+        private PesananSaya pesananSaya1;
     }
 }

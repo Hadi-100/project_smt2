@@ -29,7 +29,12 @@ namespace project_smt2.Views
             btnPesananSaya = new Button();
             btnLogOut = new Button();
             label1 = new Label();
+            riwayat_transaksi_user1 = new Riwayat_transaksi_USER();
+            pesananSaya1 = new PesananSaya();
             SuspendLayout();
+
+            pesananSaya1.Hide();
+            riwayat_transaksi_user1.Hide();
             // 
             // btnHewanTernak
             // 
@@ -121,15 +126,37 @@ namespace project_smt2.Views
             label1.Font = new Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(127, 59);
             label1.Name = "label1";
-            label1.Size = new Size(71, 26);
+            label1.Size = new Size(114, 42);
             label1.TabIndex = 6;
             label1.Text = "label1";
+            // 
+            // riwayat_transaksi_user1
+            // 
+            riwayat_transaksi_user1.BackgroundImage = (Image)resources.GetObject("riwayat_transaksi_user1.BackgroundImage");
+            riwayat_transaksi_user1.BackgroundImageLayout = ImageLayout.Stretch;
+            riwayat_transaksi_user1.Location = new Point(0, 156);
+            riwayat_transaksi_user1.Name = "riwayat_transaksi_user1";
+            riwayat_transaksi_user1.Size = new Size(1538, 832);
+            riwayat_transaksi_user1.TabIndex = 7;
+            riwayat_transaksi_user1.Load += riwayat_transaksi_user1_Load;
+            // 
+            // pesananSaya1
+            // 
+            pesananSaya1.BackgroundImage = (Image)resources.GetObject("pesananSaya1.BackgroundImage");
+            pesananSaya1.BackgroundImageLayout = ImageLayout.Stretch;
+            pesananSaya1.Location = new Point(0, 156);
+            pesananSaya1.Name = "pesananSaya1";
+            pesananSaya1.Size = new Size(1538, 832);
+            pesananSaya1.TabIndex = 8;
+            pesananSaya1.Load += pesananSaya1_Load;
             // 
             // DashboardUserForm
             // 
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1538, 988);
+            Controls.Add(pesananSaya1);
+            Controls.Add(riwayat_transaksi_user1);
             Controls.Add(label1);
             Controls.Add(btnLogOut);
             Controls.Add(btnPesananSaya);
@@ -154,11 +181,6 @@ namespace project_smt2.Views
         private Button btnPesananSaya;
         private Button btnLogOut;
         private Label label1;
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnHewanTernak_Click(object sender, EventArgs e)
         {
@@ -186,14 +208,32 @@ namespace project_smt2.Views
             }
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            riwayat_transaksi_user1.Show();
+            pesananSaya1.Hide();
+        }
+
         private void btnPesananSaya_Click(object sender, EventArgs e)
         {
-
+            pesananSaya1.Show();
+            riwayat_transaksi_user1.Hide();
         }
 
         private void btnHalamanUtama_Click(object sender, EventArgs e)
         {
+            riwayat_transaksi_user1.Hide();
+            pesananSaya1.Hide();
+        }
 
+        private void riwayat_transaksi_user1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pesananSaya1_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
