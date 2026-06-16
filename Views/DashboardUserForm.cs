@@ -18,8 +18,37 @@ namespace project_smt2.Views
             this.username = namaLengkap;
             lblNamaUser.Text = namaLengkap;
 
+            masukkanAlamat1.LanjutKePembayaran += MasukkanAlamat1_LanjutKePembayaran;
+
             new AutoScaleHelper(this);
+
         }
+
+        private void MasukkanAlamat1_LanjutKePembayaran(int hewanId, int alamatId, decimal harga)
+        {
+            PembayaranForm pembayaran = new PembayaranForm(hewanId, alamatId, harga);
+
+            pembayaran.Dock = DockStyle.Fill;
+            pembayaran.BtnBatal_Click += Pembayaran_BtnBatal_Click;
+
+            Controls.Add(pembayaran);
+
+            pembayaran.BringToFront();
+
+            masukkanAlamat1.Hide();
+        }
+
+        private void Pembayaran_BtnBatal_Click(object sender,EventArgs e)
+        {
+            masukkanAlamat1.Show();
+
+            if (sender is PembayaranForm pembayaran)
+            {
+                Controls.Remove(pembayaran);
+                pembayaran.Dispose();
+            }
+        }
+
 
         private void InitializeComponent()
         {
@@ -34,8 +63,10 @@ namespace project_smt2.Views
             riwayatTransaksiUSER = new RiwayatTransaksiUSER();
             pesananSaya1 = new PesananSaya();
             lblNamaRole = new Label();
-            //masukkanAlamat1 = new MasukkanAlamat();
+            masukkanAlamat1 = new MasukkanAlamat();
+            //pembayaranForm1 = new PembayaranForm();
             SuspendLayout();
+
             // 
             // btnHewanTernak
             // 
@@ -176,13 +207,22 @@ namespace project_smt2.Views
             // 
             // masukkanAlamat1
             // 
-            // 
+            masukkanAlamat1.BackgroundImage = (Image)resources.GetObject("masukkanAlamat1.BackgroundImage");
             masukkanAlamat1.BackgroundImageLayout = ImageLayout.Stretch;
             masukkanAlamat1.Location = new Point(0, 156);
             masukkanAlamat1.Name = "masukkanAlamat1";
             masukkanAlamat1.Size = new Size(1538, 832);
             masukkanAlamat1.TabIndex = 10;
             masukkanAlamat1.Load += masukkanAlamat1_Load;
+            // 
+            // pembayaranForm1
+            // 
+            //this.pembayaranForm1.BackgroundImage = (Image)resources.GetObject("pembayaranForm1.BackgroundImage");
+            //this.pembayaranForm1.BackgroundImageLayout = ImageLayout.Stretch;
+            //this.pembayaranForm1.Location = new Point(0, 156);
+            //this.pembayaranForm1.Name = "pembayaranForm1";
+            //this.pembayaranForm1.Size = new Size(1538, 988);
+            //this.pembayaranForm1.TabIndex = 11;
             // 
             // DashboardUserForm
             // 

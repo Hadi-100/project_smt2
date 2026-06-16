@@ -49,7 +49,7 @@
             // 
             tbNoRekening.Location = new Point(519, 388);
             tbNoRekening.Name = "tbNoRekening";
-            tbNoRekening.Size = new Size(500, 39);
+            tbNoRekening.Size = new Size(993, 39);
             tbNoRekening.TabIndex = 1;
             tbNoRekening.TextChanged += tbNoRekening_TextChanged;
             // 
@@ -63,22 +63,32 @@
             // 
             // btnBatal
             // 
-            btnBatal.Location = new Point(798, 745);
+            btnBatal.BackColor = Color.Transparent;
+            btnBatal.BackgroundImageLayout = ImageLayout.Stretch;
+            btnBatal.FlatStyle = FlatStyle.Popup;
+            btnBatal.Font = new Font("Segoe UI", 1.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnBatal.ForeColor = SystemColors.ButtonFace;
+            btnBatal.Location = new Point(1037, 773);
             btnBatal.Name = "btnBatal";
             btnBatal.Size = new Size(106, 59);
             btnBatal.TabIndex = 3;
-            btnBatal.Text = "button1";
-            btnBatal.UseVisualStyleBackColor = true;
+            btnBatal.Text = ".";
+            btnBatal.UseVisualStyleBackColor = false;
             btnBatal.Click += btnBatal_Click;
             // 
             // btnBayar
             // 
-            btnBayar.Location = new Point(936, 747);
+            btnBayar.BackColor = Color.Transparent;
+            btnBayar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnBayar.FlatStyle = FlatStyle.Popup;
+            btnBayar.Font = new Font("Segoe UI", 1.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnBayar.ForeColor = SystemColors.ButtonFace;
+            btnBayar.Location = new Point(1285, 786);
             btnBayar.Name = "btnBayar";
             btnBayar.Size = new Size(113, 55);
             btnBayar.TabIndex = 4;
-            btnBayar.Text = "button1";
-            btnBayar.UseVisualStyleBackColor = true;
+            btnBayar.Text = ".";
+            btnBayar.UseVisualStyleBackColor = false;
             btnBayar.Click += btnBayar_Click;
             // 
             // PembayaranForm

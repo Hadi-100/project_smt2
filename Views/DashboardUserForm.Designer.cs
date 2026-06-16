@@ -16,5 +16,6 @@ namespace project_smt2.Views
         private PesananSaya pesananSaya1;
         private Label lblNamaRole;
         private MasukkanAlamat masukkanAlamat1;
+        //private PembayaranForm pembayaranForm1;
     }
 }

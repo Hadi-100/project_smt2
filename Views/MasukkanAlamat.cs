@@ -19,6 +19,9 @@ namespace project_smt2.Views
         private int _hewanId;
         private decimal _harga;
 
+
+        public event Action<int, int, decimal> LanjutKePembayaran;
+
         public MasukkanAlamat()
         {
             InitializeComponent();
@@ -100,13 +103,11 @@ namespace project_smt2.Views
                 Desa desa = (Desa)cbDesa.SelectedItem;
 
                 int alamatId = controller.InsertAlamat(tbAlamatLengkap.Text.Trim(), desa.DesaId);
+                
+                LanjutKePembayaran?.Invoke(_hewanId, alamatId, _harga);
 
-                PembayaranForm pembayaran = new PembayaranForm(_hewanId, alamatId, _harga);
-
-                pembayaran.Dock = DockStyle.Fill;
-
-                this.Parent.Controls.Clear();
-                this.Parent.Controls.Add(pembayaran);
+                //this.Parent.Controls.Clear();
+                //this.Parent.Controls.Add(pembayaran);
             }
             catch (Exception ex)
             {

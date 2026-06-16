@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -18,6 +19,18 @@ namespace project_smt2.Views
 
         private TransaksiController transaksiController =
             new TransaksiController();
+
+        public event EventHandler BtnBatal_Click;
+
+        public PembayaranForm()
+        {
+            InitializeComponent();
+            LoadBank();
+
+            tbNoRekening.Visible = false;
+        }
+
+
         public PembayaranForm(int hewanId, int alamatId, decimal harga)
         {
             InitializeComponent();
@@ -64,9 +77,7 @@ namespace project_smt2.Views
 
         private void btnBatal_Click(object sender, EventArgs e)
         {
-            tbNoRekening.Clear();
-            tbNominal.Clear();
-            cmbBank.SelectedIndex = -1;
+            BtnBatal_Click?.Invoke(this, EventArgs.Empty);
         }
 
         private void btnBayar_Click(object sender, EventArgs e)
