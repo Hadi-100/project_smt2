@@ -157,6 +157,7 @@ namespace project_smt2.Views
             pesananSaya1.BackgroundImage = (Image)resources.GetObject("pesananSaya1.BackgroundImage");
             pesananSaya1.BackgroundImageLayout = ImageLayout.Stretch;
             pesananSaya1.Location = new Point(0, 156);
+            pesananSaya1.Margin = new Padding(2);
             pesananSaya1.Name = "pesananSaya1";
             pesananSaya1.Size = new Size(1538, 832);
             pesananSaya1.TabIndex = 8;
@@ -173,7 +174,7 @@ namespace project_smt2.Views
             lblNamaRole.Name = "lblNamaRole";
             lblNamaRole.Size = new Size(65, 24);
             lblNamaRole.TabIndex = 9;
-            lblNamaRole.Text = "label1";
+            lblNamaRole.Text = "User";
             lblNamaRole.Click += label1_Click;
             // 
             // DashboardUserForm
