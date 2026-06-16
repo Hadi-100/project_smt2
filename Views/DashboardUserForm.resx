@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="riwayat_transaksi_user1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="riwayatTransaksiUSER.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABoEAAAL5CAYAAAB/+42WAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAA50RVh0U29mdHdhcmUARmlnbWGesZZjAAD/mElEQVR4Xuy9Z3wWx5ave7/d+/Gc
@@ -4790,7 +4790,7 @@
   <data name="pesananSaya1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABoEAAAL5CAYAAAB/+42WAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAAA50RVh0U29mdHdhcmUARmlnbWGesZZjAAD/mElEQVR4Xuz9+ZuWxZrni+5rX/vs
+        DAAACwwBP0AiyAAAAA50RVh0U29mdHdhcmUARmlnbWGesZZjAAD/mElEQVR4Xuz9+ZuWxZrni+5rX/vs
         6q7ef0Strqpd1dW9r93V+5yzd/VyYBIREQEZE5IhSTIhmUGQWQYRkHlQBAVEZBIREBxQAREVZ1RkUEQm
         XTIP6lqru88P33PFcEfccUc8b74JiYXL+OF7RcQdwxPxvK9rme/H7x3/0//8v/zP+If7/z3+Q4d/j//Q
         PqtI/9jud/iHdr/T5X9o9+/xTx3+Fv/U4e/wfzzw92heczuGPTYQE5aMwYqty7Bx5zq89fGb+PjQBzhy

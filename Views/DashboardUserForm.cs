@@ -31,13 +31,13 @@ namespace project_smt2.Views
             btnPesananSaya = new Button();
             btnLogOut = new Button();
             lblNamaUser = new Label();
-            riwayat_transaksi_user1 = new Riwayat_transaksi_USER();
+            riwayatTransaksiUSER = new RiwayatTransaksiUSER();
             pesananSaya1 = new PesananSaya();
             lblNamaRole = new Label();
             SuspendLayout();
 
             pesananSaya1.Hide();
-            riwayat_transaksi_user1.Hide();
+            riwayatTransaksiUSER.Hide();
 
             // 
             // btnHewanTernak
@@ -133,38 +133,24 @@ namespace project_smt2.Views
             lblNamaUser.AutoSize = true;
             lblNamaUser.BackColor = Color.Transparent;
             lblNamaUser.FlatStyle = FlatStyle.Popup;
-            lblNamaUser.Font = new Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNamaUser.Font = new Font("Arial", 8F);
             lblNamaUser.ForeColor = Color.White;
-            lblNamaUser.Location = new Point(104, 53);
+            lblNamaUser.Location = new Point(106, 56);
             lblNamaUser.Name = "lblNamaUser";
-            lblNamaUser.Size = new Size(114, 42);
+            lblNamaUser.Size = new Size(68, 25);
             lblNamaUser.TabIndex = 6;
             lblNamaUser.Text = "label1";
             lblNamaUser.Click += lblNamaUser_Click_1;
-            //
             // 
-            // lblNamaRole
+            // riwayatTransaksiUSER
             // 
-            lblNamaRole.AutoSize = true;
-            lblNamaRole.BackColor = Color.Transparent;
-            lblNamaRole.FlatStyle = FlatStyle.Popup;
-            lblNamaRole.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNamaRole.ForeColor = Color.Yellow;
-            lblNamaRole.Location = new Point(104, 82);
-            lblNamaRole.Name = "lblNamaRole";
-            lblNamaRole.Size = new Size(43, 19);
-            lblNamaRole.TabIndex = 7;
-            lblNamaRole.Text = "User";
-            // 
-            // riwayat_transaksi_user1
-            // 
-            riwayat_transaksi_user1.BackgroundImage = (Image)resources.GetObject("riwayat_transaksi_user1.BackgroundImage");
-            riwayat_transaksi_user1.BackgroundImageLayout = ImageLayout.Stretch;
-            riwayat_transaksi_user1.Location = new Point(0, 156);
-            riwayat_transaksi_user1.Name = "riwayat_transaksi_user1";
-            riwayat_transaksi_user1.Size = new Size(1538, 832);
-            riwayat_transaksi_user1.TabIndex = 7;
-            riwayat_transaksi_user1.Load += riwayat_transaksi_user1_Load;
+            riwayatTransaksiUSER.BackgroundImage = (Image)resources.GetObject("riwayatTransaksiUSER.BackgroundImage");
+            riwayatTransaksiUSER.BackgroundImageLayout = ImageLayout.Stretch;
+            riwayatTransaksiUSER.Location = new Point(0, 156);
+            riwayatTransaksiUSER.Name = "riwayatTransaksiUSER";
+            riwayatTransaksiUSER.Size = new Size(1538, 832);
+            riwayatTransaksiUSER.TabIndex = 7;
+            riwayatTransaksiUSER.Load += riwayat_transaksi_user1_Load;
             // 
             // pesananSaya1
             // 
@@ -179,9 +165,13 @@ namespace project_smt2.Views
             // lblNamaRole
             // 
             lblNamaRole.AutoSize = true;
-            lblNamaRole.Location = new Point(123, 107);
+            lblNamaRole.BackColor = Color.Transparent;
+            lblNamaRole.FlatStyle = FlatStyle.Popup;
+            lblNamaRole.Font = new Font("Arial", 7.8F);
+            lblNamaRole.ForeColor = Color.Yellow;
+            lblNamaRole.Location = new Point(106, 80);
             lblNamaRole.Name = "lblNamaRole";
-            lblNamaRole.Size = new Size(160, 56);
+            lblNamaRole.Size = new Size(65, 24);
             lblNamaRole.TabIndex = 9;
             lblNamaRole.Text = "label1";
             lblNamaRole.Click += label1_Click;
@@ -193,7 +183,7 @@ namespace project_smt2.Views
             ClientSize = new Size(1538, 988);
             Controls.Add(lblNamaRole);
             Controls.Add(pesananSaya1);
-            Controls.Add(riwayat_transaksi_user1);
+            Controls.Add(riwayatTransaksiUSER);
             Controls.Add(lblNamaUser);
             Controls.Add(btnLogOut);
             Controls.Add(btnPesananSaya);
@@ -247,19 +237,19 @@ namespace project_smt2.Views
 
         private void button4_Click(object sender, EventArgs e)
         {
-            riwayat_transaksi_user1.Show();
+            riwayatTransaksiUSER.Show();
             pesananSaya1.Hide();
         }
 
         private void btnPesananSaya_Click(object sender, EventArgs e)
         {
             pesananSaya1.Show();
-            riwayat_transaksi_user1.Hide();
+            riwayatTransaksiUSER.Hide();
         }
 
         private void btnHalamanUtama_Click(object sender, EventArgs e)
         {
-            riwayat_transaksi_user1.Hide();
+            riwayatTransaksiUSER.Hide();
             pesananSaya1.Hide();
         }
 

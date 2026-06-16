@@ -9,6 +9,7 @@ namespace project_smt2.Controllers
 
     public class LoginController
     {
+        public int UserId { get; private set; }
         public string Username { get; private set; }
 
         public string Login(string email, string password)
@@ -20,7 +21,7 @@ namespace project_smt2.Controllers
                 conn.Open();
 
                 string query =
-                @"SELECT nama_lengkap, role_user
+                @"SELECT user_id, nama_lengkap, role_user
                   FROM users
                   WHERE email=@email
                   AND password=@password";
@@ -35,6 +36,7 @@ namespace project_smt2.Controllers
 
                     if (reader.Read())
                     {
+                        UserId = reader.GetInt32(reader.GetOrdinal("user_id"));
                         Username = reader.GetString(reader.GetOrdinal("nama_lengkap"));
                         role = reader.GetString(reader.GetOrdinal("role_user"));
                     }
@@ -42,6 +44,9 @@ namespace project_smt2.Controllers
 
             return role;
         }
+
     }
+
+
 
 }
