@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Npgsql;
+using project_smt2.Helpers;
 
 namespace project_smt2.Helpers
 {

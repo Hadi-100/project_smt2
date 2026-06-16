@@ -19,7 +19,7 @@ namespace project_smt2.Controllers
                 string query =
                 @"SELECT
                 hewan_ternak_id,
-                jenis_hewan,
+                nama_jenis,
                 jenis_kelamin,
                 umur,
                 berat,
@@ -28,7 +28,8 @@ namespace project_smt2.Controllers
                 status_hewan,
                 kondisi_fisik,
                 status_qurban
-                FROM view_list_hewan";
+                FROM view_list_hewan
+                WHERE kondisi_fisik <> 'Sakit'";
 
                 NpgsqlDataAdapter da =
                     new NpgsqlDataAdapter(

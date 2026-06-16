@@ -15,5 +15,7 @@ namespace project_smt2.Views
         private Riwayat_transaksi_USER riwayat_transaksi_user1;
         private PesananSaya pesananSaya1;
         private Label lblNamaRole;
+        private ListHewanTernak listHewanTernak1;
+        private ListHewanQurban listHewanQurban1;
     }
 }

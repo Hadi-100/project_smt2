@@ -17,6 +17,8 @@ namespace project_smt2.Views
 
             this.username = namaLengkap;
             lblNamaUser.Text = namaLengkap;
+            listHewanTernak1.BtnKembaliClicked += list_hewan_ternak1_Load_btnKembaliClicked;
+            listHewanQurban1.BtnKembaliClicked += list_hewan_qurban1_Load_btnKembaliClicked;
 
             new AutoScaleHelper(this);
         }
@@ -34,6 +36,8 @@ namespace project_smt2.Views
             riwayat_transaksi_user1 = new Riwayat_transaksi_USER();
             pesananSaya1 = new PesananSaya();
             lblNamaRole = new Label();
+            listHewanTernak1 = new ListHewanTernak();
+            listHewanQurban1 = new ListHewanQurban();
             SuspendLayout();
             // 
             // btnHewanTernak
@@ -153,7 +157,7 @@ namespace project_smt2.Views
             // 
             pesananSaya1.BackgroundImage = (Image)resources.GetObject("pesananSaya1.BackgroundImage");
             pesananSaya1.BackgroundImageLayout = ImageLayout.Stretch;
-            pesananSaya1.Location = new Point(0, 156);
+            pesananSaya1.Location = new Point(-11, 156);
             pesananSaya1.Margin = new Padding(2);
             pesananSaya1.Name = "pesananSaya1";
             pesananSaya1.Size = new Size(1538, 832);
@@ -174,11 +178,31 @@ namespace project_smt2.Views
             lblNamaRole.Text = "User";
             lblNamaRole.Click += label1_Click;
             // 
+            // listHewanTernak1
+            // 
+            listHewanTernak1.BackgroundImage = (Image)resources.GetObject("listHewanTernak1.BackgroundImage");
+            listHewanTernak1.BackgroundImageLayout = ImageLayout.Stretch;
+            listHewanTernak1.Location = new Point(0, 156);
+            listHewanTernak1.Name = "listHewanTernak1";
+            listHewanTernak1.Size = new Size(1538, 832);
+            listHewanTernak1.TabIndex = 10;
+            // 
+            // listHewanQurban1
+            // 
+            listHewanQurban1.BackgroundImage = (Image)resources.GetObject("listHewanQurban1.BackgroundImage");
+            listHewanQurban1.BackgroundImageLayout = ImageLayout.Stretch;
+            listHewanQurban1.Location = new Point(0, 156);
+            listHewanQurban1.Name = "listHewanQurban1";
+            listHewanQurban1.Size = new Size(1538, 832);
+            listHewanQurban1.TabIndex = 11;
+            // 
             // DashboardUserForm
             // 
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1538, 988);
+            Controls.Add(listHewanQurban1);
+            Controls.Add(listHewanTernak1);
             Controls.Add(lblNamaRole);
             Controls.Add(pesananSaya1);
             Controls.Add(riwayat_transaksi_user1);
@@ -209,12 +233,19 @@ namespace project_smt2.Views
 
         private void btnHewanTernak_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Tombol Hewan Ternak diklik");
+            listHewanTernak1.Show();
+            listHewanTernak1.BringToFront();
+
+            pesananSaya1.Hide();
+            //riwayat_transaksi.Hide();
         }
 
         private void btnHewanQurban_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Tombol Hewan Qurban diklik");
+            listHewanQurban1.Show();
+            listHewanTernak1.Hide();
+            riwayat_transaksi_user1.Hide();
+            pesananSaya1.Hide();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -237,18 +268,22 @@ namespace project_smt2.Views
         {
             riwayat_transaksi_user1.Show();
             pesananSaya1.Hide();
+            listHewanTernak1.Hide();
+
         }
 
         private void btnPesananSaya_Click(object sender, EventArgs e)
         {
             pesananSaya1.Show();
             riwayat_transaksi_user1.Hide();
+            listHewanTernak1.Hide();
         }
 
         private void btnHalamanUtama_Click(object sender, EventArgs e)
         {
             riwayat_transaksi_user1.Hide();
             pesananSaya1.Hide();
+            listHewanTernak1.Hide();
         }
 
         private void riwayat_transaksi_user1_Load(object sender, EventArgs e)
@@ -274,6 +309,27 @@ namespace project_smt2.Views
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnHewanTernakUser_Click(object sender, EventArgs e)
+        {
+            listHewanTernak1.Show();
+            riwayat_transaksi_user1.Hide();
+            pesananSaya1.Hide();    
+        }
+
+        private void list_hewan_ternak1_Load_btnKembaliClicked(object sender, EventArgs e)
+        {
+            listHewanTernak1.Hide();
+            riwayat_transaksi_user1.Hide();
+            pesananSaya1.Hide();
+        }
+        private void list_hewan_qurban1_Load_btnKembaliClicked(object sender, EventArgs e)
+        {
+            listHewanQurban1.Hide();
+            riwayat_transaksi_user1.Hide();
+            pesananSaya1.Hide();
+            listHewanTernak1.Hide();
         }
     }
 }
