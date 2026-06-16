@@ -11,5 +11,7 @@ namespace project_smt2.Views
         {
             //lblJudul.Text = "Dashboard User";
         }
+
+        private Label label1;
     }
 }

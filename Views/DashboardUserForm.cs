@@ -10,13 +10,15 @@ namespace project_smt2.Views
 {
     public partial class DashboardUserForm : Form
     {
-        public DashboardUserForm()
+        private string username;
+        public DashboardUserForm(string namaLengkap)
         {
             InitializeComponent();
 
-            new AutoScaleHelper(this);
+            this.username = namaLengkap;
+            lblNamaUser.Text = namaLengkap;
 
-            //MessageBox.Show("Dashboard User Form Loaded");
+            new AutoScaleHelper(this);
         }
 
         private void InitializeComponent()
@@ -28,6 +30,7 @@ namespace project_smt2.Views
             btnRiwayatTransaksi = new Button();
             btnPesananSaya = new Button();
             btnLogOut = new Button();
+            lblNamaUser = new Label();
             label1 = new Label();
             SuspendLayout();
             // 
@@ -64,13 +67,14 @@ namespace project_smt2.Views
             // 
             btnHalamanUtama.BackColor = Color.Transparent;
             btnHalamanUtama.BackgroundImageLayout = ImageLayout.Stretch;
-            btnHalamanUtama.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnHalamanUtama.ForeColor = Color.Black;
-            btnHalamanUtama.Location = new Point(303, 39);
+            btnHalamanUtama.FlatStyle = FlatStyle.Popup;
+            btnHalamanUtama.Font = new Font("Arial", 1.8F);
+            btnHalamanUtama.ForeColor = Color.White;
+            btnHalamanUtama.Location = new Point(304, 39);
             btnHalamanUtama.Name = "btnHalamanUtama";
             btnHalamanUtama.Size = new Size(190, 68);
             btnHalamanUtama.TabIndex = 2;
-            btnHalamanUtama.Text = "Halaman utama";
+            btnHalamanUtama.Text = ".";
             btnHalamanUtama.UseVisualStyleBackColor = false;
             btnHalamanUtama.Click += btnHalamanUtama_Click;
             // 
@@ -79,9 +83,9 @@ namespace project_smt2.Views
             btnRiwayatTransaksi.BackColor = Color.Transparent;
             btnRiwayatTransaksi.BackgroundImageLayout = ImageLayout.Stretch;
             btnRiwayatTransaksi.FlatStyle = FlatStyle.Popup;
-            btnRiwayatTransaksi.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRiwayatTransaksi.Font = new Font("Arial", 1.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnRiwayatTransaksi.ForeColor = Color.White;
-            btnRiwayatTransaksi.Location = new Point(520, 39);
+            btnRiwayatTransaksi.Location = new Point(521, 39);
             btnRiwayatTransaksi.Name = "btnRiwayatTransaksi";
             btnRiwayatTransaksi.Size = new Size(188, 68);
             btnRiwayatTransaksi.TabIndex = 3;
@@ -94,7 +98,7 @@ namespace project_smt2.Views
             btnPesananSaya.BackColor = Color.Transparent;
             btnPesananSaya.BackgroundImageLayout = ImageLayout.Stretch;
             btnPesananSaya.FlatStyle = FlatStyle.Popup;
-            btnPesananSaya.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPesananSaya.Font = new Font("Arial", 1.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnPesananSaya.ForeColor = Color.White;
             btnPesananSaya.Location = new Point(736, 39);
             btnPesananSaya.Name = "btnPesananSaya";
@@ -106,24 +110,42 @@ namespace project_smt2.Views
             // 
             // btnLogOut
             // 
-            btnLogOut.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogOut.BackColor = Color.Transparent;
+            btnLogOut.FlatStyle = FlatStyle.Popup;
+            btnLogOut.Font = new Font("Arial", 1.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLogOut.Location = new Point(1406, 46);
             btnLogOut.Name = "btnLogOut";
             btnLogOut.Size = new Size(107, 55);
             btnLogOut.TabIndex = 5;
-            btnLogOut.Text = "Logout";
-            btnLogOut.UseVisualStyleBackColor = true;
+            btnLogOut.Text = ".";
+            btnLogOut.UseVisualStyleBackColor = false;
             btnLogOut.Click += btnLogOut_Click;
+            // 
+            // lblNamaUser
+            // 
+            lblNamaUser.AutoSize = true;
+            lblNamaUser.BackColor = Color.Transparent;
+            lblNamaUser.FlatStyle = FlatStyle.Popup;
+            lblNamaUser.Font = new Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNamaUser.ForeColor = Color.White;
+            lblNamaUser.Location = new Point(104, 53);
+            lblNamaUser.Name = "lblNamaUser";
+            lblNamaUser.Size = new Size(71, 26);
+            lblNamaUser.TabIndex = 6;
+            lblNamaUser.Text = "label1";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(127, 59);
+            label1.BackColor = Color.Transparent;
+            label1.FlatStyle = FlatStyle.Popup;
+            label1.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Yellow;
+            label1.Location = new Point(104, 82);
             label1.Name = "label1";
-            label1.Size = new Size(71, 26);
-            label1.TabIndex = 6;
-            label1.Text = "label1";
+            label1.Size = new Size(43, 19);
+            label1.TabIndex = 7;
+            label1.Text = "User";
             // 
             // DashboardUserForm
             // 
@@ -131,6 +153,7 @@ namespace project_smt2.Views
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1538, 988);
             Controls.Add(label1);
+            Controls.Add(lblNamaUser);
             Controls.Add(btnLogOut);
             Controls.Add(btnPesananSaya);
             Controls.Add(btnRiwayatTransaksi);
@@ -153,7 +176,7 @@ namespace project_smt2.Views
         private Button btnRiwayatTransaksi;
         private Button btnPesananSaya;
         private Button btnLogOut;
-        private Label label1;
+        private Label lblNamaUser;
 
         private void button4_Click(object sender, EventArgs e)
         {
