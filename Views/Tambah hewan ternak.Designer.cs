@@ -34,8 +34,6 @@
             tbUmur = new TextBox();
             tbHarga = new TextBox();
             tbBerat = new TextBox();
-            dtpTanggalLahir = new DateTimePicker();
-            cbxKondisiFisik = new ComboBox();
             btnTambah = new Button();
             btnBatal = new Button();
             cbxNamaPeternak = new ComboBox();
@@ -46,7 +44,7 @@
             cbxJenisHewan.Font = new Font("Arial", 22.5F);
             cbxJenisHewan.ForeColor = Color.Gray;
             cbxJenisHewan.FormattingEnabled = true;
-            cbxJenisHewan.Items.AddRange(new object[] { "Sapi", "Kambing", "Sapi Limousin", "Kambing Khas Ngawi", "Sapi Mas Hambali" });
+            cbxJenisHewan.Items.AddRange(new object[] { "1 Sapi", "2 Kambing", "3 Sapi Limousin", "4 Kambing Khas Ngawi", "5 Sapi Mas Hambali" });
             cbxJenisHewan.Location = new Point(160, 307);
             cbxJenisHewan.Name = "cbxJenisHewan";
             cbxJenisHewan.Size = new Size(521, 50);
@@ -96,31 +94,6 @@
             tbBerat.TabIndex = 4;
             tbBerat.Text = "Berat (KG)";
             // 
-            // dtpTanggalLahir
-            // 
-            dtpTanggalLahir.CalendarFont = new Font("Arial", 22.5F);
-            dtpTanggalLahir.CalendarForeColor = Color.Gray;
-            dtpTanggalLahir.CalendarTitleBackColor = SystemColors.ActiveBorder;
-            dtpTanggalLahir.CalendarTitleForeColor = Color.Gray;
-            dtpTanggalLahir.Font = new Font("Arial Narrow", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dtpTanggalLahir.Location = new Point(759, 308);
-            dtpTanggalLahir.Name = "dtpTanggalLahir";
-            dtpTanggalLahir.Size = new Size(518, 50);
-            dtpTanggalLahir.TabIndex = 5;
-            dtpTanggalLahir.Tag = "";
-            // 
-            // cbxKondisiFisik
-            // 
-            cbxKondisiFisik.Font = new Font("Arial", 22.5F);
-            cbxKondisiFisik.ForeColor = Color.Gray;
-            cbxKondisiFisik.FormattingEnabled = true;
-            cbxKondisiFisik.Items.AddRange(new object[] { "Sehat", "Sakit" });
-            cbxKondisiFisik.Location = new Point(759, 408);
-            cbxKondisiFisik.Name = "cbxKondisiFisik";
-            cbxKondisiFisik.Size = new Size(518, 50);
-            cbxKondisiFisik.TabIndex = 6;
-            cbxKondisiFisik.Text = "Kondisi Fisik";
-            // 
             // btnTambah
             // 
             btnTambah.BackColor = Color.Green;
@@ -130,9 +103,10 @@
             btnTambah.ForeColor = Color.WhiteSmoke;
             btnTambah.Location = new Point(1203, 828);
             btnTambah.Name = "btnTambah";
+            btnTambah.RightToLeft = RightToLeft.No;
             btnTambah.Size = new Size(146, 73);
             btnTambah.TabIndex = 7;
-            btnTambah.Text = "Tambah";
+            btnTambah.Text = "Next";
             btnTambah.UseVisualStyleBackColor = false;
             btnTambah.Click += btnTambah_Click;
             // 
@@ -157,7 +131,7 @@
             cbxNamaPeternak.ForeColor = Color.Gray;
             cbxNamaPeternak.FormattingEnabled = true;
             cbxNamaPeternak.Items.AddRange(new object[] { "1 (Pak Ali)", "2 (Bu Rina) ", "3 (Pak Budi)", "3 (Bu Sari)", "4 (Pak Joko)", "5 (Bu Maya) ", "6 (Pak Tono)" });
-            cbxNamaPeternak.Location = new Point(759, 499);
+            cbxNamaPeternak.Location = new Point(765, 307);
             cbxNamaPeternak.Name = "cbxNamaPeternak";
             cbxNamaPeternak.Size = new Size(518, 50);
             cbxNamaPeternak.TabIndex = 9;
@@ -172,8 +146,6 @@
             Controls.Add(cbxNamaPeternak);
             Controls.Add(btnBatal);
             Controls.Add(btnTambah);
-            Controls.Add(cbxKondisiFisik);
-            Controls.Add(dtpTanggalLahir);
             Controls.Add(tbBerat);
             Controls.Add(tbHarga);
             Controls.Add(tbUmur);
@@ -194,8 +166,6 @@
         private TextBox tbUmur;
         private TextBox tbHarga;
         private TextBox tbBerat;
-        private DateTimePicker dtpTanggalLahir;
-        private ComboBox cbxKondisiFisik;
         private Button btnTambah;
         private Button btnBatal;
         private ComboBox cbxNamaPeternak;

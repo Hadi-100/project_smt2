@@ -22,7 +22,6 @@ namespace project_smt2.Controllers
                 u.nama_lengkap,
                 t.tanggal_transaksi,
                 dl.harga_jual,
-                dl.subtotal,
                 t.status_pembayaran
                 FROM transaksi t
                 JOIN users u ON t.user_id = u.user_id
@@ -77,10 +76,10 @@ namespace project_smt2.Controllers
             {
                 conn.Open();
                 var cmd = new NpgsqlCommand(
-                    @"SELECT COALESCE(SUM(dl.subtotal), 0)
+                    @"SELECT COALESCE(SUM(dl.harga_jual), 0)
               FROM transaksi t
               JOIN detail_transaksi dl ON t.transaksi_id = dl.transaksi_id", conn);
-                return Convert.ToInt64(cmd.ExecuteScalar());
+                return Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
     }

@@ -63,6 +63,26 @@ namespace project_smt2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Halaman_Distribusi_Hewan_1 {
+            get {
+                object obj = ResourceManager.GetObject("Halaman Distribusi Hewan 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Halaman_Laporan_Penjualan_1__1 {
+            get {
+                object obj = ResourceManager.GetObject("Halaman Laporan Penjualan(1) 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Halaman_Login__1_ {
             get {
                 object obj = ResourceManager.GetObject("Halaman Login (1)", resourceCulture);

@@ -51,7 +51,7 @@ namespace project_smt2.Controllers
 
                 string query =
                 @"SELECT COALESCE(
-                    SUM(subtotal),0)
+                    SUM(harga_jual),0)
                   FROM detail_transaksi";
 
                 NpgsqlCommand cmd =

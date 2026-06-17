@@ -194,9 +194,9 @@ namespace project_smt2
 
             string noTelp = tbRegTelp.Text;
             string email = tbRegEmail.Text;
+            bool email_kosong = email == "" || email == "masukkan email";
 
             //bool telp_kosong = noTelp == "" || noTelp == "masukkan no. telp";
-            bool email_kosong = email == "" || email == "masukkan email";
 
             //if (telp_kosong)
             //{

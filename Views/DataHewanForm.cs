@@ -13,12 +13,30 @@ namespace project_smt2.Views
     {
         // Event raised when the Tambah button is clicked so parent forms can respond
         public event EventHandler BtnTambahClicked;
+        // Event raised when edit link in grid is clicked. Passes the hewan_ternak_id as int in EventArgs (as sender)
+        public event EventHandler<int> EditRequested;
 
         public DataHewanForm()
         {
             InitializeComponent();
             this.AutoScaleMode = AutoScaleMode.None;
             this.Font = new Font("Arial", 9F); // pick one consistent font/size
+        }
+
+        public void RefreshDataHewan()
+        {
+            try
+            {
+                HewanController hewanController = new HewanController();
+
+                // Panggil view atau query select list hewan milikmu
+                // Misal dimasukkan ke DataTable atau langsung ke DataSource
+                dgvDataHewan.DataSource = hewanController.GetHewan();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Gagal memuat ulang data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void LoadData()
@@ -37,8 +55,6 @@ namespace project_smt2.Views
             dgvDataHewan.Columns["harga"].HeaderText = "Harga (Rp)";
             dgvDataHewan.Columns["nama_peternak"].HeaderText = "Peternak";
             dgvDataHewan.Columns["status_hewan"].HeaderText = "Status Hewan";
-            dgvDataHewan.Columns["kondisi_fisik"].HeaderText = "Kondisi Fisik";
-            dgvDataHewan.Columns["status_qurban"].HeaderText = "Status Qurban";
             lblhewantersedia.Text = controller.GetTotalTersedia().ToString();
             lbltotalsapi.Text = controller.GetTotalSapi().ToString();
             lbltotalkambing.Text = controller.GetTotalKambing().ToString();
@@ -72,7 +88,29 @@ namespace project_smt2.Views
 
         private void dataGridViewDataHewan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0)
+            {
+                if (dgvDataHewan.Columns[e.ColumnIndex].Name == "EditHewan")
+                {
+                    if (dgvDataHewan.Rows[e.RowIndex].Cells["hewan_ternak_id"].Value != null)
+                    {
+                        int idHewan = Convert.ToInt32(dgvDataHewan.Rows[e.RowIndex].Cells["hewan_ternak_id"].Value);
+                        EditKlasifikasiQurbanForm formEdit = new EditKlasifikasiQurbanForm();
+                        formEdit.HewanTernakId = idHewan;
+                        formEdit.Show();
+                    }
+                }
+            }
+        }
 
+        private void dataGridViewDataHewan_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            var cell = dgvDataHewan.Rows[e.RowIndex].Cells["hewan_ternak_id"];
+            if (cell != null && cell.Value != null && int.TryParse(cell.Value.ToString(), out int id))
+            {
+                EditRequested?.Invoke(this, id);
+            }
         }
 
         public void btnTambah_Click(object sender, EventArgs e)
