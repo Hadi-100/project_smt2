@@ -33,15 +33,17 @@
             cbKecamatan = new ComboBox();
             cbDesa = new ComboBox();
             btnSelanjutnya = new Button();
+            btnKembali = new Button();
             SuspendLayout();
             // 
             // tbAlamatLengkap
             // 
             tbAlamatLengkap.BorderStyle = BorderStyle.None;
-            tbAlamatLengkap.Font = new Font("Arial", 10.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbAlamatLengkap.Location = new Point(288, 294);
+            tbAlamatLengkap.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbAlamatLengkap.Location = new Point(291, 306);
+            tbAlamatLengkap.Margin = new Padding(2);
             tbAlamatLengkap.Name = "tbAlamatLengkap";
-            tbAlamatLengkap.Size = new Size(703, 32);
+            tbAlamatLengkap.Size = new Size(684, 20);
             tbAlamatLengkap.TabIndex = 0;
             tbAlamatLengkap.TextChanged += tbAlamatLengkap_TextChanged;
             // 
@@ -52,9 +54,10 @@
             cbKecamatan.FlatStyle = FlatStyle.Popup;
             cbKecamatan.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbKecamatan.FormattingEnabled = true;
-            cbKecamatan.Location = new Point(288, 428);
+            cbKecamatan.Location = new Point(291, 438);
+            cbKecamatan.Margin = new Padding(2);
             cbKecamatan.Name = "cbKecamatan";
-            cbKecamatan.Size = new Size(244, 35);
+            cbKecamatan.Size = new Size(235, 25);
             cbKecamatan.TabIndex = 1;
             cbKecamatan.SelectedIndexChanged += cbKecamatan_SelectedIndexChanged;
             // 
@@ -66,9 +69,10 @@
             cbDesa.FlatStyle = FlatStyle.Popup;
             cbDesa.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbDesa.FormattingEnabled = true;
-            cbDesa.Location = new Point(625, 428);
+            cbDesa.Location = new Point(632, 438);
+            cbDesa.Margin = new Padding(2);
             cbDesa.Name = "cbDesa";
-            cbDesa.Size = new Size(239, 35);
+            cbDesa.Size = new Size(225, 25);
             cbDesa.TabIndex = 2;
             cbDesa.SelectedIndexChanged += cbDesa_SelectedIndexChanged;
             // 
@@ -79,25 +83,38 @@
             btnSelanjutnya.FlatStyle = FlatStyle.Popup;
             btnSelanjutnya.Font = new Font("Segoe UI", 1F);
             btnSelanjutnya.ForeColor = Color.White;
-            btnSelanjutnya.Location = new Point(1191, 677);
+            btnSelanjutnya.Location = new Point(1190, 675);
+            btnSelanjutnya.Margin = new Padding(2);
             btnSelanjutnya.Name = "btnSelanjutnya";
-            btnSelanjutnya.Size = new Size(110, 55);
+            btnSelanjutnya.Size = new Size(115, 63);
             btnSelanjutnya.TabIndex = 3;
             btnSelanjutnya.Text = ".";
             btnSelanjutnya.UseVisualStyleBackColor = false;
             btnSelanjutnya.Click += btnSelanjutnya_Click;
             // 
+            // btnKembali
+            // 
+            btnKembali.Location = new Point(1032, 675);
+            btnKembali.Name = "btnKembali";
+            btnKembali.Size = new Size(110, 62);
+            btnKembali.TabIndex = 4;
+            btnKembali.Text = "button1";
+            btnKembali.UseVisualStyleBackColor = true;
+            btnKembali.Click += btnKembali_Click;
+            // 
             // MasukkanAlamat
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
+            Controls.Add(btnKembali);
             Controls.Add(btnSelanjutnya);
             Controls.Add(cbDesa);
             Controls.Add(cbKecamatan);
             Controls.Add(tbAlamatLengkap);
             DoubleBuffered = true;
+            Margin = new Padding(2);
             Name = "MasukkanAlamat";
             Size = new Size(1538, 832);
             ResumeLayout(false);
@@ -110,5 +127,6 @@
         private ComboBox cbKecamatan;
         private ComboBox cbDesa;
         private Button btnSelanjutnya;
+        private Button btnKembali;
     }
 }

@@ -70,12 +70,17 @@
             // 
             // btnBeli
             // 
-            btnBeli.Location = new Point(1238, 835);
+            btnBeli.BackColor = Color.Green;
+            btnBeli.BackgroundImageLayout = ImageLayout.Stretch;
+            btnBeli.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnBeli.ForeColor = Color.White;
+            btnBeli.Location = new Point(1238, 697);
             btnBeli.Name = "btnBeli";
             btnBeli.Size = new Size(117, 80);
             btnBeli.TabIndex = 2;
-            btnBeli.Text = "button1";
-            btnBeli.UseVisualStyleBackColor = true;
+            btnBeli.Text = "Beli";
+            btnBeli.UseVisualStyleBackColor = false;
+            btnBeli.Click += btnBeli_Click;
             // 
             // lblFilter
             // 

@@ -13,12 +13,12 @@ namespace project_smt2.Views
 {
     public partial class MasukkanAlamat : UserControl
     {
+        public event EventHandler BtnKembaliClicked;
 
         AlamatController controller = new AlamatController();
 
         private int _hewanId;
         private decimal _harga;
-
 
         public event Action<int, int, decimal> LanjutKePembayaran;
 
@@ -103,7 +103,7 @@ namespace project_smt2.Views
                 Desa desa = (Desa)cbDesa.SelectedItem;
 
                 int alamatId = controller.InsertAlamat(tbAlamatLengkap.Text.Trim(), desa.DesaId);
-                
+
                 LanjutKePembayaran?.Invoke(_hewanId, alamatId, _harga);
 
                 //this.Parent.Controls.Clear();
@@ -117,6 +117,11 @@ namespace project_smt2.Views
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+        }
+
+        private void btnKembali_Click(object sender, EventArgs e)
+        {
+            BtnKembaliClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

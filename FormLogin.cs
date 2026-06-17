@@ -132,7 +132,10 @@ namespace project_smt2
             tbRegTelp.Text = "Masukkan No Hp";
             tbRegEmail.Text = "Masukkan Email";
             tbRegPass.Text = "Masukkan Password";
+            MessageBox.Show("Masuk 1");
             tbRegPass.UseSystemPasswordChar = false;
+            MessageBox.Show("Masuk 2");
+
         }
 
         private void SetupLoginPlaceholder(TextBox tb, string placeholder, bool isPassword = false)
@@ -251,7 +254,7 @@ namespace project_smt2
                 tbRegEmail.Text,
                 tbRegTelp.Text,
                 tbRegPass.Text,
-                "user'"
+                "user"
                 );
 
             UserController controller = new UserController();

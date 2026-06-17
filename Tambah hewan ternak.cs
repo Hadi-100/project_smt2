@@ -101,38 +101,42 @@ namespace project_smt2
         private void btnTambah_Click(object sender, EventArgs e)
         {
             HewanController hewanController = new HewanController();
-            string jenis_hewan = cbxJenisHewan.SelectedItem?.ToString() ?? string.Empty;
-            string jenis_kelamin = cbxJenisKelamin.SelectedItem?.ToString() ?? string.Empty;
 
-            // Basic validation
-            if (string.IsNullOrWhiteSpace(jenis_hewan) || string.IsNullOrWhiteSpace(jenis_kelamin))
+            string jenis_kelamin =
+                cbxJenisKelamin.SelectedItem?.ToString() ?? "";
+
+            if (cbxJenisHewan.SelectedValue == null ||
+                cbxNamaPeternak.SelectedValue == null ||
+                string.IsNullOrWhiteSpace(jenis_kelamin))
             {
-                MessageBox.Show("Pilih jenis hewan dan jenis kelamin terlebih dahulu.", "Validasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Lengkapi data terlebih dahulu!",
+                    "Validasi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 return;
             }
 
-            int umur = int.TryParse(tbUmur.Text, out int u) ? u : 0;
-            int berat = int.TryParse(tbBerat.Text, out int b) ? b : 0;
-            int harga = int.TryParse(tbHarga.Text, out int h) ? h : 0;
+            int jenisHewanId =
+                Convert.ToInt32(cbxJenisHewan.SelectedValue);
 
-            // Defaults for fields that don't have inputs in this form
-            string nama_peternak = Environment.UserName ?? string.Empty;
-            string kondisi_fisik = cbxKondisiFisik.SelectedItem?.ToString() ?? string.Empty;
+            int peternakId =
+                Convert.ToInt32(cbxNamaPeternak.SelectedValue);
 
-            // parse peternak id from combobox selection like "1 (Pak Ali)"
-            int peternakId = 0;
-            var peternakText = cbxNamaPeternak.SelectedItem?.ToString() ?? string.Empty;
-            if (!string.IsNullOrWhiteSpace(peternakText))
-            {
-                var digits = new string(peternakText.Trim().TakeWhile(char.IsDigit).ToArray());
-                if (!int.TryParse(digits, out peternakId))
-                    peternakId = 0;
-            }
+            int umur =
+                int.TryParse(tbUmur.Text, out int u) ? u : 0;
+
+            int berat =
+                int.TryParse(tbBerat.Text, out int b) ? b : 0;
+
+            int harga =
+                int.TryParse(tbHarga.Text, out int h) ? h : 0;
 
             try
             {
                 hewanController.TambahkanHewanTernak(
-                    jenis_hewan,
+                    jenisHewanId,
                     jenis_kelamin,
                     umur,
                     berat,
@@ -140,37 +144,19 @@ namespace project_smt2
                     peternakId
                 );
 
-                MessageBox.Show("Hewan berhasil ditambahkan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                //// reset inputs back to placeholder/state
-                //cbxJenisHewan.SelectedIndex = -1;
-                //cbxJenisHewan.Text = "Jenis Hewan";
-                //cbxJenisKelamin.SelectedIndex = -1;
-                //cbxJenisKelamin.Text = "Jenis Kelamin";
-
-                //tbUmur.Text = PlaceholderUmur;
-                //tbUmur.ForeColor = Color.Gray;
-
-                //tbBerat.Text = PlaceholderBerat;
-                //tbBerat.ForeColor = Color.Gray;
-
-                //tbHarga.Text = PlaceholderHarga;
-                //tbHarga.ForeColor = Color.Gray;
-
-                //cbxKondisiFisik.SelectedIndex = -1;
-                //cbxKondisiFisik.Text = "Kondisi Fisik";
-
-                //cbxNamaPeternak.SelectedIndex = -1;
-                //cbxNamaPeternak.Text = "Peternak";
-                //cbxNamaPeternak.ForeColor = Color.Gray;
-
-                //dtpTanggalLahir.Format = DateTimePickerFormat.Custom;
-                //dtpTanggalLahir.CustomFormat = "Tanggal Lahir";
-                //dtpTanggalLahir.ForeColor = Color.Gray;
+                MessageBox.Show(
+                    "Hewan berhasil ditambahkan.",
+                    "Sukses",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Gagal menambahkan hewan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 

@@ -41,10 +41,11 @@
             dgvRiwayatTransaksiUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRiwayatTransaksiUser.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvRiwayatTransaksiUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvRiwayatTransaksiUser.Location = new Point(71, 338);
+            dgvRiwayatTransaksiUser.Location = new Point(70, 339);
+            dgvRiwayatTransaksiUser.Margin = new Padding(2);
             dgvRiwayatTransaksiUser.Name = "dgvRiwayatTransaksiUser";
             dgvRiwayatTransaksiUser.RowHeadersWidth = 82;
-            dgvRiwayatTransaksiUser.Size = new Size(1395, 472);
+            dgvRiwayatTransaksiUser.Size = new Size(1398, 561);
             dgvRiwayatTransaksiUser.TabIndex = 0;
             // 
             // lblTotalTransaksiUser
@@ -52,9 +53,10 @@
             lblTotalTransaksiUser.AutoSize = true;
             lblTotalTransaksiUser.BackColor = Color.Transparent;
             lblTotalTransaksiUser.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalTransaksiUser.Location = new Point(353, 226);
+            lblTotalTransaksiUser.Location = new Point(406, 239);
+            lblTotalTransaksiUser.Margin = new Padding(2, 0, 2, 0);
             lblTotalTransaksiUser.Name = "lblTotalTransaksiUser";
-            lblTotalTransaksiUser.Size = new Size(110, 37);
+            lblTotalTransaksiUser.Size = new Size(65, 24);
             lblTotalTransaksiUser.TabIndex = 1;
             lblTotalTransaksiUser.Text = "label1";
             lblTotalTransaksiUser.Click += lblTotalTransaksiUser_Click_1;
@@ -64,9 +66,10 @@
             lblSudahLunas.AutoSize = true;
             lblSudahLunas.BackColor = Color.Transparent;
             lblSudahLunas.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSudahLunas.Location = new Point(837, 225);
+            lblSudahLunas.Location = new Point(876, 239);
+            lblSudahLunas.Margin = new Padding(2, 0, 2, 0);
             lblSudahLunas.Name = "lblSudahLunas";
-            lblSudahLunas.Size = new Size(110, 37);
+            lblSudahLunas.Size = new Size(65, 24);
             lblSudahLunas.TabIndex = 2;
             lblSudahLunas.Text = "label1";
             lblSudahLunas.Click += lblSudahLunas_Click;
@@ -76,16 +79,17 @@
             lblBelumLunas.AutoSize = true;
             lblBelumLunas.BackColor = Color.Transparent;
             lblBelumLunas.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBelumLunas.Location = new Point(1322, 226);
+            lblBelumLunas.Location = new Point(1361, 239);
+            lblBelumLunas.Margin = new Padding(2, 0, 2, 0);
             lblBelumLunas.Name = "lblBelumLunas";
-            lblBelumLunas.Size = new Size(110, 37);
+            lblBelumLunas.Size = new Size(65, 24);
             lblBelumLunas.TabIndex = 3;
             lblBelumLunas.Text = "label1";
             lblBelumLunas.Click += lblBelumLunas_Click;
             // 
             // RiwayatTransaksiUSER
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
@@ -94,6 +98,7 @@
             Controls.Add(lblTotalTransaksiUser);
             Controls.Add(dgvRiwayatTransaksiUser);
             DoubleBuffered = true;
+            Margin = new Padding(2);
             Name = "RiwayatTransaksiUSER";
             Size = new Size(1538, 832);
             Load += Riwayat_transaksi_USER_Load;

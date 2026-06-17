@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System.Data;
 using project_smt2.Helpers;
+using System.Threading.Tasks.Dataflow;
 
 namespace project_smt2.Controllers
 {
@@ -18,18 +19,23 @@ namespace project_smt2.Controllers
 
                 string query =
                 @"SELECT
-                hewan_ternak_id,
-                nama_jenis,
-                jenis_kelamin,
-                umur,
-                berat,
-                harga,
-                nama_peternak,
-                status_hewan,
-                kondisi_fisik,
-                status_qurban
-                FROM view_list_hewan
-                WHERE kondisi_fisik <> 'Sakit'";
+                    ht.hewan_ternak_id,
+                    jh.nama_jenis,
+                    ht.jenis_kelamin,
+                    ht.umur,
+                    ht.berat,
+                    ht.harga,
+                    p.nama_peternak,
+                    ht.status_hewan,
+                    kq.kondisi_fisik,
+                    kq.status_qurban
+                FROM hewan_ternak ht
+                JOIN jenis_hewan jh
+                    ON ht.jenis_hewan_id = jh.jenis_hewan_id
+                JOIN peternak p
+                    ON ht.peternak_id = p.peternak_id
+                Join klasifikasi_qurban kq
+                    ON kq.hewan_ternak_id = ht.hewan_ternak_id";
 
                 NpgsqlDataAdapter da =
                     new NpgsqlDataAdapter(
@@ -46,8 +52,13 @@ namespace project_smt2.Controllers
             using (var conn = DatabaseHelper.GetConnection())
             {
                 conn.Open();
-                var cmd = new NpgsqlCommand(
-                    "SELECT COUNT(*) FROM hewan_ternak WHERE status_hewan = 'Tersedia'", conn);
+
+                var cmd = new NpgsqlCommand(@"
+            SELECT COUNT(*)
+            FROM hewan_ternak
+            WHERE status_hewan = 'Tersedia'
+        ", conn);
+
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
@@ -57,8 +68,13 @@ namespace project_smt2.Controllers
             using (var conn = DatabaseHelper.GetConnection())
             {
                 conn.Open();
-                var cmd = new NpgsqlCommand(
-                    "SELECT COUNT(*) FROM hewan_ternak WHERE status_hewan = 'Terjual'", conn);
+
+                var cmd = new NpgsqlCommand(@"
+            SELECT COUNT(*)
+            FROM hewan_ternak
+            WHERE status_hewan = 'Terjual'
+        ", conn);
+
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
@@ -68,46 +84,66 @@ namespace project_smt2.Controllers
             using (var conn = DatabaseHelper.GetConnection())
             {
                 conn.Open();
-                var cmd = new NpgsqlCommand(
-                    "SELECT COUNT(*) FROM hewan_ternak WHERE jenis_hewan = 'Sapi' AND status_hewan = 'Tersedia'", conn);
+
+                var cmd = new NpgsqlCommand(@"
+            SELECT COUNT(*)
+            FROM hewan_ternak ht
+            JOIN jenis_hewan jh
+                ON ht.jenis_hewan_id = jh.jenis_hewan_id
+            WHERE jh.hewan = 'Sapi'
+            AND ht.status_hewan = 'Tersedia'
+        ", conn);
+
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
-
         public int GetTotalKambing()
         {
             using (var conn = DatabaseHelper.GetConnection())
             {
                 conn.Open();
-                var cmd = new NpgsqlCommand(
-                    "SELECT COUNT(*) FROM hewan_ternak WHERE jenis_hewan = 'Kambing' AND status_hewan = 'Tersedia'", conn);
+
+                var cmd = new NpgsqlCommand(@"
+            SELECT COUNT(*)
+            FROM hewan_ternak ht
+            JOIN jenis_hewan jh
+                ON ht.jenis_hewan_id = jh.jenis_hewan_id
+            WHERE jh.hewan = 'Kambing'
+            AND ht.status_hewan = 'Tersedia'
+        ", conn);
+
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
 
         public void TambahkanHewanTernak(
-            string jenis_hewan,
-            string jenis_kelamin,
-            int umur,
-            int berat,
-            int harga,
-            int peternak_id)
+             int jenis_hewan_id,
+             string jenis_kelamin,
+             int umur,
+             int berat,
+             int harga,
+             int peternak_id)
         {
-            using (var conn = DatabaseHelper.GetConnection())
             {
-                conn.Open();
-                var cmd = new NpgsqlCommand(
-                    @"INSERT INTO hewan_ternak (jenis_hewan, jenis_kelamin, umur, berat, harga, peternak_id)
-                      VALUES (@jenis_hewan, @jenis_kelamin, @umur, @berat, @harga, @peternak_id", conn);
+                using (var conn = DatabaseHelper.GetConnection())
+                {
+                    conn.Open();
+                    var cmd = new NpgsqlCommand(
+                        @"INSERT INTO hewan_ternak
+                     (peternak_id, jenis_hewan_id, jenis_kelamin, umur, harga, berat)
+                     VALUES
+                     (@peternak_id, @jenis_hewan_id, @jenis_kelamin, @umur, @harga, @berat)",
+                         conn);
 
-                cmd.Parameters.AddWithValue("@jenis_hewan", jenis_hewan);
-                cmd.Parameters.AddWithValue("@jenis_kelamin", jenis_kelamin);
-                cmd.Parameters.AddWithValue("@umur", umur);
-                cmd.Parameters.AddWithValue("@berat", berat);
-                cmd.Parameters.AddWithValue("@harga", harga);
-                cmd.Parameters.AddWithValue("@peternak_id", peternak_id);
+                    cmd.Parameters.AddWithValue("@peternak_id", peternak_id);
+                    cmd.Parameters.AddWithValue("@jenis_hewan_id", jenis_hewan_id);
+                    cmd.Parameters.AddWithValue("@jenis_kelamin", jenis_kelamin);
+                    cmd.Parameters.AddWithValue("@umur", umur);
+                    cmd.Parameters.AddWithValue("@harga", harga);
+                    cmd.Parameters.AddWithValue("@berat", berat);
 
-                cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
+                }
             }
         }
     }

@@ -36,6 +36,7 @@
             lblHarga = new Label();
             cbBerat = new ComboBox();
             cbHarga = new ComboBox();
+            btBeli = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvListHewanQurban).BeginInit();
             SuspendLayout();
             // 
@@ -58,14 +59,12 @@
             btnKembali.BackgroundImageLayout = ImageLayout.Stretch;
             btnKembali.Font = new Font("Arial Narrow", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnKembali.ForeColor = Color.WhiteSmoke;
-            btnKembali.Location = new Point(1080, 703);
+            btnKembali.Location = new Point(1073, 703);
             btnKembali.Name = "btnKembali";
-            btnKembali.Size = new Size(118, 80);
+            btnKembali.Size = new Size(131, 80);
             btnKembali.TabIndex = 1;
             btnKembali.Text = "Kembali";
             btnKembali.UseVisualStyleBackColor = false;
-            cbBerat.SelectedIndexChanged += cbBerat_SelectedIndexChanged;
-            cbHarga.SelectedIndexChanged += cbHarga_SelectedIndexChanged;
             btnKembali.Click += btnKembali_Click;
             // 
             // label1
@@ -102,6 +101,7 @@
             cbBerat.Name = "cbBerat";
             cbBerat.Size = new Size(151, 28);
             cbBerat.TabIndex = 5;
+            cbBerat.SelectedIndexChanged += cbBerat_SelectedIndexChanged;
             // 
             // cbHarga
             // 
@@ -110,6 +110,22 @@
             cbHarga.Name = "cbHarga";
             cbHarga.Size = new Size(151, 28);
             cbHarga.TabIndex = 6;
+            cbHarga.SelectedIndexChanged += cbHarga_SelectedIndexChanged;
+            // 
+            // btBeli
+            // 
+            btBeli.BackColor = Color.Green;
+            btBeli.BackgroundImageLayout = ImageLayout.Stretch;
+            btBeli.FlatStyle = FlatStyle.Popup;
+            btBeli.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btBeli.ForeColor = Color.White;
+            btBeli.Location = new Point(1236, 711);
+            btBeli.Name = "btBeli";
+            btBeli.Size = new Size(131, 70);
+            btBeli.TabIndex = 7;
+            btBeli.Text = "Beli";
+            btBeli.UseVisualStyleBackColor = false;
+            btBeli.Click += btBeli_Click;
             // 
             // ListHewanQurban
             // 
@@ -117,6 +133,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
+            Controls.Add(btBeli);
             Controls.Add(cbHarga);
             Controls.Add(cbBerat);
             Controls.Add(lblHarga);
@@ -141,5 +158,6 @@
         private Label lblHarga;
         private ComboBox cbBerat;
         private ComboBox cbHarga;
+        private Button btBeli;
     }
 }

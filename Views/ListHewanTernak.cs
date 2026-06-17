@@ -19,8 +19,10 @@ namespace project_smt2.Views
         {
             InitializeComponent();
 
-            this.Load += ListHewanTernak_Load; 
+            this.Load += ListHewanTernak_Load;
         }
+
+        public event Action<int, decimal> BtnBeliClicked;
 
         private void ListHewanTernak_Load(object sender, EventArgs e)
         {
@@ -173,6 +175,41 @@ namespace project_smt2.Views
         private void btnKembali_Click(object sender, EventArgs e)
         {
             BtnKembaliClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void btnBeli_Click(object sender, EventArgs e)
+        {
+            if (dgvListHewanTernak.CurrentRow == null)
+            {
+                MessageBox.Show("Pilih hewan terlebih dahulu");
+                return;
+            }
+
+            string statusHewan =
+                dgvListHewanTernak.CurrentRow
+                .Cells["Status_hewan"]
+                .Value.ToString();
+
+            MessageBox.Show(statusHewan);
+
+            if (statusHewan == "Terjual")
+            {
+                MessageBox.Show(
+                    "Hewan ini sudah terjual!",
+                    "Peringatan",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            int hewanId = Convert.ToInt32(
+                dgvListHewanTernak.CurrentRow.Cells["hewan_ternak_id"].Value);
+
+            decimal harga = Convert.ToDecimal(
+                dgvListHewanTernak.CurrentRow.Cells["harga"].Value);
+
+            BtnBeliClicked?.Invoke(hewanId, harga);
         }
     }
 }

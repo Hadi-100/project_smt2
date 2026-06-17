@@ -34,7 +34,6 @@
             dgvPesananSaya = new DataGridView();
             lblTotalPesanan = new Label();
             lblProsesPengiriman = new Label();
-            lblSudahSelesai = new Label();
             lblSudahTerkirim = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvPesananSaya).BeginInit();
             SuspendLayout();
@@ -62,14 +61,13 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvPesananSaya.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvPesananSaya.Location = new Point(69, 338);
-            dgvPesananSaya.Margin = new Padding(5);
+            dgvPesananSaya.Location = new Point(69, 336);
             dgvPesananSaya.MultiSelect = false;
             dgvPesananSaya.Name = "dgvPesananSaya";
             dgvPesananSaya.ReadOnly = true;
             dgvPesananSaya.RowHeadersVisible = false;
             dgvPesananSaya.RowHeadersWidth = 51;
-            dgvPesananSaya.Size = new Size(1394, 471);
+            dgvPesananSaya.Size = new Size(1399, 473);
             dgvPesananSaya.TabIndex = 0;
             dgvPesananSaya.CellContentClick += dgvPesananSaya_CellContentClick;
             // 
@@ -78,10 +76,9 @@
             lblTotalPesanan.AutoSize = true;
             lblTotalPesanan.BackColor = Color.Transparent;
             lblTotalPesanan.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalPesanan.Location = new Point(360, 224);
-            lblTotalPesanan.Margin = new Padding(5, 0, 5, 0);
+            lblTotalPesanan.Location = new Point(386, 228);
             lblTotalPesanan.Name = "lblTotalPesanan";
-            lblTotalPesanan.Size = new Size(110, 37);
+            lblTotalPesanan.Size = new Size(65, 24);
             lblTotalPesanan.TabIndex = 1;
             lblTotalPesanan.Text = "label1";
             lblTotalPesanan.Click += lblTotalPesanan_Click;
@@ -91,49 +88,38 @@
             lblProsesPengiriman.AutoSize = true;
             lblProsesPengiriman.BackColor = Color.Transparent;
             lblProsesPengiriman.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblProsesPengiriman.Location = new Point(847, 224);
-            lblProsesPengiriman.Margin = new Padding(5, 0, 5, 0);
+            lblProsesPengiriman.Location = new Point(862, 228);
             lblProsesPengiriman.Name = "lblProsesPengiriman";
-            lblProsesPengiriman.Size = new Size(110, 37);
+            lblProsesPengiriman.Size = new Size(65, 24);
             lblProsesPengiriman.TabIndex = 2;
             lblProsesPengiriman.Text = "label2";
             lblProsesPengiriman.Click += lblProsesPengiriman_Click;
-            // 
-            // lblSudahSelesai
-            // 
-            lblSudahSelesai.AutoSize = true;
-            lblSudahSelesai.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSudahSelesai.Location = new Point(1996, 357);
-            lblSudahSelesai.Margin = new Padding(5, 0, 5, 0);
-            lblSudahSelesai.Name = "lblSudahSelesai";
-            lblSudahSelesai.Size = new Size(160, 56);
-            lblSudahSelesai.TabIndex = 3;
-            lblSudahSelesai.Text = "label3";
             // 
             // lblSudahTerkirim
             // 
             lblSudahTerkirim.AutoSize = true;
             lblSudahTerkirim.BackColor = Color.Transparent;
             lblSudahTerkirim.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSudahTerkirim.Location = new Point(1316, 224);
+            lblSudahTerkirim.Location = new Point(1361, 228);
+            lblSudahTerkirim.Margin = new Padding(2, 0, 2, 0);
             lblSudahTerkirim.Name = "lblSudahTerkirim";
-            lblSudahTerkirim.Size = new Size(110, 37);
+            lblSudahTerkirim.Size = new Size(65, 24);
             lblSudahTerkirim.TabIndex = 4;
             lblSudahTerkirim.Text = "label1";
             lblSudahTerkirim.Click += lblSudahTerkirim_Click;
             // 
             // PesananSaya
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             Controls.Add(lblSudahTerkirim);
-            Controls.Add(lblSudahSelesai);
             Controls.Add(lblProsesPengiriman);
             Controls.Add(lblTotalPesanan);
             Controls.Add(dgvPesananSaya);
             DoubleBuffered = true;
+            Margin = new Padding(2, 2, 2, 2);
             Name = "PesananSaya";
             Size = new Size(1538, 832);
             ((System.ComponentModel.ISupportInitialize)dgvPesananSaya).EndInit();
@@ -146,7 +132,6 @@
         private DataGridView dgvPesananSaya;
         private Label lblTotalPesanan;
         private Label lblProsesPengiriman;
-        private Label lblSudahSelesai;
         private Label lblSudahTerkirim;
     }
 }

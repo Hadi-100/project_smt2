@@ -17,20 +17,28 @@ namespace project_smt2.Views
 
             this.username = namaLengkap;
             lblNamaUser.Text = namaLengkap;
+
             listHewanTernak1.BtnKembaliClicked += list_hewan_ternak1_Load_btnKembaliClicked;
             listHewanQurban1.BtnKembaliClicked += list_hewan_qurban1_Load_btnKembaliClicked;
 
+            listHewanTernak1.BtnBeliClicked += List_BtnBeliClicked;
+            listHewanQurban1.BtnBeliClicked += ListQurban_BtnBeliClicked;
+
             masukkanAlamat1.LanjutKePembayaran += MasukkanAlamat1_LanjutKePembayaran;
 
-            new AutoScaleHelper(this);
+           
 
+            new AutoScaleHelper(this);
         }
+
+        private Panel pnlContent;
 
         private void MasukkanAlamat1_LanjutKePembayaran(int hewanId, int alamatId, decimal harga)
         {
             PembayaranForm pembayaran = new PembayaranForm(hewanId, alamatId, harga);
 
-            pembayaran.Dock = DockStyle.Fill;
+            pembayaran.Location = new Point(0, 156);
+            pembayaran.Size = new Size(1538, 832);
             pembayaran.BtnBatal_Click += Pembayaran_BtnBatal_Click;
 
             Controls.Add(pembayaran);
@@ -40,7 +48,7 @@ namespace project_smt2.Views
             masukkanAlamat1.Hide();
         }
 
-        private void Pembayaran_BtnBatal_Click(object sender,EventArgs e)
+        private void Pembayaran_BtnBatal_Click(object sender, EventArgs e)
         {
             masukkanAlamat1.Show();
 
@@ -49,6 +57,28 @@ namespace project_smt2.Views
                 Controls.Remove(pembayaran);
                 pembayaran.Dispose();
             }
+        }
+
+        private void ListQurban_BtnBeliClicked(int hewanId,decimal harga)
+        {
+            MasukkanAlamat alamat =
+                new MasukkanAlamat(
+                    hewanId,
+                    harga);
+
+            alamat.BtnKembaliClicked +=
+                MasukkanAlamat_BtnKembaliClicked;
+
+            alamat.LanjutKePembayaran +=
+                MasukkanAlamat1_LanjutKePembayaran;
+
+            alamat.Dock = DockStyle.Fill;
+
+            Controls.Add(alamat);
+
+            alamat.BringToFront();
+
+            listHewanQurban1.Hide();
         }
 
 
@@ -68,9 +98,8 @@ namespace project_smt2.Views
             listHewanTernak1 = new ListHewanTernak();
             listHewanQurban1 = new ListHewanQurban();
             masukkanAlamat1 = new MasukkanAlamat();
-            //pembayaranForm1 = new PembayaranForm();
+            riwayatTransaksiuser1 = new RiwayatTransaksiUSER();
             SuspendLayout();
-
             // 
             // btnHewanTernak
             // 
@@ -169,7 +198,7 @@ namespace project_smt2.Views
             lblNamaUser.ForeColor = Color.White;
             lblNamaUser.Location = new Point(106, 56);
             lblNamaUser.Name = "lblNamaUser";
-            lblNamaUser.Size = new Size(68, 25);
+            lblNamaUser.Size = new Size(45, 16);
             lblNamaUser.TabIndex = 6;
             lblNamaUser.Text = "label1";
             lblNamaUser.Click += lblNamaUser_Click_1;
@@ -179,6 +208,7 @@ namespace project_smt2.Views
             riwayatTransaksiUSER.BackgroundImage = (Image)resources.GetObject("riwayatTransaksiUSER.BackgroundImage");
             riwayatTransaksiUSER.BackgroundImageLayout = ImageLayout.Stretch;
             riwayatTransaksiUSER.Location = new Point(0, 156);
+            riwayatTransaksiUSER.Margin = new Padding(2);
             riwayatTransaksiUSER.Name = "riwayatTransaksiUSER";
             riwayatTransaksiUSER.Size = new Size(1538, 832);
             riwayatTransaksiUSER.TabIndex = 7;
@@ -188,7 +218,7 @@ namespace project_smt2.Views
             // 
             pesananSaya1.BackgroundImage = (Image)resources.GetObject("pesananSaya1.BackgroundImage");
             pesananSaya1.BackgroundImageLayout = ImageLayout.Stretch;
-            pesananSaya1.Location = new Point(-11, 156);
+            pesananSaya1.Location = new Point(0, 156);
             pesananSaya1.Margin = new Padding(2);
             pesananSaya1.Name = "pesananSaya1";
             pesananSaya1.Size = new Size(1538, 832);
@@ -204,7 +234,7 @@ namespace project_smt2.Views
             lblNamaRole.ForeColor = Color.Yellow;
             lblNamaRole.Location = new Point(106, 80);
             lblNamaRole.Name = "lblNamaRole";
-            lblNamaRole.Size = new Size(54, 24);
+            lblNamaRole.Size = new Size(34, 16);
             lblNamaRole.TabIndex = 9;
             lblNamaRole.Text = "User";
             lblNamaRole.Click += label1_Click;
@@ -229,28 +259,31 @@ namespace project_smt2.Views
             // 
             // masukkanAlamat1
             // 
-            masukkanAlamat1.BackgroundImage = (Image)resources.GetObject("masukkanAlamat1.BackgroundImage");
             masukkanAlamat1.BackgroundImageLayout = ImageLayout.Stretch;
             masukkanAlamat1.Location = new Point(0, 156);
+            masukkanAlamat1.Margin = new Padding(2);
             masukkanAlamat1.Name = "masukkanAlamat1";
             masukkanAlamat1.Size = new Size(1538, 832);
             masukkanAlamat1.TabIndex = 10;
             masukkanAlamat1.Load += masukkanAlamat1_Load;
             // 
-            // pembayaranForm1
+            // riwayatTransaksiuser1
             // 
-            //this.pembayaranForm1.BackgroundImage = (Image)resources.GetObject("pembayaranForm1.BackgroundImage");
-            //this.pembayaranForm1.BackgroundImageLayout = ImageLayout.Stretch;
-            //this.pembayaranForm1.Location = new Point(0, 156);
-            //this.pembayaranForm1.Name = "pembayaranForm1";
-            //this.pembayaranForm1.Size = new Size(1538, 988);
-            //this.pembayaranForm1.TabIndex = 11;
+            riwayatTransaksiuser1.BackgroundImage = (Image)resources.GetObject("riwayatTransaksiuser1.BackgroundImage");
+            riwayatTransaksiuser1.BackgroundImageLayout = ImageLayout.Stretch;
+            riwayatTransaksiuser1.Location = new Point(0, 156);
+            riwayatTransaksiuser1.Margin = new Padding(2);
+            riwayatTransaksiuser1.Name = "riwayatTransaksiuser1";
+            riwayatTransaksiuser1.Size = new Size(1538, 832);
+            riwayatTransaksiuser1.TabIndex = 12;
+            riwayatTransaksiuser1.Load += riwayatTransaksiuser1_Load;
             // 
             // DashboardUserForm
             // 
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1538, 988);
+            Controls.Add(riwayatTransaksiuser1);
             Controls.Add(listHewanQurban1);
             Controls.Add(listHewanTernak1);
             Controls.Add(masukkanAlamat1);
@@ -289,15 +322,19 @@ namespace project_smt2.Views
             listHewanTernak1.BringToFront();
 
             pesananSaya1.Hide();
-            //riwayat_transaksi.Hide();
+            riwayatTransaksiuser1.Hide();
+            masukkanAlamat1.Hide();
+            listHewanQurban1.Hide();
+
         }
 
         private void btnHewanQurban_Click(object sender, EventArgs e)
         {
             listHewanQurban1.Show();
             listHewanTernak1.Hide();
-            riwayat_transaksi_user1.Hide();
+            riwayatTransaksiuser1.Hide();
             pesananSaya1.Hide();
+            masukkanAlamat1.Hide();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -318,30 +355,50 @@ namespace project_smt2.Views
 
         private void button4_Click(object sender, EventArgs e)
         {
-            riwayatTransaksiUSER.Show();
+            riwayatTransaksiuser1.Show();
             pesananSaya1.Hide();
             listHewanTernak1.Hide();
-
+            listHewanQurban1.Hide();
+            listHewanTernak1.Hide();
         }
 
         private void btnPesananSaya_Click(object sender, EventArgs e)
         {
             pesananSaya1.Show();
-            riwayat_transaksi_user1.Hide();
+            riwayatTransaksiuser1.Hide();
             listHewanTernak1.Hide();
-            riwayatTransaksiUSER.Hide();
+            listHewanQurban1.Hide();
+            masukkanAlamat1.Hide();
         }
+
+
+        private void MasukkanAlamat_BtnKembaliClicked(
+    object sender,
+    EventArgs e)
+        {
+            if (sender is MasukkanAlamat alamat)
+            {
+                Controls.Remove(alamat);
+                alamat.Dispose();
+            }
+
+            listHewanTernak1.Show();
+            listHewanTernak1.BringToFront();
+        }
+
 
         private void btnHalamanUtama_Click(object sender, EventArgs e)
         {
+            riwayatTransaksiuser1.Hide();
             riwayatTransaksiUSER.Hide();
             pesananSaya1.Hide();
             listHewanTernak1.Hide();
+            masukkanAlamat1.Hide();
+            listHewanQurban1.Hide();
         }
 
         private void riwayat_transaksi_user1_Load(object sender, EventArgs e)
         {
-
         }
 
         private void pesananSaya1_Load(object sender, EventArgs e)
@@ -364,28 +421,58 @@ namespace project_smt2.Views
 
         }
 
+        private void List_BtnBeliClicked(int hewanId, decimal harga)
+        {
+            MasukkanAlamat alamat =
+                new MasukkanAlamat(
+                    hewanId,
+                    harga);
+
+            alamat.BtnKembaliClicked +=
+                MasukkanAlamat_BtnKembaliClicked;
+
+            alamat.LanjutKePembayaran +=
+                MasukkanAlamat1_LanjutKePembayaran;
+
+            alamat.Location = new Point(0, 156);
+            alamat.Size = new Size(1538, 832);
+
+            Controls.Add(alamat);
+
+            alamat.BringToFront();
+
+            listHewanTernak1.Hide();
+        }
         private void btnHewanTernakUser_Click(object sender, EventArgs e)
         {
-            listHewanTernak1.Show();
-            riwayat_transaksi_user1.Hide();
-            pesananSaya1.Hide();    
+            ListHewanTernak list = new ListHewanTernak();
+
+            list.BtnBeliClicked += List_BtnBeliClicked;
+
+            Controls.Clear();
+            Controls.Add(list);
         }
 
         private void list_hewan_ternak1_Load_btnKembaliClicked(object sender, EventArgs e)
         {
             listHewanTernak1.Hide();
-            riwayat_transaksi_user1.Hide();
+            riwayatTransaksiUSER.Hide();
             pesananSaya1.Hide();
         }
         private void list_hewan_qurban1_Load_btnKembaliClicked(object sender, EventArgs e)
         {
             listHewanQurban1.Hide();
-            riwayat_transaksi_user1.Hide();
+            riwayatTransaksiUSER.Hide();
             pesananSaya1.Hide();
             listHewanTernak1.Hide();
         }
 
         private void masukkanAlamat1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void riwayatTransaksiuser1_Load(object sender, EventArgs e)
         {
 
         }

@@ -18,6 +18,7 @@ namespace project_smt2.Views
         private ListHewanTernak listHewanTernak1;
         private ListHewanQurban listHewanQurban1;
         private MasukkanAlamat masukkanAlamat1;
+        private RiwayatTransaksiUSER riwayatTransaksiuser1;
         //private PembayaranForm pembayaranForm1;
     }
 }

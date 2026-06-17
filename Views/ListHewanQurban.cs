@@ -12,6 +12,8 @@ namespace project_smt2.Views
     public partial class ListHewanQurban : UserControl
     {
         public event EventHandler BtnKembaliClicked;
+
+        public event Action<int, decimal> BtnBeliClicked;
         public ListHewanQurban()
         {
             InitializeComponent();
@@ -37,7 +39,7 @@ namespace project_smt2.Views
 
             LoadDataHewan();
         }
-        
+
         private void LoadDataHewan()
         {
             HewanController controller = new HewanController();
@@ -122,6 +124,40 @@ namespace project_smt2.Views
         private void dgvListHewanQurban_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btBeli_Click(object sender, EventArgs e)
+        {
+            if (dgvListHewanQurban.CurrentRow == null)
+            {
+                MessageBox.Show("Pilih hewan qurban terlebih dahulu");
+                return;
+            }
+            string statusHewan =
+                dgvListHewanQurban.CurrentRow
+                .Cells["Status_hewan"]
+                .Value.ToString();
+
+            MessageBox.Show(statusHewan);
+
+            if (statusHewan == "Terjual")
+            {
+                MessageBox.Show(
+                    "Hewan ini sudah terjual!",
+                    "Peringatan",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            int hewanId = Convert.ToInt32(
+                dgvListHewanQurban.CurrentRow.Cells["hewan_ternak_id"].Value);
+
+            decimal harga = Convert.ToDecimal(
+                dgvListHewanQurban.CurrentRow.Cells["harga"].Value);
+
+            BtnBeliClicked?.Invoke(hewanId, harga);
         }
     }
 }

@@ -27,7 +27,6 @@ namespace project_smt2.Views
             dataGridViewRiwayat.Columns["nama_lengkap"].HeaderText = "Nama Lengkap";
             dataGridViewRiwayat.Columns["tanggal_transaksi"].HeaderText = "Tanggal Transaksi";
             dataGridViewRiwayat.Columns["harga_jual"].HeaderText = "Harga Jual";
-            dataGridViewRiwayat.Columns["subtotal"].HeaderText = "Subtotal";
             dataGridViewRiwayat.Columns["status_pembayaran"].HeaderText = "Status Pembayaran";
 
             lblTotalTransaksi.Text = controller.GetTotalTransaksi().ToString();
