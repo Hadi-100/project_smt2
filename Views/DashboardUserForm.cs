@@ -20,8 +20,37 @@ namespace project_smt2.Views
             listHewanTernak1.BtnKembaliClicked += list_hewan_ternak1_Load_btnKembaliClicked;
             listHewanQurban1.BtnKembaliClicked += list_hewan_qurban1_Load_btnKembaliClicked;
 
+            masukkanAlamat1.LanjutKePembayaran += MasukkanAlamat1_LanjutKePembayaran;
+
             new AutoScaleHelper(this);
+
         }
+
+        private void MasukkanAlamat1_LanjutKePembayaran(int hewanId, int alamatId, decimal harga)
+        {
+            PembayaranForm pembayaran = new PembayaranForm(hewanId, alamatId, harga);
+
+            pembayaran.Dock = DockStyle.Fill;
+            pembayaran.BtnBatal_Click += Pembayaran_BtnBatal_Click;
+
+            Controls.Add(pembayaran);
+
+            pembayaran.BringToFront();
+
+            masukkanAlamat1.Hide();
+        }
+
+        private void Pembayaran_BtnBatal_Click(object sender,EventArgs e)
+        {
+            masukkanAlamat1.Show();
+
+            if (sender is PembayaranForm pembayaran)
+            {
+                Controls.Remove(pembayaran);
+                pembayaran.Dispose();
+            }
+        }
+
 
         private void InitializeComponent()
         {
@@ -33,12 +62,15 @@ namespace project_smt2.Views
             btnPesananSaya = new Button();
             btnLogOut = new Button();
             lblNamaUser = new Label();
-            riwayat_transaksi_user1 = new Riwayat_transaksi_USER();
+            riwayatTransaksiUSER = new RiwayatTransaksiUSER();
             pesananSaya1 = new PesananSaya();
             lblNamaRole = new Label();
             listHewanTernak1 = new ListHewanTernak();
             listHewanQurban1 = new ListHewanQurban();
+            masukkanAlamat1 = new MasukkanAlamat();
+            //pembayaranForm1 = new PembayaranForm();
             SuspendLayout();
+
             // 
             // btnHewanTernak
             // 
@@ -133,25 +165,24 @@ namespace project_smt2.Views
             lblNamaUser.AutoSize = true;
             lblNamaUser.BackColor = Color.Transparent;
             lblNamaUser.FlatStyle = FlatStyle.Popup;
-            lblNamaUser.Font = new Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNamaUser.Font = new Font("Arial", 8F);
             lblNamaUser.ForeColor = Color.White;
-            lblNamaUser.Location = new Point(104, 53);
+            lblNamaUser.Location = new Point(106, 56);
             lblNamaUser.Name = "lblNamaUser";
-            lblNamaUser.Size = new Size(71, 26);
+            lblNamaUser.Size = new Size(68, 25);
             lblNamaUser.TabIndex = 6;
             lblNamaUser.Text = "label1";
             lblNamaUser.Click += lblNamaUser_Click_1;
             // 
-            // riwayat_transaksi_user1
+            // riwayatTransaksiUSER
             // 
-            riwayat_transaksi_user1.BackgroundImage = (Image)resources.GetObject("riwayat_transaksi_user1.BackgroundImage");
-            riwayat_transaksi_user1.BackgroundImageLayout = ImageLayout.Stretch;
-            riwayat_transaksi_user1.Location = new Point(0, 156);
-            riwayat_transaksi_user1.Margin = new Padding(2, 2, 2, 2);
-            riwayat_transaksi_user1.Name = "riwayat_transaksi_user1";
-            riwayat_transaksi_user1.Size = new Size(1538, 832);
-            riwayat_transaksi_user1.TabIndex = 7;
-            riwayat_transaksi_user1.Load += riwayat_transaksi_user1_Load;
+            riwayatTransaksiUSER.BackgroundImage = (Image)resources.GetObject("riwayatTransaksiUSER.BackgroundImage");
+            riwayatTransaksiUSER.BackgroundImageLayout = ImageLayout.Stretch;
+            riwayatTransaksiUSER.Location = new Point(0, 156);
+            riwayatTransaksiUSER.Name = "riwayatTransaksiUSER";
+            riwayatTransaksiUSER.Size = new Size(1538, 832);
+            riwayatTransaksiUSER.TabIndex = 7;
+            riwayatTransaksiUSER.Load += riwayat_transaksi_user1_Load;
             // 
             // pesananSaya1
             // 
@@ -169,11 +200,11 @@ namespace project_smt2.Views
             lblNamaRole.AutoSize = true;
             lblNamaRole.BackColor = Color.Transparent;
             lblNamaRole.FlatStyle = FlatStyle.Popup;
-            lblNamaRole.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNamaRole.Font = new Font("Arial", 7.8F);
             lblNamaRole.ForeColor = Color.Yellow;
-            lblNamaRole.Location = new Point(104, 82);
+            lblNamaRole.Location = new Point(106, 80);
             lblNamaRole.Name = "lblNamaRole";
-            lblNamaRole.Size = new Size(43, 19);
+            lblNamaRole.Size = new Size(54, 24);
             lblNamaRole.TabIndex = 9;
             lblNamaRole.Text = "User";
             lblNamaRole.Click += label1_Click;
@@ -196,6 +227,25 @@ namespace project_smt2.Views
             listHewanQurban1.Size = new Size(1538, 832);
             listHewanQurban1.TabIndex = 11;
             // 
+            // masukkanAlamat1
+            // 
+            masukkanAlamat1.BackgroundImage = (Image)resources.GetObject("masukkanAlamat1.BackgroundImage");
+            masukkanAlamat1.BackgroundImageLayout = ImageLayout.Stretch;
+            masukkanAlamat1.Location = new Point(0, 156);
+            masukkanAlamat1.Name = "masukkanAlamat1";
+            masukkanAlamat1.Size = new Size(1538, 832);
+            masukkanAlamat1.TabIndex = 10;
+            masukkanAlamat1.Load += masukkanAlamat1_Load;
+            // 
+            // pembayaranForm1
+            // 
+            //this.pembayaranForm1.BackgroundImage = (Image)resources.GetObject("pembayaranForm1.BackgroundImage");
+            //this.pembayaranForm1.BackgroundImageLayout = ImageLayout.Stretch;
+            //this.pembayaranForm1.Location = new Point(0, 156);
+            //this.pembayaranForm1.Name = "pembayaranForm1";
+            //this.pembayaranForm1.Size = new Size(1538, 988);
+            //this.pembayaranForm1.TabIndex = 11;
+            // 
             // DashboardUserForm
             // 
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
@@ -203,9 +253,10 @@ namespace project_smt2.Views
             ClientSize = new Size(1538, 988);
             Controls.Add(listHewanQurban1);
             Controls.Add(listHewanTernak1);
+            Controls.Add(masukkanAlamat1);
             Controls.Add(lblNamaRole);
             Controls.Add(pesananSaya1);
-            Controls.Add(riwayat_transaksi_user1);
+            Controls.Add(riwayatTransaksiUSER);
             Controls.Add(lblNamaUser);
             Controls.Add(btnLogOut);
             Controls.Add(btnPesananSaya);
@@ -217,6 +268,7 @@ namespace project_smt2.Views
             Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Name = "DashboardUserForm";
+            Text = "2";
             WindowState = FormWindowState.Maximized;
             ResumeLayout(false);
             PerformLayout();
@@ -266,7 +318,7 @@ namespace project_smt2.Views
 
         private void button4_Click(object sender, EventArgs e)
         {
-            riwayat_transaksi_user1.Show();
+            riwayatTransaksiUSER.Show();
             pesananSaya1.Hide();
             listHewanTernak1.Hide();
 
@@ -277,11 +329,12 @@ namespace project_smt2.Views
             pesananSaya1.Show();
             riwayat_transaksi_user1.Hide();
             listHewanTernak1.Hide();
+            riwayatTransaksiUSER.Hide();
         }
 
         private void btnHalamanUtama_Click(object sender, EventArgs e)
         {
-            riwayat_transaksi_user1.Hide();
+            riwayatTransaksiUSER.Hide();
             pesananSaya1.Hide();
             listHewanTernak1.Hide();
         }
@@ -330,6 +383,11 @@ namespace project_smt2.Views
             riwayat_transaksi_user1.Hide();
             pesananSaya1.Hide();
             listHewanTernak1.Hide();
+        }
+
+        private void masukkanAlamat1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
