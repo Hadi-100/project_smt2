@@ -49,13 +49,24 @@ namespace project_smt2.Views
             lbDistribusi = new Label();
             lbPendapatanTotal = new Label();
             dataHewanForm2 = new DataHewanForm();
+            dgvDashAdmin = new DataGridView();
+            transaksi_id = new DataGridViewTextBoxColumn();
+            nama_lengkap = new DataGridViewTextBoxColumn();
+            tanggal_transaksi = new DataGridViewTextBoxColumn();
+            harga_jual = new DataGridViewTextBoxColumn();
+            subtotal = new DataGridViewTextBoxColumn();
+            status_pembayaran = new DataGridViewTextBoxColumn();
+            distribusiHewanForm2 = new DistribusiHewanForm();
+            laporanPenjualanForm1 = new LaporanPenjualanForm();
+            editKlasifikasiQurbanForm1 = new EditKlasifikasiQurbanForm();
+            ((System.ComponentModel.ISupportInitialize)dgvDashAdmin).BeginInit();
             SuspendLayout();
             // 
             // dataUserForm1
             // 
             dataUserForm1.BackgroundImage = (Image)resources.GetObject("dataUserForm1.BackgroundImage");
             dataUserForm1.BackgroundImageLayout = ImageLayout.Stretch;
-            dataUserForm1.Location = new Point(281, 0);
+            dataUserForm1.Location = new Point(280, 0);
             dataUserForm1.Margin = new Padding(2);
             dataUserForm1.Name = "dataUserForm1";
             dataUserForm1.Size = new Size(1538, 987);
@@ -65,7 +76,7 @@ namespace project_smt2.Views
             // 
             tambah_hewan_ternak1.BackgroundImage = (Image)resources.GetObject("tambah_hewan_ternak1.BackgroundImage");
             tambah_hewan_ternak1.BackgroundImageLayout = ImageLayout.Stretch;
-            tambah_hewan_ternak1.Location = new Point(281, 0);
+            tambah_hewan_ternak1.Location = new Point(280, 0);
             tambah_hewan_ternak1.Margin = new Padding(2);
             tambah_hewan_ternak1.Name = "tambah_hewan_ternak1";
             tambah_hewan_ternak1.Size = new Size(1538, 987);
@@ -75,7 +86,7 @@ namespace project_smt2.Views
             // 
             riwayatTransaksiForm1.BackgroundImage = (Image)resources.GetObject("riwayatTransaksiForm1.BackgroundImage");
             riwayatTransaksiForm1.BackgroundImageLayout = ImageLayout.Stretch;
-            riwayatTransaksiForm1.Location = new Point(281, 0);
+            riwayatTransaksiForm1.Location = new Point(280, 0);
             riwayatTransaksiForm1.Margin = new Padding(2);
             riwayatTransaksiForm1.Name = "riwayatTransaksiForm1";
             riwayatTransaksiForm1.Size = new Size(1538, 987);
@@ -179,63 +190,65 @@ namespace project_smt2.Views
             // 
             // lbJumlahuser
             // 
-            lbJumlahuser.AutoSize = true;
-            lbJumlahuser.Font = new Font("Arial", 15F);
-            lbJumlahuser.Location = new Point(426, 306);
+            lbJumlahuser.BackColor = Color.Transparent;
+            lbJumlahuser.Font = new Font("Arial", 15F, FontStyle.Bold);
+            lbJumlahuser.Location = new Point(442, 306);
             lbJumlahuser.Name = "lbJumlahuser";
             lbJumlahuser.Size = new Size(56, 28);
             lbJumlahuser.TabIndex = 11;
-            lbJumlahuser.Text = "Null";
+            lbJumlahuser.Text = "0";
             // 
             // lbTotalTransaksi
             // 
-            lbTotalTransaksi.AutoSize = true;
-            lbTotalTransaksi.Font = new Font("Arial", 15F);
-            lbTotalTransaksi.Location = new Point(690, 306);
+            lbTotalTransaksi.BackColor = Color.Transparent;
+            lbTotalTransaksi.Font = new Font("Arial", 15F, FontStyle.Bold);
+            lbTotalTransaksi.Location = new Point(713, 310);
             lbTotalTransaksi.Name = "lbTotalTransaksi";
             lbTotalTransaksi.Size = new Size(56, 28);
             lbTotalTransaksi.TabIndex = 12;
-            lbTotalTransaksi.Text = "Null";
+            lbTotalTransaksi.Text = "0";
             // 
             // lbHewanTersedia
             // 
-            lbHewanTersedia.AutoSize = true;
-            lbHewanTersedia.Font = new Font("Arial", 15F);
-            lbHewanTersedia.Location = new Point(982, 306);
+            lbHewanTersedia.BackColor = Color.Transparent;
+            lbHewanTersedia.Font = new Font("Arial", 15F, FontStyle.Bold);
+            lbHewanTersedia.Location = new Point(1000, 310);
             lbHewanTersedia.Name = "lbHewanTersedia";
             lbHewanTersedia.Size = new Size(56, 28);
             lbHewanTersedia.TabIndex = 13;
-            lbHewanTersedia.Text = "Null";
+            lbHewanTersedia.Text = "0";
+            lbHewanTersedia.Click += lbHewanTersedia_Click;
             // 
             // lbHewanTerjual
             // 
-            lbHewanTerjual.AutoSize = true;
-            lbHewanTerjual.Font = new Font("Arial", 15F);
-            lbHewanTerjual.Location = new Point(1296, 306);
+            lbHewanTerjual.BackColor = Color.Transparent;
+            lbHewanTerjual.Font = new Font("Arial", 15F, FontStyle.Bold);
+            lbHewanTerjual.Location = new Point(1314, 310);
             lbHewanTerjual.Name = "lbHewanTerjual";
             lbHewanTerjual.Size = new Size(56, 28);
             lbHewanTerjual.TabIndex = 14;
-            lbHewanTerjual.Text = "Null";
+            lbHewanTerjual.Text = "0";
             // 
             // lbDistribusi
             // 
-            lbDistribusi.AutoSize = true;
-            lbDistribusi.Font = new Font("Arial", 15F);
-            lbDistribusi.Location = new Point(1596, 306);
+            lbDistribusi.BackColor = Color.Transparent;
+            lbDistribusi.Font = new Font("Arial", 15F, FontStyle.Bold);
+            lbDistribusi.Location = new Point(1617, 310);
             lbDistribusi.Name = "lbDistribusi";
             lbDistribusi.Size = new Size(56, 28);
             lbDistribusi.TabIndex = 15;
-            lbDistribusi.Text = "Null";
+            lbDistribusi.Text = "0";
+            lbDistribusi.Click += lbDistribusi_Click;
             // 
             // lbPendapatanTotal
             // 
-            lbPendapatanTotal.AutoSize = true;
-            lbPendapatanTotal.Font = new Font("Arial", 15F);
-            lbPendapatanTotal.Location = new Point(1466, 514);
+            lbPendapatanTotal.BackColor = Color.Transparent;
+            lbPendapatanTotal.Font = new Font("Arial", 15F, FontStyle.Bold);
+            lbPendapatanTotal.Location = new Point(1390, 514);
             lbPendapatanTotal.Name = "lbPendapatanTotal";
-            lbPendapatanTotal.Size = new Size(56, 28);
+            lbPendapatanTotal.Size = new Size(250, 28);
             lbPendapatanTotal.TabIndex = 16;
-            lbPendapatanTotal.Text = "Null";
+            lbPendapatanTotal.Text = "0";
             // 
             // dataHewanForm2
             // 
@@ -243,12 +256,86 @@ namespace project_smt2.Views
             dataHewanForm2.BackgroundImage = (Image)resources.GetObject("dataHewanForm2.BackgroundImage");
             dataHewanForm2.BackgroundImageLayout = ImageLayout.Stretch;
             dataHewanForm2.Font = new Font("Arial", 9F);
-            dataHewanForm2.Location = new Point(281, 0);
+            dataHewanForm2.Location = new Point(280, 0);
             dataHewanForm2.Margin = new Padding(2);
             dataHewanForm2.Name = "dataHewanForm2";
             dataHewanForm2.Size = new Size(1538, 988);
             dataHewanForm2.TabIndex = 18;
             dataHewanForm2.Load += dataHewanForm2_Load;
+            // 
+            // dgvDashAdmin
+            // 
+            dgvDashAdmin.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDashAdmin.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvDashAdmin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDashAdmin.Columns.AddRange(new DataGridViewColumn[] { transaksi_id, nama_lengkap, tanggal_transaksi, harga_jual, subtotal, status_pembayaran });
+            dgvDashAdmin.Location = new Point(357, 467);
+            dgvDashAdmin.Name = "dgvDashAdmin";
+            dgvDashAdmin.RowHeadersWidth = 51;
+            dgvDashAdmin.Size = new Size(839, 455);
+            dgvDashAdmin.TabIndex = 19;
+            // 
+            // transaksi_id
+            // 
+            transaksi_id.HeaderText = "Column1";
+            transaksi_id.MinimumWidth = 6;
+            transaksi_id.Name = "transaksi_id";
+            // 
+            // nama_lengkap
+            // 
+            nama_lengkap.HeaderText = "Column1";
+            nama_lengkap.MinimumWidth = 6;
+            nama_lengkap.Name = "nama_lengkap";
+            // 
+            // tanggal_transaksi
+            // 
+            tanggal_transaksi.HeaderText = "Column1";
+            tanggal_transaksi.MinimumWidth = 6;
+            tanggal_transaksi.Name = "tanggal_transaksi";
+            // 
+            // harga_jual
+            // 
+            harga_jual.HeaderText = "Column1";
+            harga_jual.MinimumWidth = 6;
+            harga_jual.Name = "harga_jual";
+            // 
+            // subtotal
+            // 
+            subtotal.HeaderText = "Column1";
+            subtotal.MinimumWidth = 6;
+            subtotal.Name = "subtotal";
+            // 
+            // status_pembayaran
+            // 
+            status_pembayaran.HeaderText = "Column1";
+            status_pembayaran.MinimumWidth = 6;
+            status_pembayaran.Name = "status_pembayaran";
+            // 
+            // distribusiHewanForm2
+            // 
+            distribusiHewanForm2.BackgroundImage = (Image)resources.GetObject("distribusiHewanForm2.BackgroundImage");
+            distribusiHewanForm2.BackgroundImageLayout = ImageLayout.Stretch;
+            distribusiHewanForm2.Location = new Point(280, 0);
+            distribusiHewanForm2.Name = "distribusiHewanForm2";
+            distribusiHewanForm2.Size = new Size(1536, 988);
+            distribusiHewanForm2.TabIndex = 20;
+            // 
+            // laporanPenjualanForm1
+            // 
+            laporanPenjualanForm1.BackgroundImage = (Image)resources.GetObject("laporanPenjualanForm1.BackgroundImage");
+            laporanPenjualanForm1.BackgroundImageLayout = ImageLayout.Stretch;
+            laporanPenjualanForm1.Location = new Point(280, 0);
+            laporanPenjualanForm1.Name = "laporanPenjualanForm1";
+            laporanPenjualanForm1.Size = new Size(1536, 988);
+            laporanPenjualanForm1.TabIndex = 21;
+            // 
+            // editKlasifikasiQurbanForm1
+            // 
+            editKlasifikasiQurbanForm1.BackColor = Color.DarkGreen;
+            editKlasifikasiQurbanForm1.Location = new Point(280, 1);
+            editKlasifikasiQurbanForm1.Name = "editKlasifikasiQurbanForm1";
+            editKlasifikasiQurbanForm1.Size = new Size(750, 1062);
+            editKlasifikasiQurbanForm1.TabIndex = 22;
             // 
             // DashboardAdminForm
             // 
@@ -258,6 +345,10 @@ namespace project_smt2.Views
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1817, 988);
+            Controls.Add(editKlasifikasiQurbanForm1);
+            Controls.Add(laporanPenjualanForm1);
+            Controls.Add(distribusiHewanForm2);
+            Controls.Add(dgvDashAdmin);
             Controls.Add(dataHewanForm2);
             Controls.Add(lbPendapatanTotal);
             Controls.Add(lbDistribusi);
@@ -281,8 +372,8 @@ namespace project_smt2.Views
             StartPosition = FormStartPosition.CenterScreen;
             WindowState = FormWindowState.Maximized;
             Load += DashboardAdminForm_Load_1;
+            ((System.ComponentModel.ISupportInitialize)dgvDashAdmin).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         private DataUserForm dataUserForm1;
@@ -302,6 +393,16 @@ namespace project_smt2.Views
         private Label lbPendapatanTotal;
         private DataHewanForm dataHewanForm2;
         private DistribusiHewanForm distribusiHewanForm1;
+        private DataGridView dgvDashAdmin;
+        private DataGridViewTextBoxColumn transaksi_id;
+        private DataGridViewTextBoxColumn nama_lengkap;
+        private DataGridViewTextBoxColumn tanggal_transaksi;
+        private DataGridViewTextBoxColumn harga_jual;
+        private DataGridViewTextBoxColumn subtotal;
+        private DataGridViewTextBoxColumn status_pembayaran;
+        private DistribusiHewanForm distribusiHewanForm2;
+        private LaporanPenjualanForm laporanPenjualanForm1;
+        private EditKlasifikasiQurbanForm editKlasifikasiQurbanForm1;
         //private DistribusiHewanForm distribusiHewanForm1;
     }
     #endregion

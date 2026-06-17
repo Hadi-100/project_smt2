@@ -1,7 +1,7 @@
 ﻿using Npgsql;
-using System.Data;
 using project_smt2.Helpers;
-using System.Threading.Tasks.Dataflow;
+using System.Collections;
+using System.Data;
 
 namespace project_smt2.Controllers
 {
@@ -19,23 +19,17 @@ namespace project_smt2.Controllers
 
                 string query =
                 @"SELECT
-                    ht.hewan_ternak_id,
-                    jh.nama_jenis,
-                    ht.jenis_kelamin,
-                    ht.umur,
-                    ht.berat,
-                    ht.harga,
-                    p.nama_peternak,
-                    ht.status_hewan,
-                    kq.kondisi_fisik,
-                    kq.status_qurban
+                ht.hewan_ternak_id,
+                jh.hewan AS jenis_hewan,
+                ht.jenis_kelamin,
+                ht.umur,
+                ht.berat,
+                ht.harga,
+                p.nama_peternak,
+                ht.status_hewan
                 FROM hewan_ternak ht
-                JOIN jenis_hewan jh
-                    ON ht.jenis_hewan_id = jh.jenis_hewan_id
-                JOIN peternak p
-                    ON ht.peternak_id = p.peternak_id
-                Join klasifikasi_qurban kq
-                    ON kq.hewan_ternak_id = ht.hewan_ternak_id";
+                LEFT JOIN jenis_hewan jh ON ht.jenis_hewan_id = jh.jenis_hewan_id
+                LEFT JOIN peternak p ON ht.peternak_id = p.peternak_id";
 
                 NpgsqlDataAdapter da =
                     new NpgsqlDataAdapter(
@@ -44,9 +38,43 @@ namespace project_smt2.Controllers
 
                 da.Fill(dt);
             }
+                return dt;
+        }
+
+        public DataTable GetHewanById(int hewan_ternak_id)
+        {
+            DataTable dt = new DataTable();
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                var cmd = new NpgsqlCommand(@"SELECT
+                        ht.hewan_ternak_id,
+                        ht.jenis_hewan_id,
+                        jh.hewan AS jenis_hewan,
+                        ht.jenis_kelamin,
+                        ht.umur,
+                        ht.berat,
+                        ht.harga,
+                        ht.peternak_id,
+                        p.nama_peternak,
+                        kq.kondisi_fisik,
+                        kq.tanggal_pemeriksaan
+                    FROM hewan_ternak ht
+                    LEFT JOIN jenis_hewan jh ON ht.jenis_hewan_id = jh.jenis_hewan_id
+                    LEFT JOIN peternak p ON ht.peternak_id = p.peternak_id
+                    LEFT JOIN klasifikasi_qurban kq ON ht.hewan_ternak_id = kq.hewan_ternak_id
+                    WHERE ht.hewan_ternak_id = @id", conn);
+
+                cmd.Parameters.AddWithValue("@id", hewan_ternak_id);
+                using (var adapter = new NpgsqlDataAdapter(cmd))
+                {
+                    adapter.Fill(dt);
+                }
+            }
 
             return dt;
         }
+
         public int GetTotalTersedia()
         {
             using (var conn = DatabaseHelper.GetConnection())
@@ -84,16 +112,8 @@ namespace project_smt2.Controllers
             using (var conn = DatabaseHelper.GetConnection())
             {
                 conn.Open();
-
-                var cmd = new NpgsqlCommand(@"
-            SELECT COUNT(*)
-            FROM hewan_ternak ht
-            JOIN jenis_hewan jh
-                ON ht.jenis_hewan_id = jh.jenis_hewan_id
-            WHERE jh.hewan = 'Sapi'
-            AND ht.status_hewan = 'Tersedia'
-        ", conn);
-
+                var cmd = new NpgsqlCommand(
+                    "SELECT COUNT(*) FROM hewan_ternak ht JOIN jenis_hewan jh ON jh.jenis_hewan_id = ht.jenis_hewan_id WHERE jh.hewan = 'Sapi' AND ht.status_hewan = 'Tersedia'", conn);
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
@@ -102,49 +122,133 @@ namespace project_smt2.Controllers
             using (var conn = DatabaseHelper.GetConnection())
             {
                 conn.Open();
-
-                var cmd = new NpgsqlCommand(@"
-            SELECT COUNT(*)
-            FROM hewan_ternak ht
-            JOIN jenis_hewan jh
-                ON ht.jenis_hewan_id = jh.jenis_hewan_id
-            WHERE jh.hewan = 'Kambing'
-            AND ht.status_hewan = 'Tersedia'
-        ", conn);
-
+                var cmd = new NpgsqlCommand(
+                    "SELECT COUNT(*) FROM hewan_ternak ht JOIN jenis_hewan jh ON jh.jenis_hewan_id = ht.jenis_hewan_id WHERE jh.hewan = 'Kambing' AND ht.status_hewan = 'Tersedia'", conn);
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
 
         public void TambahkanHewanTernak(
-             int jenis_hewan_id,
-             string jenis_kelamin,
-             int umur,
-             int berat,
-             int harga,
-             int peternak_id)
+            int jenis_hewan_id,
+            int peternak_id,
+            string jenis_kelamin,
+            int umur,
+            int berat,
+            int harga
+            )
         {
+            using (var conn = DatabaseHelper.GetConnection())
             {
-                using (var conn = DatabaseHelper.GetConnection())
+                conn.Open();
+                var cmd = new NpgsqlCommand(
+                    @"INSERT INTO hewan_ternak (peternak_id, jenis_hewan_id, jenis_kelamin, umur, berat, harga)
+                      VALUES (@peternak_id, @jenis_hewan_id, @jenis_kelamin, @umur, @berat, @harga)", conn);
+
+                cmd.Parameters.AddWithValue("@jenis_hewan_id", jenis_hewan_id);
+                cmd.Parameters.AddWithValue("@peternak_id", peternak_id);
+                cmd.Parameters.AddWithValue("@jenis_kelamin", jenis_kelamin);
+                cmd.Parameters.AddWithValue("@umur", umur);
+                cmd.Parameters.AddWithValue("@berat", berat);
+                cmd.Parameters.AddWithValue("@harga", harga);
+
+                        int affected = cmd.ExecuteNonQuery();
+                        System.Diagnostics.Debug.WriteLine($"InsertHewan: hewan_ternak affected={affected}, peternak_id={peternak_id}, jenis_hewan_id={jenis_hewan_id}");
+            }
+        }
+
+        public void UpdateHewan(
+     int hewan_ternak_id,
+     int peternak_id,
+     int jenis_hewan_id,
+     string jenis_kelamin,
+     int umur,
+     int berat,
+     int harga,
+     string kondisi_fisik,
+     DateTime tanggal_pemeriksaan
+ )
+        {
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                using (var tran = conn.BeginTransaction())
                 {
-                    conn.Open();
-                    var cmd = new NpgsqlCommand(
-                        @"INSERT INTO hewan_ternak
-                     (peternak_id, jenis_hewan_id, jenis_kelamin, umur, harga, berat)
-                     VALUES
-                     (@peternak_id, @jenis_hewan_id, @jenis_kelamin, @umur, @harga, @berat)",
-                         conn);
+                    try
+                    {
+                        using (var cmd = new NpgsqlCommand(
+                            @"UPDATE hewan_ternak 
+          SET jenis_hewan_id = @jenis_hewan_id, 
+              peternak_id = @peternak_id, 
+              jenis_kelamin = @jenis_kelamin, 
+              umur = @umur, 
+              berat = @berat, 
+              harga = @harga 
+          WHERE hewan_ternak_id = @hewan_ternak_id", conn))
+                        {
+                            cmd.Parameters.AddWithValue("@jenis_hewan_id", jenis_hewan_id);
+                            cmd.Parameters.AddWithValue("@peternak_id", peternak_id);
+                            cmd.Parameters.AddWithValue("@jenis_kelamin", jenis_kelamin);
+                            cmd.Parameters.AddWithValue("@umur", umur);
+                            cmd.Parameters.AddWithValue("@berat", berat);
+                            cmd.Parameters.AddWithValue("@harga", harga);
+                            cmd.Parameters.AddWithValue("@hewan_ternak_id", hewan_ternak_id);
 
-                    cmd.Parameters.AddWithValue("@peternak_id", peternak_id);
-                    cmd.Parameters.AddWithValue("@jenis_hewan_id", jenis_hewan_id);
-                    cmd.Parameters.AddWithValue("@jenis_kelamin", jenis_kelamin);
-                    cmd.Parameters.AddWithValue("@umur", umur);
-                    cmd.Parameters.AddWithValue("@harga", harga);
-                    cmd.Parameters.AddWithValue("@berat", berat);
+                            int rowsHewan = cmd.ExecuteNonQuery();
+                        }
 
-                    cmd.ExecuteNonQuery();
-                }
+                        string statusQurban = "Tidak Layak";
+                        if ((jenis_hewan_id == 1 || jenis_hewan_id == 3 || jenis_hewan_id == 4) && umur >= 2)
+                        {
+                            statusQurban = "Layak";
+                        }
+                        else if ((jenis_hewan_id == 2 || jenis_hewan_id == 5 || jenis_hewan_id == 6 || jenis_hewan_id == 7) && umur >= 1)
+                        {
+                            statusQurban = "Layak";
+                        }
+
+                        if (kondisi_fisik == "Sakit" || kondisi_fisik == "Cacat Berat")
+                        {
+                            statusQurban = "Tidak Layak";
+                        }
+
+                        using (var cmdUpdate = new NpgsqlCommand(
+                            @"UPDATE klasifikasi_qurban 
+                        SET kondisi_fisik = @kondisi_fisik::kondisi_fisik, 
+                            status_qurban = @status_qurban::status_qurban,
+                            tanggal_pemeriksaan = @tanggal_pemeriksaan 
+                        WHERE hewan_ternak_id = @hewan_ternak_id", conn))
+                        {
+                            cmdUpdate.Parameters.AddWithValue("@kondisi_fisik", kondisi_fisik ?? "Sehat");
+                            cmdUpdate.Parameters.AddWithValue("@status_qurban", statusQurban);
+                            cmdUpdate.Parameters.AddWithValue("@tanggal_pemeriksaan", tanggal_pemeriksaan);
+                            cmdUpdate.Parameters.AddWithValue("@hewan_ternak_id", hewan_ternak_id);
+
+                            int rows = cmdUpdate.ExecuteNonQuery();
+
+                            if (rows == 0)
+                            {
+                                using (var cmdInsert = new NpgsqlCommand(
+                                    @"INSERT INTO klasifikasi_qurban (hewan_ternak_id, kondisi_fisik, status_qurban, tanggal_pemeriksaan) 
+                                    VALUES (@hewan_ternak_id, @kondisi_fisik::kondisi_fisik, @status_qurban::status_qurban, @tanggal_pemeriksaan)", conn))
+                                {
+                                    cmdInsert.Parameters.AddWithValue("@hewan_ternak_id", hewan_ternak_id);
+                                    cmdInsert.Parameters.AddWithValue("@kondisi_fisik", kondisi_fisik ?? "Sehat");
+                                    cmdInsert.Parameters.AddWithValue("@status_qurban", statusQurban);
+                                    cmdInsert.Parameters.AddWithValue("@tanggal_pemeriksaan", tanggal_pemeriksaan);
+                                    cmdInsert.ExecuteNonQuery();
+                                }
+                            }
+                        }
+
+                        tran.Commit();
+                    }
+
+                    catch (Exception ex)
+                    {
+                        tran.Rollback();
+                        MessageBox.Show($"[DEBUG 4] TERJADI ERROR, TRANSAKSI DI-ROLLBACK! Error: {ex.Message}", "Debug Error");
+                    }
             }
         }
     }
-}
+}}

@@ -13,12 +13,32 @@ namespace project_smt2.Views
     {
         // Event raised when the Tambah button is clicked so parent forms can respond
         public event EventHandler BtnTambahClicked;
+        // Event raised when edit link in grid is clicked. Passes the hewan_ternak_id as int in EventArgs (as sender)
+        public event EventHandler<int> EditRequested;
 
         public DataHewanForm()
         {
             InitializeComponent();
             this.AutoScaleMode = AutoScaleMode.None;
             this.Font = new Font("Arial", 9F); // pick one consistent font/size
+            dgvDataHewan.CellContentClick += dataGridViewDataHewan_CellContentClick;
+            dgvDataHewan.CellDoubleClick += dataGridViewDataHewan_CellDoubleClick;
+        }
+
+        public void RefreshDataHewan()
+        {
+            try
+            {
+                HewanController hewanController = new HewanController();
+
+                // Panggil view atau query select list hewan milikmu
+                // Misal dimasukkan ke DataTable atau langsung ke DataSource
+                dgvDataHewan.DataSource = hewanController.GetHewan();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Gagal memuat ulang data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void LoadData()
@@ -69,9 +89,29 @@ namespace project_smt2.Views
             LoadData();
         }
 
-        private void dataGridViewDataHewan_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void dataGridViewDataHewan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0) return;
+            var col = dgvDataHewan.Columns[e.ColumnIndex];
+            if (col != null && col.Name == "EditHewan")
+            {
+                var cellValue = dgvDataHewan.Rows[e.RowIndex].Cells["hewan_ternak_id"].Value;
+                if (cellValue != null && cellValue != DBNull.Value && int.TryParse(cellValue.ToString(), out int idHewan))
+                {
+                    // raise event so dashboard handles opening the edit form
+                    EditRequested?.Invoke(this, idHewan);
+                }
+            }
+        }
 
+        public void dataGridViewDataHewan_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        { 
+            if (e.RowIndex < 0) return;
+            var cell = dgvDataHewan.Rows[e.RowIndex].Cells["hewan_ternak_id"];
+            if (cell != null && cell.Value != null && int.TryParse(cell.Value.ToString(), out int idHewan))
+            {
+                EditRequested?.Invoke(this, idHewan);
+            }
         }
 
         public void btnTambah_Click(object sender, EventArgs e)

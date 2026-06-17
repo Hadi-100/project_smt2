@@ -1,14 +1,13 @@
-﻿using System;
+﻿using project_smt2.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using project_smt2.Controllers;
 
-
-namespace project_smt2.Views
+namespace project_smt2
 {
     public partial class DistribusiHewanForm : UserControl
     {
@@ -43,9 +42,9 @@ namespace project_smt2.Views
 
         private void LoadStatistik()
         {
-            lblTerkirim.Text = controller.GetTotalTerkirim().ToString();
-            lblProses.Text = controller.GetTotalProses().ToString();
-            lblDistribusi.Text = controller.GetTotalDistribusi().ToString();
+            lbTerkirim.Text = controller.GetTotalTerkirim().ToString();
+            lbProses.Text = controller.GetTotalProses().ToString();
+            lbDistribusi.Text = controller.GetTotalDistribusi().ToString();
         }
 
         public DistribusiHewanForm()

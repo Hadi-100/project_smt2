@@ -36,11 +36,11 @@
             dataGridViewRiwayat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewRiwayat.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewRiwayat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewRiwayat.Location = new Point(80, 401);
+            dataGridViewRiwayat.Location = new Point(76, 401);
             dataGridViewRiwayat.Margin = new Padding(2);
             dataGridViewRiwayat.Name = "dataGridViewRiwayat";
             dataGridViewRiwayat.RowHeadersWidth = 82;
-            dataGridViewRiwayat.Size = new Size(1414, 530);
+            dataGridViewRiwayat.Size = new Size(1434, 535);
             dataGridViewRiwayat.TabIndex = 0;
             dataGridViewRiwayat.CellContentClick += dataGridViewRiwayat_CellContentClick;
             // 
@@ -48,7 +48,7 @@
             // 
             lblTotalTransaksi.BackColor = Color.Transparent;
             lblTotalTransaksi.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalTransaksi.Location = new Point(169, 279);
+            lblTotalTransaksi.Location = new Point(145, 276);
             lblTotalTransaksi.Margin = new Padding(2, 0, 2, 0);
             lblTotalTransaksi.Name = "lblTotalTransaksi";
             lblTotalTransaksi.Size = new Size(120, 40);
@@ -61,7 +61,7 @@
             // 
             lblbelumbayar.BackColor = Color.Transparent;
             lblbelumbayar.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblbelumbayar.Location = new Point(482, 279);
+            lblbelumbayar.Location = new Point(434, 276);
             lblbelumbayar.Margin = new Padding(2, 0, 2, 0);
             lblbelumbayar.Name = "lblbelumbayar";
             lblbelumbayar.Size = new Size(120, 40);
@@ -74,7 +74,7 @@
             // 
             lblbelumlunas.BackColor = Color.Transparent;
             lblbelumlunas.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblbelumlunas.Location = new Point(792, 276);
+            lblbelumlunas.Location = new Point(720, 279);
             lblbelumlunas.Margin = new Padding(2, 0, 2, 0);
             lblbelumlunas.Name = "lblbelumlunas";
             lblbelumlunas.Size = new Size(120, 40);
@@ -87,7 +87,7 @@
             // 
             lblnilaitotal.BackColor = Color.Transparent;
             lblnilaitotal.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblnilaitotal.Location = new Point(1059, 279);
+            lblnilaitotal.Location = new Point(1091, 282);
             lblnilaitotal.Margin = new Padding(2, 0, 2, 0);
             lblnilaitotal.Name = "lblnilaitotal";
             lblnilaitotal.Size = new Size(250, 40);

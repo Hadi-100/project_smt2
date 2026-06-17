@@ -35,6 +35,7 @@
             lblhewanterjual = new Label();
             btnTambah = new Button();
             dgvDataHewan = new DataGridView();
+            EditHewan = new DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)dgvDataHewan).BeginInit();
             SuspendLayout();
             // 
@@ -43,9 +44,10 @@
             lblhewantersedia.AutoSize = true;
             lblhewantersedia.BackColor = Color.Transparent;
             lblhewantersedia.Font = new Font("Arial", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblhewantersedia.Location = new Point(288, 464);
+            lblhewantersedia.Location = new Point(187, 287);
+            lblhewantersedia.Margin = new Padding(2, 0, 2, 0);
             lblhewantersedia.Name = "lblhewantersedia";
-            lblhewantersedia.Size = new Size(64, 46);
+            lblhewantersedia.Size = new Size(41, 30);
             lblhewantersedia.TabIndex = 1;
             lblhewantersedia.Text = "10";
             lblhewantersedia.Click += label1_Click;
@@ -55,9 +57,10 @@
             lbltotalsapi.AutoSize = true;
             lbltotalsapi.BackColor = Color.Transparent;
             lbltotalsapi.Font = new Font("Arial", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbltotalsapi.Location = new Point(754, 462);
+            lbltotalsapi.Location = new Point(477, 287);
+            lbltotalsapi.Margin = new Padding(1, 0, 1, 0);
             lbltotalsapi.Name = "lbltotalsapi";
-            lbltotalsapi.Size = new Size(64, 46);
+            lbltotalsapi.Size = new Size(41, 30);
             lbltotalsapi.TabIndex = 2;
             lbltotalsapi.Text = "10";
             lbltotalsapi.Click += lbltotalsapi_Click;
@@ -67,9 +70,10 @@
             lbltotalkambing.AutoSize = true;
             lbltotalkambing.BackColor = Color.Transparent;
             lbltotalkambing.Font = new Font("Arial", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbltotalkambing.Location = new Point(1232, 462);
+            lbltotalkambing.Location = new Point(760, 287);
+            lbltotalkambing.Margin = new Padding(1, 0, 1, 0);
             lbltotalkambing.Name = "lbltotalkambing";
-            lbltotalkambing.Size = new Size(64, 46);
+            lbltotalkambing.Size = new Size(41, 30);
             lbltotalkambing.TabIndex = 3;
             lbltotalkambing.Text = "10";
             lbltotalkambing.Click += label1_Click_1;
@@ -79,9 +83,10 @@
             lblhewanterjual.AutoSize = true;
             lblhewanterjual.BackColor = Color.Transparent;
             lblhewanterjual.Font = new Font("Arial", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblhewanterjual.Location = new Point(1698, 462);
+            lblhewanterjual.Location = new Point(1050, 287);
+            lblhewanterjual.Margin = new Padding(1, 0, 1, 0);
             lblhewanterjual.Name = "lblhewanterjual";
-            lblhewanterjual.Size = new Size(64, 46);
+            lblhewanterjual.Size = new Size(41, 30);
             lblhewanterjual.TabIndex = 4;
             lblhewanterjual.Text = "10";
             lblhewanterjual.Click += lblhewanterjual_Click;
@@ -93,10 +98,9 @@
             btnTambah.FlatStyle = FlatStyle.Popup;
             btnTambah.Font = new Font("Arial", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnTambah.ForeColor = Color.WhiteSmoke;
-            btnTambah.Location = new Point(2082, 459);
-            btnTambah.Margin = new Padding(5, 5, 5, 5);
+            btnTambah.Location = new Point(1281, 287);
             btnTambah.Name = "btnTambah";
-            btnTambah.Size = new Size(239, 118);
+            btnTambah.Size = new Size(147, 74);
             btnTambah.TabIndex = 5;
             btnTambah.Text = "Tambah";
             btnTambah.UseVisualStyleBackColor = false;
@@ -106,17 +110,30 @@
             // 
             dgvDataHewan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDataHewan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDataHewan.Location = new Point(124, 627);
-            dgvDataHewan.Margin = new Padding(5, 5, 5, 11);
+            dgvDataHewan.Columns.AddRange(new DataGridViewColumn[] { EditHewan });
+            dgvDataHewan.Location = new Point(75, 377);
+            dgvDataHewan.Margin = new Padding(2, 2, 2, 4);
             dgvDataHewan.Name = "dgvDataHewan";
             dgvDataHewan.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dgvDataHewan.Size = new Size(2192, 866);
+            dgvDataHewan.Size = new Size(1349, 541);
             dgvDataHewan.TabIndex = 6;
             dgvDataHewan.CellContentClick += dgvDataHewan_CellContentClick;
+            dgvDataHewan.CellDoubleClick += dataGridViewDataHewan_CellDoubleClick;
+            // 
+            // EditHewan
+            // 
+            EditHewan.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            EditHewan.HeaderText = "";
+            EditHewan.MinimumWidth = 6;
+            EditHewan.Name = "EditHewan";
+            EditHewan.ReadOnly = true;
+            EditHewan.Text = "edit";
+            EditHewan.TrackVisitedState = false;
+            EditHewan.UseColumnTextForLinkValue = true;
             // 
             // DataHewanForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
@@ -128,8 +145,9 @@
             Controls.Add(lbltotalsapi);
             Controls.Add(lblhewantersedia);
             DoubleBuffered = true;
+            Margin = new Padding(2);
             Name = "DataHewanForm";
-            Size = new Size(2600, 1632);
+            Size = new Size(1600, 1020);
             Load += DataHewanForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDataHewan).EndInit();
             ResumeLayout(false);
@@ -143,5 +161,6 @@
         private Label lblhewanterjual;
         private Button btnTambah;
         private DataGridView dgvDataHewan;
+        private DataGridViewLinkColumn EditHewan;
     }
 }
