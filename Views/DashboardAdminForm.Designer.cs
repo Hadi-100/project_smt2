@@ -69,7 +69,7 @@ namespace project_smt2.Views
             dataUserForm1.Location = new Point(280, 0);
             dataUserForm1.Margin = new Padding(2);
             dataUserForm1.Name = "dataUserForm1";
-            dataUserForm1.Size = new Size(1536, 988);
+            dataUserForm1.Size = new Size(1538, 987);
             dataUserForm1.TabIndex = 0;
             // 
             // tambah_hewan_ternak1
@@ -79,7 +79,7 @@ namespace project_smt2.Views
             tambah_hewan_ternak1.Location = new Point(280, 0);
             tambah_hewan_ternak1.Margin = new Padding(2);
             tambah_hewan_ternak1.Name = "tambah_hewan_ternak1";
-            tambah_hewan_ternak1.Size = new Size(1536, 986);
+            tambah_hewan_ternak1.Size = new Size(1538, 987);
             tambah_hewan_ternak1.TabIndex = 2;
             // 
             // riwayatTransaksiForm1

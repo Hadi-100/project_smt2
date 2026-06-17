@@ -9,6 +9,9 @@ namespace project_smt2.Controllers
 
     public class LoginController
     {
+        public int UserId { get; private set; }
+        public string Username { get; private set; }
+
         public string Login(string email, string password)
         {
             string role = "Admin";
@@ -18,7 +21,7 @@ namespace project_smt2.Controllers
                 conn.Open();
 
                 string query =
-                @"SELECT role_user
+                @"SELECT user_id, nama_lengkap, role_user
                   FROM users
                   WHERE email=@email
                   AND password=@password";
@@ -29,14 +32,21 @@ namespace project_smt2.Controllers
                 cmd.Parameters.AddWithValue("@email", email);
                 cmd.Parameters.AddWithValue("@password", password);
 
-                object result = cmd.ExecuteScalar();
+                using (var reader = cmd.ExecuteReader())
 
-                if (result != null)
-                    role = result.ToString();
+                    if (reader.Read())
+                    {
+                        UserId = reader.GetInt32(reader.GetOrdinal("user_id"));
+                        Username = reader.GetString(reader.GetOrdinal("nama_lengkap"));
+                        role = reader.GetString(reader.GetOrdinal("role_user"));
+                    }
             }
 
             return role;
         }
+
     }
+
+
 
 }

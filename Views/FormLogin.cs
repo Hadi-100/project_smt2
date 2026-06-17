@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
 using project_smt2.Controllers;
+using project_smt2.Helpers;
 using project_smt2.Models;
 using project_smt2.Views;
 using System;
@@ -73,6 +74,13 @@ namespace project_smt2
                 tbMasukPass.Text
             );
 
+            if (!string.IsNullOrEmpty(role))
+            {
+                Session.UserId = controller.UserId;
+                Session.NamaLengkap = controller.Username;
+                Session.RoleUser = role;
+            }
+
             if (role == "admin")
             {
                 DashboardAdminForm frmAdmin =
@@ -84,7 +92,7 @@ namespace project_smt2
             else if (role == "user")
             {
                 DashboardUserForm frmUser =
-                    new DashboardUserForm();
+                    new DashboardUserForm(controller.Username);
 
                 frmUser.Show();
                 this.Hide();

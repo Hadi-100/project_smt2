@@ -82,6 +82,129 @@ namespace project_smt2.Controllers
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
+
+        public void InsertTransaksiDanDetail(
+    int userId,
+    int alamatId,
+    int hewanId,
+    decimal harga)
+        {
+            using (var conn =
+                DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+
+                using (var trans =
+                    conn.BeginTransaction())
+                {
+                    try
+                    {
+                        int transaksiId;
+
+                        string queryTransaksi = @"
+                INSERT INTO transaksi
+                (
+                    user_id,
+                    alamat_id,
+                    tanggal_transaksi,
+                    status_pembayaran
+                )
+                VALUES
+                (
+                    @userId,
+                    @alamatId,
+                    CURRENT_DATE,
+                    'Lunas'
+                )
+                RETURNING transaksi_id";
+
+                        using (var cmd =
+                            new NpgsqlCommand(
+                                queryTransaksi,
+                                conn))
+                        {
+                            cmd.Transaction = trans;
+
+                            cmd.Parameters.AddWithValue(
+                                "@userId",
+                                userId);
+
+                            cmd.Parameters.AddWithValue(
+                                "@alamatId",
+                                alamatId);
+
+                            transaksiId =
+                                Convert.ToInt32(
+                                    cmd.ExecuteScalar());
+                        }
+
+                        string queryDetail = @"
+                INSERT INTO detail_transaksi
+                (
+                    transaksi_id,
+                    hewan_ternak_id,
+                    harga_jual
+                )
+                VALUES
+                (
+                    @transaksiId,
+                    @hewanId,
+                    @harga
+                )";
+
+                        using (var cmd =
+                            new NpgsqlCommand(
+                                queryDetail,
+                                conn))
+                        {
+                            cmd.Transaction = trans;
+
+                            cmd.Parameters.AddWithValue(
+                                "@transaksiId",
+                                transaksiId);
+
+                            cmd.Parameters.AddWithValue(
+                                "@hewanId",
+                                hewanId);
+
+                            cmd.Parameters.AddWithValue(
+                                "@harga",
+                                harga);
+
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        string queryUpdate = @"
+                UPDATE hewan_ternak
+                SET status_hewan='Terjual'
+                WHERE hewan_ternak_id=@id";
+
+                        using (var cmd =
+                            new NpgsqlCommand(
+                                queryUpdate,
+                                conn))
+                        {
+                            cmd.Transaction = trans;
+
+                            cmd.Parameters.AddWithValue(
+                                "@id",
+                                hewanId);
+
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        trans.Commit();
+                    }
+                    catch
+                    {
+                        trans.Rollback();
+                        throw;
+                    }
+                }
+            }
+
+
+        }
     }
         
     

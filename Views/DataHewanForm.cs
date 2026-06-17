@@ -21,6 +21,8 @@ namespace project_smt2.Views
             InitializeComponent();
             this.AutoScaleMode = AutoScaleMode.None;
             this.Font = new Font("Arial", 9F); // pick one consistent font/size
+            dgvDataHewan.CellContentClick += dataGridViewDataHewan_CellContentClick;
+            dgvDataHewan.CellDoubleClick += dataGridViewDataHewan_CellDoubleClick;
         }
 
         public void RefreshDataHewan()
@@ -86,30 +88,28 @@ namespace project_smt2.Views
             LoadData();
         }
 
-        private void dataGridViewDataHewan_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void dataGridViewDataHewan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex < 0) return;
+            var col = dgvDataHewan.Columns[e.ColumnIndex];
+            if (col != null && col.Name == "EditHewan")
             {
-                if (dgvDataHewan.Columns[e.ColumnIndex].Name == "EditHewan")
+                var cellValue = dgvDataHewan.Rows[e.RowIndex].Cells["hewan_ternak_id"].Value;
+                if (cellValue != null && cellValue != DBNull.Value && int.TryParse(cellValue.ToString(), out int idHewan))
                 {
-                    if (dgvDataHewan.Rows[e.RowIndex].Cells["hewan_ternak_id"].Value != null)
-                    {
-                        int idHewan = Convert.ToInt32(dgvDataHewan.Rows[e.RowIndex].Cells["hewan_ternak_id"].Value);
-                        EditKlasifikasiQurbanForm formEdit = new EditKlasifikasiQurbanForm();
-                        formEdit.HewanTernakId = idHewan;
-                        formEdit.Show();
-                    }
+                    // raise event so dashboard handles opening the edit form
+                    EditRequested?.Invoke(this, idHewan);
                 }
             }
         }
 
-        private void dataGridViewDataHewan_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
+        public void dataGridViewDataHewan_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        { 
             if (e.RowIndex < 0) return;
             var cell = dgvDataHewan.Rows[e.RowIndex].Cells["hewan_ternak_id"];
-            if (cell != null && cell.Value != null && int.TryParse(cell.Value.ToString(), out int id))
+            if (cell != null && cell.Value != null && int.TryParse(cell.Value.ToString(), out int idHewan))
             {
-                EditRequested?.Invoke(this, id);
+                EditRequested?.Invoke(this, idHewan);
             }
         }
 
@@ -117,6 +117,11 @@ namespace project_smt2.Views
         {
             BtnTambahClicked?.Invoke(this, e);
             LoadData();
+        }
+
+        private void dgvDataHewan_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

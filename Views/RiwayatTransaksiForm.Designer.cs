@@ -48,7 +48,7 @@
             // 
             lblTotalTransaksi.BackColor = Color.Transparent;
             lblTotalTransaksi.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalTransaksi.Location = new Point(139, 276);
+            lblTotalTransaksi.Location = new Point(145, 276);
             lblTotalTransaksi.Margin = new Padding(2, 0, 2, 0);
             lblTotalTransaksi.Name = "lblTotalTransaksi";
             lblTotalTransaksi.Size = new Size(120, 40);
@@ -61,7 +61,7 @@
             // 
             lblbelumbayar.BackColor = Color.Transparent;
             lblbelumbayar.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblbelumbayar.Location = new Point(441, 279);
+            lblbelumbayar.Location = new Point(434, 276);
             lblbelumbayar.Margin = new Padding(2, 0, 2, 0);
             lblbelumbayar.Name = "lblbelumbayar";
             lblbelumbayar.Size = new Size(120, 40);

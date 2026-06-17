@@ -101,7 +101,7 @@ namespace project_smt2.Views
 
         private void DashboardAdminForm_Load(object sender, EventArgs e)
         {
-
+            //kvmdd
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -114,6 +114,19 @@ namespace project_smt2.Views
 
         }
 
+        // Contoh fungsi di Dashboard Admin saat tombol menu "Data Hewan" diklik
+        private void btnMenuDataHewan_Click(object sender, EventArgs e)
+        {
+            DataHewanForm formHewan = new DataHewanForm();
+
+            //// === SUBSCRIBE EVENT DARI DASHBOARD ADMIN ===
+            //// Kita tembak langsung datagridview yang ada di dalam formHewan
+            //formHewan.dgvDataHewan.CellContentClick += dataGridViewDataHewan_CellContentClick;
+            //formHewan.dgvDataHewan.CellDoubleClick += dataGridViewDataHewan_CellDoubleClick;
+
+            formHewan.Dock = DockStyle.Fill;
+            formHewan.Show();
+        }
         private void button1_Click_1(object sender, EventArgs e)
         {
             var result = MessageBox.Show(
@@ -276,6 +289,16 @@ namespace project_smt2.Views
             // show edit form and load data immediately
             dataHewanForm2.Hide();
             // Use OpenFor to set id and prefill from DB
+            editKlasifikasiQurbanForm1.BtnKonfirmasiClicked -= editKlasifikasiQurbanForm1_btnKonfirmasiClick;
+            editKlasifikasiQurbanForm1.BtnKonfirmasiClicked += editKlasifikasiQurbanForm1_btnKonfirmasiClick;
+            editKlasifikasiQurbanForm1.OpenFor(hewanId);
+            editKlasifikasiQurbanForm1.BringToFront();
+        }
+
+        // Allow external callers (child controls) to open the edit form by id
+        public void OpenEditFor(int hewanId)
+        {
+            dataHewanForm2.Hide();
             editKlasifikasiQurbanForm1.BtnKonfirmasiClicked -= editKlasifikasiQurbanForm1_btnKonfirmasiClick;
             editKlasifikasiQurbanForm1.BtnKonfirmasiClicked += editKlasifikasiQurbanForm1_btnKonfirmasiClick;
             editKlasifikasiQurbanForm1.OpenFor(hewanId);

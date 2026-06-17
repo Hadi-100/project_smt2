@@ -41,10 +41,10 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(73, 248);
+            dataGridView1.Location = new Point(73, 246);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1124, 620);
+            dataGridView1.Size = new Size(1122, 626);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -53,7 +53,7 @@
             lblTotalUser.AutoSize = true;
             lblTotalUser.BackColor = Color.Transparent;
             lblTotalUser.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalUser.Location = new Point(1345, 315);
+            lblTotalUser.Location = new Point(1347, 310);
             lblTotalUser.Name = "lblTotalUser";
             lblTotalUser.Size = new Size(32, 35);
             lblTotalUser.TabIndex = 1;
@@ -65,7 +65,7 @@
             lblTotalAdmin.AutoSize = true;
             lblTotalAdmin.BackColor = Color.Transparent;
             lblTotalAdmin.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalAdmin.Location = new Point(1347, 560);
+            lblTotalAdmin.Location = new Point(1347, 557);
             lblTotalAdmin.Name = "lblTotalAdmin";
             lblTotalAdmin.Size = new Size(32, 35);
             lblTotalAdmin.TabIndex = 2;
@@ -82,7 +82,7 @@
             Controls.Add(lblTotalUser);
             Controls.Add(dataGridView1);
             DoubleBuffered = true;
-            Margin = new Padding(2);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "DataUserForm";
             Size = new Size(1600, 1020);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

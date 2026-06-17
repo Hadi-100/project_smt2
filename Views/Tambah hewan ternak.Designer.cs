@@ -41,56 +41,56 @@
             // 
             // cbxJenisHewan
             // 
-            cbxJenisHewan.Font = new Font("Arial", 22.5F);
+            cbxJenisHewan.Font = new Font("Arial", 23F);
             cbxJenisHewan.ForeColor = Color.Gray;
             cbxJenisHewan.FormattingEnabled = true;
-            cbxJenisHewan.Items.AddRange(new object[] { "1 Sapi", "2 Kambing", "3 Sapi Limousin", "4 Kambing Khas Ngawi", "5 Sapi Mas Hambali" });
+            cbxJenisHewan.Items.AddRange(new object[] { "1 Sapi ", "2 Kambing", "3 Sapi Limousin", "4 Sapi Brahmana", "5 Kambing Kacang", "6 Kambing Etawa", "7 Kambing JawaRandu" });
             cbxJenisHewan.Location = new Point(160, 307);
             cbxJenisHewan.Name = "cbxJenisHewan";
-            cbxJenisHewan.Size = new Size(521, 50);
+            cbxJenisHewan.Size = new Size(521, 51);
             cbxJenisHewan.TabIndex = 0;
             cbxJenisHewan.Text = "Jenis Hewan";
             cbxJenisHewan.SelectedIndexChanged += cbxJenisHewan_SelectedIndexChanged;
             // 
             // cbxJenisKelamin
             // 
-            cbxJenisKelamin.Font = new Font("Arial", 22.5F);
+            cbxJenisKelamin.Font = new Font("Arial", 23F);
             cbxJenisKelamin.ForeColor = Color.Gray;
             cbxJenisKelamin.FormattingEnabled = true;
             cbxJenisKelamin.Items.AddRange(new object[] { "Jantan", "Betina" });
-            cbxJenisKelamin.Location = new Point(160, 409);
+            cbxJenisKelamin.Location = new Point(160, 407);
             cbxJenisKelamin.Name = "cbxJenisKelamin";
-            cbxJenisKelamin.Size = new Size(521, 50);
+            cbxJenisKelamin.Size = new Size(521, 51);
             cbxJenisKelamin.TabIndex = 1;
             cbxJenisKelamin.Text = "Jenis Kelamin";
             // 
             // tbUmur
             // 
-            tbUmur.Font = new Font("Arial", 22.5F);
+            tbUmur.Font = new Font("Arial", 23F);
             tbUmur.ForeColor = Color.Black;
-            tbUmur.Location = new Point(160, 689);
+            tbUmur.Location = new Point(160, 687);
             tbUmur.Name = "tbUmur";
-            tbUmur.Size = new Size(521, 51);
+            tbUmur.Size = new Size(521, 52);
             tbUmur.TabIndex = 2;
             tbUmur.Text = "Umur";
             // 
             // tbHarga
             // 
-            tbHarga.Font = new Font("Arial", 22.5F);
+            tbHarga.Font = new Font("Arial", 23F);
             tbHarga.ForeColor = Color.Black;
-            tbHarga.Location = new Point(160, 598);
+            tbHarga.Location = new Point(160, 600);
             tbHarga.Name = "tbHarga";
-            tbHarga.Size = new Size(521, 51);
+            tbHarga.Size = new Size(521, 52);
             tbHarga.TabIndex = 3;
             tbHarga.Text = "Harga";
             // 
             // tbBerat
             // 
-            tbBerat.Font = new Font("Arial", 22.2F);
+            tbBerat.Font = new Font("Arial", 23F);
             tbBerat.ForeColor = Color.Gray;
-            tbBerat.Location = new Point(160, 499);
+            tbBerat.Location = new Point(160, 496);
             tbBerat.Name = "tbBerat";
-            tbBerat.Size = new Size(521, 50);
+            tbBerat.Size = new Size(521, 52);
             tbBerat.TabIndex = 4;
             tbBerat.Text = "Berat (KG)";
             // 
@@ -127,13 +127,13 @@
             // 
             // cbxNamaPeternak
             // 
-            cbxNamaPeternak.Font = new Font("Arial", 22.5F);
+            cbxNamaPeternak.Font = new Font("Arial", 23F);
             cbxNamaPeternak.ForeColor = Color.Gray;
             cbxNamaPeternak.FormattingEnabled = true;
             cbxNamaPeternak.Items.AddRange(new object[] { "1 (Pak Ali)", "2 (Bu Rina) ", "3 (Pak Budi)", "3 (Bu Sari)", "4 (Pak Joko)", "5 (Bu Maya) ", "6 (Pak Tono)" });
             cbxNamaPeternak.Location = new Point(765, 307);
             cbxNamaPeternak.Name = "cbxNamaPeternak";
-            cbxNamaPeternak.Size = new Size(518, 50);
+            cbxNamaPeternak.Size = new Size(518, 51);
             cbxNamaPeternak.TabIndex = 9;
             cbxNamaPeternak.Text = "Peternak";
             // 

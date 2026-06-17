@@ -88,6 +88,7 @@
             Controls.Add(lbProses);
             Controls.Add(lbTerkirim);
             DoubleBuffered = true;
+            Margin = new Padding(2);
             Name = "DistribusiHewanForm";
             Size = new Size(1600, 1020);
             ((System.ComponentModel.ISupportInitialize)dgvDistribusiHewan).EndInit();

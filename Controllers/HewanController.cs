@@ -44,33 +44,35 @@ namespace project_smt2.Controllers
         public DataTable GetHewanById(int hewan_ternak_id)
         {
             DataTable dt = new DataTable();
+            using (var conn = DatabaseHelper.GetConnection())
             {
-                string query = @"SELECT
+                conn.Open();
+                var cmd = new NpgsqlCommand(@"SELECT
                         ht.hewan_ternak_id,
+                        ht.jenis_hewan_id,
                         jh.hewan AS jenis_hewan,
                         ht.jenis_kelamin,
                         ht.umur,
                         ht.berat,
                         ht.harga,
+                        ht.peternak_id,
                         p.nama_peternak,
-                        ht.status_hewan,
-                     FROM hewan_ternak ht
-                     LEFT JOIN jenis_hewan jh ON ht.jenis_hewan_id = jh.jenis_hewan_id
-                     LEFT JOIN peternak p ON ht.peternak_id = p.peternak_id";
+                        kq.kondisi_fisik,
+                        kq.tanggal_pemeriksaan
+                    FROM hewan_ternak ht
+                    LEFT JOIN jenis_hewan jh ON ht.jenis_hewan_id = jh.jenis_hewan_id
+                    LEFT JOIN peternak p ON ht.peternak_id = p.peternak_id
+                    LEFT JOIN klasifikasi_qurban kq ON ht.hewan_ternak_id = kq.hewan_ternak_id
+                    WHERE ht.hewan_ternak_id = @id", conn);
 
-                using (var conn = DatabaseHelper.GetConnection())
+                cmd.Parameters.AddWithValue("@id", hewan_ternak_id);
+                using (var adapter = new NpgsqlDataAdapter(cmd))
                 {
-                    conn.Open();
-                    using (var cmd = new NpgsqlCommand(query, conn))
-                    {
-                        using (var adapter = new NpgsqlDataAdapter(cmd))
-                        {
-                            adapter.Fill(dt);
-                        }
-                    }
+                    adapter.Fill(dt);
                 }
-                return dt;
             }
+
+            return dt;
         }
 
         public int GetTotalTersedia()
@@ -183,7 +185,6 @@ namespace project_smt2.Controllers
                             cmd.Parameters.AddWithValue("@hewan_ternak_id", hewan_ternak_id);
 
                             int rowsHewan = cmd.ExecuteNonQuery();
-                            MessageBox.Show($"[DEBUG 1] Berhasil update tabel hewan_ternak sebanyak: {rowsHewan} baris. (IDTarget: {hewan_ternak_id})", "Debug Info");
                         }
 
                         string statusQurban = "Tidak Layak";
@@ -203,10 +204,10 @@ namespace project_smt2.Controllers
 
                         using (var cmdUpdate = new NpgsqlCommand(
                             @"UPDATE klasifikasi_qurban 
-          SET kondisi_fisik = @kondisi_fisik::kondisi_fisik, 
-              status_qurban = @status_qurban::status_qurban,
-              tanggal_pemeriksaan = @tanggal_pemeriksaan 
-          WHERE hewan_ternak_id = @hewan_ternak_id", conn))
+                        SET kondisi_fisik = @kondisi_fisik::kondisi_fisik, 
+                            status_qurban = @status_qurban::status_qurban,
+                            tanggal_pemeriksaan = @tanggal_pemeriksaan 
+                        WHERE hewan_ternak_id = @hewan_ternak_id", conn))
                         {
                             cmdUpdate.Parameters.AddWithValue("@kondisi_fisik", kondisi_fisik ?? "Sehat");
                             cmdUpdate.Parameters.AddWithValue("@status_qurban", statusQurban);
@@ -219,7 +220,7 @@ namespace project_smt2.Controllers
                             {
                                 using (var cmdInsert = new NpgsqlCommand(
                                     @"INSERT INTO klasifikasi_qurban (hewan_ternak_id, kondisi_fisik, status_qurban, tanggal_pemeriksaan) 
-                  VALUES (@hewan_ternak_id, @kondisi_fisik::kondisi_fisik, @status_qurban::status_qurban, @tanggal_pemeriksaan)", conn))
+                                    VALUES (@hewan_ternak_id, @kondisi_fisik::kondisi_fisik, @status_qurban::status_qurban, @tanggal_pemeriksaan)", conn))
                                 {
                                     cmdInsert.Parameters.AddWithValue("@hewan_ternak_id", hewan_ternak_id);
                                     cmdInsert.Parameters.AddWithValue("@kondisi_fisik", kondisi_fisik ?? "Sehat");
