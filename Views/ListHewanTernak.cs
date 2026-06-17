@@ -65,6 +65,11 @@ namespace project_smt2.Views
 
             dgvListHewanTernak.DataSource = dt;
 
+            foreach (DataRow row in dt.Rows)
+            {
+                row["harga"] = Convert.ToDecimal(row["harga"]) + 1000000;
+            }
+
             // Set header text for better readability
             dgvListHewanTernak.Columns["hewan_ternak_id"].HeaderText = "ID Hewan";
             dgvListHewanTernak.Columns["nama_jenis"].HeaderText = "Jenis Hewan";
@@ -187,7 +192,7 @@ namespace project_smt2.Views
 
             string statusHewan =
                 dgvListHewanTernak.CurrentRow
-                .Cells["Status_hewan"]
+                .Cells["status_hewan"]
                 .Value.ToString();
 
             MessageBox.Show(statusHewan);
@@ -206,10 +211,12 @@ namespace project_smt2.Views
             int hewanId = Convert.ToInt32(
                 dgvListHewanTernak.CurrentRow.Cells["hewan_ternak_id"].Value);
 
-            decimal harga = Convert.ToDecimal(
+            decimal hargaDasar = Convert.ToDecimal(
                 dgvListHewanTernak.CurrentRow.Cells["harga"].Value);
 
-            BtnBeliClicked?.Invoke(hewanId, harga);
+            decimal hargaJual = hargaDasar + 1000000;
+
+            BtnBeliClicked?.Invoke(hewanId, hargaJual);
         }
     }
 }
