@@ -72,15 +72,15 @@ namespace project_smt2.Views
 
             // Set header text for better readability
             dgvListHewanTernak.Columns["hewan_ternak_id"].HeaderText = "ID Hewan";
-            dgvListHewanTernak.Columns["nama_jenis"].HeaderText = "Jenis Hewan";
+            //dgvListHewanTernak.Columns["nama_jenis"].HeaderText = "Jenis Hewan";
             dgvListHewanTernak.Columns["jenis_kelamin"].HeaderText = "Jenis Kelamin";
             dgvListHewanTernak.Columns["umur"].HeaderText = "Umur (th)";
             dgvListHewanTernak.Columns["berat"].HeaderText = "Berat (kg)";
             dgvListHewanTernak.Columns["harga"].HeaderText = "Harga (Rp)";
             dgvListHewanTernak.Columns["nama_peternak"].HeaderText = "Peternak";
             dgvListHewanTernak.Columns["status_hewan"].HeaderText = "Status Hewan";
-            dgvListHewanTernak.Columns["kondisi_fisik"].HeaderText = "Kondisi Fisik";
-            dgvListHewanTernak.Columns["status_qurban"].HeaderText = "Status Qurban";
+            //dgvListHewanTernak.Columns["kondisi_fisik"].HeaderText = "Kondisi Fisik";
+            //dgvListHewanTernak.Columns["status_qurban"].HeaderText = "Status Qurban";
             // Auto resize columns and rows for better display
             dgvListHewanTernak.AutoResizeColumns();
             dgvListHewanTernak.AutoResizeRows();

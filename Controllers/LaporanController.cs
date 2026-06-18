@@ -27,7 +27,7 @@ namespace project_smt2.Controllers
             {
                 conn.Open();
                 string query = @"
-                    SELECT nama_peternak, total_penjualan FROM view_total_penjualan_peternak";
+                    SELECT nama_peternak, total_penjualan FROM view_total_penjualan_peternakan";
 
                 NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conn);
                 da.Fill(dt);

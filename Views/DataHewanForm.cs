@@ -50,12 +50,11 @@ namespace project_smt2.Views
             dgvDataHewan.AutoResizeColumns();
             dgvDataHewan.AutoResizeRows();
             dgvDataHewan.Columns["hewan_ternak_id"].HeaderText = "ID Hewan";
-            dgvDataHewan.Columns["nama_jenis"].HeaderText = "Jenis Hewan";
+            dgvDataHewan.Columns["jenis_hewan"].HeaderText = "Jenis Hewan";
             dgvDataHewan.Columns["jenis_kelamin"].HeaderText = "Jenis Kelamin";
             dgvDataHewan.Columns["umur"].HeaderText = "Umur (th)";
             dgvDataHewan.Columns["berat"].HeaderText = "Berat (kg)";
             dgvDataHewan.Columns["harga"].HeaderText = "Harga (Rp)";
-            dgvDataHewan.Columns["kondisi_fisik"].HeaderText = "Kondisi Fisik";
             dgvDataHewan.Columns["nama_peternak"].HeaderText = "Peternak";
             dgvDataHewan.Columns["status_hewan"].HeaderText = "Status Hewan";
             lblhewantersedia.Text = controller.GetTotalTersedia().ToString();

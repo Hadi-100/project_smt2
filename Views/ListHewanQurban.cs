@@ -49,15 +49,13 @@ namespace project_smt2.Views
             dgvListHewanQurban.DataSource = dt;
 
             dgvListHewanQurban.Columns["hewan_ternak_id"].HeaderText = "ID Hewan";
-            dgvListHewanQurban.Columns["nama_jenis"].HeaderText = "Jenis Hewan";
+            //dgvListHewanQurban.Columns["jenis_hewan"].HeaderText = "Jenis Hewan";
             dgvListHewanQurban.Columns["jenis_kelamin"].HeaderText = "Jenis Kelamin";
             dgvListHewanQurban.Columns["umur"].HeaderText = "Umur (th)";
             dgvListHewanQurban.Columns["berat"].HeaderText = "Berat (kg)";
             dgvListHewanQurban.Columns["harga"].HeaderText = "Harga (Rp)";
             dgvListHewanQurban.Columns["nama_peternak"].HeaderText = "Peternak";
             dgvListHewanQurban.Columns["status_hewan"].HeaderText = "Status Hewan";
-            dgvListHewanQurban.Columns["kondisi_fisik"].HeaderText = "Kondisi Fisik";
-            dgvListHewanQurban.Columns["status_qurban"].HeaderText = "Status Qurban";
 
             dgvListHewanQurban.AutoResizeColumns();
             dgvListHewanQurban.AutoResizeRows();

@@ -49,21 +49,17 @@ namespace project_smt2.Controllers
                 conn.Open();
                 var cmd = new NpgsqlCommand(@"SELECT
                         ht.hewan_ternak_id,
-                        ht.jenis_hewan_id,
-                        jh.hewan AS jenis_hewan,
+                        jh.nama_jenis AS jenis_hewan,
                         ht.jenis_kelamin,
                         ht.umur,
                         ht.berat,
                         ht.harga,
-                        ht.peternak_id,
-                        p.nama_peternak,
-                        kq.kondisi_fisik,
-                        kq.tanggal_pemeriksaan
+                        p.peternak_id,
+                        p.nama_peternak
                     FROM hewan_ternak ht
                     LEFT JOIN jenis_hewan jh ON ht.jenis_hewan_id = jh.jenis_hewan_id
                     LEFT JOIN peternak p ON ht.peternak_id = p.peternak_id
-                    LEFT JOIN klasifikasi_qurban kq ON ht.hewan_ternak_id = kq.hewan_ternak_id
-                    WHERE ht.hewan_ternak_id = @id", conn);
+                    WHERE hewan_ternak_id = @id", conn);
 
                 cmd.Parameters.AddWithValue("@id", hewan_ternak_id);
                 using (var adapter = new NpgsqlDataAdapter(cmd))

@@ -42,8 +42,6 @@
             // 
             // dgvListHewanQurban
             // 
-            dgvListHewanQurban.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvListHewanQurban.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvListHewanQurban.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvListHewanQurban.Location = new Point(485, 161);
             dgvListHewanQurban.Name = "dgvListHewanQurban";

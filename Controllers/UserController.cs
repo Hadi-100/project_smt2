@@ -89,7 +89,7 @@ namespace project_smt2.Controllers
                 NpgsqlCommand cmd =
                     new NpgsqlCommand(query, conn);
                 totalAdmin = Convert.ToInt32(cmd.ExecuteScalar());
-            }
+            }       
             return totalAdmin;
         }
 
