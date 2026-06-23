@@ -11,6 +11,9 @@ namespace project_smt2.Views
     public partial class DashboardUserForm : Form
     {
         private string username;
+        private Panel pnlContent;
+        private string asalHalaman;
+
         public DashboardUserForm(string namaLengkap)
         {
             InitializeComponent();
@@ -24,317 +27,12 @@ namespace project_smt2.Views
             listHewanTernak1.BtnBeliClicked += List_BtnBeliClicked;
             listHewanQurban1.BtnBeliClicked += ListQurban_BtnBeliClicked;
 
-            masukkanAlamat1.LanjutKePembayaran += MasukkanAlamat1_LanjutKePembayaran;
+            masukkanAlamat2.LanjutKePembayaran += MasukkanAlamat2_LanjutKePembayaran;
+            masukkanAlamat2.BtnKembaliClicked += MasukkanAlamat2_BtnKembaliClicked;
 
-           
+            pembayaranForm1.BtnBatal_Click += Pembayaran_BtnBatal_Click;
 
             new AutoScaleHelper(this);
-        }
-
-        private Panel pnlContent;
-
-        private void MasukkanAlamat1_LanjutKePembayaran(int hewanId, int alamatId, decimal harga)
-        {
-            PembayaranForm pembayaran = new PembayaranForm(hewanId, alamatId, harga);
-
-            pembayaran.Location = new Point(0, 156);
-            pembayaran.Size = new Size(1538, 832);
-            pembayaran.BtnBatal_Click += Pembayaran_BtnBatal_Click;
-
-            Controls.Add(pembayaran);
-
-            pembayaran.BringToFront();
-
-            masukkanAlamat1.Hide();
-        }
-
-        private void Pembayaran_BtnBatal_Click(object sender, EventArgs e)
-        {
-            masukkanAlamat1.Show();
-
-            if (sender is PembayaranForm pembayaran)
-            {
-                Controls.Remove(pembayaran);
-                pembayaran.Dispose();
-            }
-        }
-
-        private void ListQurban_BtnBeliClicked(int hewanId,decimal harga)
-        {
-            MasukkanAlamat alamat =
-                new MasukkanAlamat(
-                    hewanId,
-                    harga);
-
-            alamat.BtnKembaliClicked +=
-                MasukkanAlamat_BtnKembaliClicked;
-
-            alamat.LanjutKePembayaran +=
-                MasukkanAlamat1_LanjutKePembayaran;
-
-            alamat.Dock = DockStyle.Fill;
-
-            Controls.Add(alamat);
-
-            alamat.BringToFront();
-
-            listHewanQurban1.Hide();
-        }
-
-
-        private void InitializeComponent()
-        {
-            ComponentResourceManager resources = new ComponentResourceManager(typeof(DashboardUserForm));
-            btnHewanTernak = new Button();
-            btnHewanQurban = new Button();
-            btnHalamanUtama = new Button();
-            btnRiwayatTransaksi = new Button();
-            btnPesananSaya = new Button();
-            btnLogOut = new Button();
-            lblNamaUser = new Label();
-            riwayatTransaksiUSER = new RiwayatTransaksiUSER();
-            pesananSaya1 = new PesananSaya();
-            lblNamaRole = new Label();
-            listHewanTernak1 = new ListHewanTernak();
-            listHewanQurban1 = new ListHewanQurban();
-            masukkanAlamat1 = new MasukkanAlamat();
-            riwayatTransaksiuser1 = new RiwayatTransaksiUSER();
-            SuspendLayout();
-            // 
-            // btnHewanTernak
-            // 
-            btnHewanTernak.BackColor = Color.White;
-            btnHewanTernak.BackgroundImageLayout = ImageLayout.Stretch;
-            btnHewanTernak.FlatStyle = FlatStyle.Popup;
-            btnHewanTernak.Font = new Font("Arial", 18.2F, FontStyle.Bold);
-            btnHewanTernak.ForeColor = Color.Green;
-            btnHewanTernak.Location = new Point(376, 802);
-            btnHewanTernak.Name = "btnHewanTernak";
-            btnHewanTernak.Size = new Size(369, 100);
-            btnHewanTernak.TabIndex = 0;
-            btnHewanTernak.Text = "Hewan Ternak";
-            btnHewanTernak.UseVisualStyleBackColor = false;
-            btnHewanTernak.Click += btnHewanTernak_Click;
-            // 
-            // btnHewanQurban
-            // 
-            btnHewanQurban.BackColor = Color.Green;
-            btnHewanQurban.BackgroundImageLayout = ImageLayout.Stretch;
-            btnHewanQurban.FlatStyle = FlatStyle.Popup;
-            btnHewanQurban.Font = new Font("Arial", 16F, FontStyle.Bold);
-            btnHewanQurban.ForeColor = Color.White;
-            btnHewanQurban.Location = new Point(789, 802);
-            btnHewanQurban.Name = "btnHewanQurban";
-            btnHewanQurban.Size = new Size(367, 100);
-            btnHewanQurban.TabIndex = 0;
-            btnHewanQurban.Text = "Hewan Qurban";
-            btnHewanQurban.UseVisualStyleBackColor = false;
-            btnHewanQurban.Click += btnHewanQurban_Click;
-            // 
-            // btnHalamanUtama
-            // 
-            btnHalamanUtama.BackColor = Color.Transparent;
-            btnHalamanUtama.BackgroundImageLayout = ImageLayout.Stretch;
-            btnHalamanUtama.FlatStyle = FlatStyle.Popup;
-            btnHalamanUtama.Font = new Font("Arial", 1.8F);
-            btnHalamanUtama.ForeColor = Color.White;
-            btnHalamanUtama.Location = new Point(304, 39);
-            btnHalamanUtama.Name = "btnHalamanUtama";
-            btnHalamanUtama.Size = new Size(190, 68);
-            btnHalamanUtama.TabIndex = 2;
-            btnHalamanUtama.Text = ".";
-            btnHalamanUtama.UseVisualStyleBackColor = false;
-            btnHalamanUtama.Click += btnHalamanUtama_Click;
-            // 
-            // btnRiwayatTransaksi
-            // 
-            btnRiwayatTransaksi.BackColor = Color.Transparent;
-            btnRiwayatTransaksi.BackgroundImageLayout = ImageLayout.Stretch;
-            btnRiwayatTransaksi.FlatStyle = FlatStyle.Popup;
-            btnRiwayatTransaksi.Font = new Font("Arial", 1.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnRiwayatTransaksi.ForeColor = Color.White;
-            btnRiwayatTransaksi.Location = new Point(521, 39);
-            btnRiwayatTransaksi.Name = "btnRiwayatTransaksi";
-            btnRiwayatTransaksi.Size = new Size(188, 68);
-            btnRiwayatTransaksi.TabIndex = 3;
-            btnRiwayatTransaksi.Text = ".";
-            btnRiwayatTransaksi.UseVisualStyleBackColor = false;
-            btnRiwayatTransaksi.Click += button4_Click;
-            // 
-            // btnPesananSaya
-            // 
-            btnPesananSaya.BackColor = Color.Transparent;
-            btnPesananSaya.BackgroundImageLayout = ImageLayout.Stretch;
-            btnPesananSaya.FlatStyle = FlatStyle.Popup;
-            btnPesananSaya.Font = new Font("Arial", 1.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPesananSaya.ForeColor = Color.White;
-            btnPesananSaya.Location = new Point(736, 39);
-            btnPesananSaya.Name = "btnPesananSaya";
-            btnPesananSaya.Size = new Size(191, 68);
-            btnPesananSaya.TabIndex = 4;
-            btnPesananSaya.Text = ".";
-            btnPesananSaya.UseVisualStyleBackColor = false;
-            btnPesananSaya.Click += btnPesananSaya_Click;
-            // 
-            // btnLogOut
-            // 
-            btnLogOut.BackColor = Color.Transparent;
-            btnLogOut.FlatStyle = FlatStyle.Popup;
-            btnLogOut.Font = new Font("Arial", 1.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogOut.Location = new Point(1406, 46);
-            btnLogOut.Name = "btnLogOut";
-            btnLogOut.Size = new Size(107, 55);
-            btnLogOut.TabIndex = 5;
-            btnLogOut.Text = ".";
-            btnLogOut.UseVisualStyleBackColor = false;
-            btnLogOut.Click += btnLogOut_Click;
-            // 
-            // lblNamaUser
-            // 
-            lblNamaUser.AutoSize = true;
-            lblNamaUser.BackColor = Color.Transparent;
-            lblNamaUser.FlatStyle = FlatStyle.Popup;
-            lblNamaUser.Font = new Font("Arial", 8F);
-            lblNamaUser.ForeColor = Color.White;
-            lblNamaUser.Location = new Point(106, 56);
-            lblNamaUser.Name = "lblNamaUser";
-            lblNamaUser.Size = new Size(45, 16);
-            lblNamaUser.TabIndex = 6;
-            lblNamaUser.Text = "label1";
-            lblNamaUser.Click += lblNamaUser_Click_1;
-            // 
-            // riwayatTransaksiUSER
-            // 
-            riwayatTransaksiUSER.BackgroundImage = (Image)resources.GetObject("riwayatTransaksiUSER.BackgroundImage");
-            riwayatTransaksiUSER.BackgroundImageLayout = ImageLayout.Stretch;
-            riwayatTransaksiUSER.Location = new Point(0, 156);
-            riwayatTransaksiUSER.Margin = new Padding(2);
-            riwayatTransaksiUSER.Name = "riwayatTransaksiUSER";
-            riwayatTransaksiUSER.Size = new Size(1538, 832);
-            riwayatTransaksiUSER.TabIndex = 7;
-            riwayatTransaksiUSER.Load += riwayat_transaksi_user1_Load;
-            // 
-            // pesananSaya1
-            // 
-            pesananSaya1.BackgroundImage = (Image)resources.GetObject("pesananSaya1.BackgroundImage");
-            pesananSaya1.BackgroundImageLayout = ImageLayout.Stretch;
-            pesananSaya1.Location = new Point(0, 156);
-            pesananSaya1.Margin = new Padding(2);
-            pesananSaya1.Name = "pesananSaya1";
-            pesananSaya1.Size = new Size(1538, 832);
-            pesananSaya1.TabIndex = 8;
-            pesananSaya1.Load += pesananSaya1_Load;
-            // 
-            // lblNamaRole
-            // 
-            lblNamaRole.AutoSize = true;
-            lblNamaRole.BackColor = Color.Transparent;
-            lblNamaRole.FlatStyle = FlatStyle.Popup;
-            lblNamaRole.Font = new Font("Arial", 7.8F);
-            lblNamaRole.ForeColor = Color.Yellow;
-            lblNamaRole.Location = new Point(106, 80);
-            lblNamaRole.Name = "lblNamaRole";
-            lblNamaRole.Size = new Size(34, 16);
-            lblNamaRole.TabIndex = 9;
-            lblNamaRole.Text = "User";
-            lblNamaRole.Click += label1_Click;
-            // 
-            // listHewanTernak1
-            // 
-            listHewanTernak1.BackgroundImage = (Image)resources.GetObject("listHewanTernak1.BackgroundImage");
-            listHewanTernak1.BackgroundImageLayout = ImageLayout.Stretch;
-            listHewanTernak1.Location = new Point(0, 156);
-            listHewanTernak1.Name = "listHewanTernak1";
-            listHewanTernak1.Size = new Size(1538, 832);
-            listHewanTernak1.TabIndex = 10;
-            // 
-            // listHewanQurban1
-            // 
-            listHewanQurban1.BackgroundImage = (Image)resources.GetObject("listHewanQurban1.BackgroundImage");
-            listHewanQurban1.BackgroundImageLayout = ImageLayout.Stretch;
-            listHewanQurban1.Location = new Point(0, 156);
-            listHewanQurban1.Name = "listHewanQurban1";
-            listHewanQurban1.Size = new Size(1538, 832);
-            listHewanQurban1.TabIndex = 11;
-            // 
-            // masukkanAlamat1
-            // 
-            masukkanAlamat1.BackgroundImageLayout = ImageLayout.Stretch;
-            masukkanAlamat1.Location = new Point(0, 156);
-            masukkanAlamat1.Margin = new Padding(2);
-            masukkanAlamat1.Name = "masukkanAlamat1";
-            masukkanAlamat1.Size = new Size(1538, 832);
-            masukkanAlamat1.TabIndex = 10;
-            masukkanAlamat1.Load += masukkanAlamat1_Load;
-            // 
-            // riwayatTransaksiuser1
-            // 
-            riwayatTransaksiuser1.BackgroundImage = (Image)resources.GetObject("riwayatTransaksiuser1.BackgroundImage");
-            riwayatTransaksiuser1.BackgroundImageLayout = ImageLayout.Stretch;
-            riwayatTransaksiuser1.Location = new Point(0, 156);
-            riwayatTransaksiuser1.Margin = new Padding(2);
-            riwayatTransaksiuser1.Name = "riwayatTransaksiuser1";
-            riwayatTransaksiuser1.Size = new Size(1538, 832);
-            riwayatTransaksiuser1.TabIndex = 12;
-            riwayatTransaksiuser1.Load += riwayatTransaksiuser1_Load;
-            // 
-            // DashboardUserForm
-            // 
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1538, 988);
-            Controls.Add(riwayatTransaksiuser1);
-            Controls.Add(listHewanQurban1);
-            Controls.Add(listHewanTernak1);
-            Controls.Add(masukkanAlamat1);
-            Controls.Add(lblNamaRole);
-            Controls.Add(pesananSaya1);
-            Controls.Add(riwayatTransaksiUSER);
-            Controls.Add(lblNamaUser);
-            Controls.Add(btnLogOut);
-            Controls.Add(btnPesananSaya);
-            Controls.Add(btnRiwayatTransaksi);
-            Controls.Add(btnHalamanUtama);
-            Controls.Add(btnHewanQurban);
-            Controls.Add(btnHewanTernak);
-            DoubleBuffered = true;
-            Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "DashboardUserForm";
-            Text = "2";
-            WindowState = FormWindowState.Maximized;
-            ResumeLayout(false);
-            PerformLayout();
-
-        }
-
-        private Button btnHewanTernak;
-        private Button btnHewanQurban;
-        private Button btnHalamanUtama;
-        private Button btnRiwayatTransaksi;
-        private Button btnPesananSaya;
-        private Button btnLogOut;
-        private Label lblNamaUser;
-
-        private void btnHewanTernak_Click(object sender, EventArgs e)
-        {
-            listHewanTernak1.Show();
-            listHewanTernak1.BringToFront();
-
-            pesananSaya1.Hide();
-            riwayatTransaksiuser1.Hide();
-            masukkanAlamat1.Hide();
-            listHewanQurban1.Hide();
-
-        }
-
-        private void btnHewanQurban_Click(object sender, EventArgs e)
-        {
-            listHewanQurban1.Show();
-            listHewanTernak1.Hide();
-            riwayatTransaksiuser1.Hide();
-            pesananSaya1.Hide();
-            masukkanAlamat1.Hide();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -353,6 +51,63 @@ namespace project_smt2.Views
             }
         }
 
+        private void MasukkanAlamat2_LanjutKePembayaran(
+            int hewanId,
+            int alamatId,
+            decimal harga)
+        {
+            pembayaranForm1.SetData(hewanId,alamatId,harga);
+
+            pembayaranForm1.Show();
+            pembayaranForm1.BringToFront();
+
+            masukkanAlamat2.Hide();
+        }
+
+        private void Pembayaran_BtnBatal_Click(object sende, EventArgs e)
+        {
+            pembayaranForm1.Hide();
+
+            masukkanAlamat2.Show();
+            masukkanAlamat2.BringToFront();
+        }
+
+        private void List_BtnBeliClicked(int hewanId, decimal harga)
+        {
+            asalHalaman = "Ternak";
+
+            masukkanAlamat2.SetData(hewanId, harga);
+            masukkanAlamat2.Show();
+
+            listHewanTernak1.Hide();
+        }
+        private void ListQurban_BtnBeliClicked(int hewanId, decimal harga)
+        {
+            asalHalaman = "Qurban";
+
+            masukkanAlamat2.SetData(hewanId, harga);
+            masukkanAlamat2.Show();
+
+            listHewanQurban1.Hide();
+        }
+
+        private void MasukkanAlamat2_BtnKembaliClicked(object sender,EventArgs e)
+        {
+            masukkanAlamat2.Hide();
+
+            if (asalHalaman == "Qurban")
+            {
+                listHewanQurban1.Show();
+                listHewanQurban1.BringToFront();
+            }
+            else
+            {
+                listHewanTernak1.Show();
+                listHewanTernak1.BringToFront();
+            }
+        }
+
+
         private void button4_Click(object sender, EventArgs e)
         {
             riwayatTransaksiuser1.Show();
@@ -368,24 +123,28 @@ namespace project_smt2.Views
             riwayatTransaksiuser1.Hide();
             listHewanTernak1.Hide();
             listHewanQurban1.Hide();
-            masukkanAlamat1.Hide();
+            masukkanAlamat2.Hide();
         }
-
-
-        private void MasukkanAlamat_BtnKembaliClicked(
-    object sender,
-    EventArgs e)
+        private void btnHewanTernak_Click(object sender, EventArgs e)
         {
-            if (sender is MasukkanAlamat alamat)
-            {
-                Controls.Remove(alamat);
-                alamat.Dispose();
-            }
-
             listHewanTernak1.Show();
             listHewanTernak1.BringToFront();
+
+            pesananSaya1.Hide();
+            riwayatTransaksiuser1.Hide();
+            masukkanAlamat2.Hide();
+            listHewanQurban1.Hide();
+
         }
 
+        private void btnHewanQurban_Click(object sender, EventArgs e)
+        {
+            listHewanQurban1.Show();
+            listHewanTernak1.Hide();
+            riwayatTransaksiuser1.Hide();
+            pesananSaya1.Hide();
+            masukkanAlamat2.Hide();
+        }
 
         private void btnHalamanUtama_Click(object sender, EventArgs e)
         {
@@ -393,7 +152,7 @@ namespace project_smt2.Views
             riwayatTransaksiUSER.Hide();
             pesananSaya1.Hide();
             listHewanTernak1.Hide();
-            masukkanAlamat1.Hide();
+            masukkanAlamat2.Hide();
             listHewanQurban1.Hide();
         }
 
@@ -421,28 +180,6 @@ namespace project_smt2.Views
 
         }
 
-        private void List_BtnBeliClicked(int hewanId, decimal harga)
-        {
-            MasukkanAlamat alamat =
-                new MasukkanAlamat(
-                    hewanId,
-                    harga);
-
-            alamat.BtnKembaliClicked +=
-                MasukkanAlamat_BtnKembaliClicked;
-
-            alamat.LanjutKePembayaran +=
-                MasukkanAlamat1_LanjutKePembayaran;
-
-            alamat.Location = new Point(0, 156);
-            alamat.Size = new Size(1538, 832);
-
-            Controls.Add(alamat);
-
-            alamat.BringToFront();
-
-            listHewanTernak1.Hide();
-        }
         private void btnHewanTernakUser_Click(object sender, EventArgs e)
         {
             ListHewanTernak list = new ListHewanTernak();
@@ -467,12 +204,27 @@ namespace project_smt2.Views
             listHewanTernak1.Hide();
         }
 
-        private void masukkanAlamat1_Load(object sender, EventArgs e)
+        //private void masukkanAlamat1_Load(object sender, EventArgs e)
+        //{
+
+        //}
+
+        private void riwayatTransaksiuser1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void riwayatTransaksiuser1_Load(object sender, EventArgs e)
+        private void masukkanAlamat2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void masukkanAlamat2_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pembayaranForm1_Load(object sender, EventArgs e)
         {
 
         }

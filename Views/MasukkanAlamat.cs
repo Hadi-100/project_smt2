@@ -39,6 +39,11 @@ namespace project_smt2.Views
             _harga = harga;
         }
 
+        public void SetData(int hewanId, decimal harga)
+        {
+            _hewanId = hewanId;
+            _harga = harga;
+        }
 
         private void AlamatForm_Load(object sender, EventArgs e)
         {

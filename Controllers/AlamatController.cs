@@ -16,7 +16,7 @@ namespace project_smt2.Controllers
             using var conn = DatabaseHelper.GetConnection();
             conn.Open();
 
-            string sql = "SELECT kecamatan_id, nama_kecamatan FROM kecamatan ORDER BY nama_kecamatan";
+            string sql = "SELECT * FROM view_kecamatan";
 
             using var cmd = new NpgsqlCommand(sql, conn);
             using var reader = cmd.ExecuteReader();
@@ -39,10 +39,7 @@ namespace project_smt2.Controllers
             using var conn = DatabaseHelper.GetConnection();
             conn.Open();
 
-            string sql = @"SELECT desa_id, kecamatan_id, nama_desa 
-                       FROM desa 
-                       WHERE kecamatan_id = @kecamatanId 
-                       ORDER BY nama_desa";
+            string sql = @"SELECT * FROM view_desa WHERE kecamatan_id = @kecamatanId";
 
             using var cmd = new NpgsqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@kecamatanId", kecamatanId);
@@ -67,9 +64,7 @@ namespace project_smt2.Controllers
             using var conn = DatabaseHelper.GetConnection();
             conn.Open();
 
-            string sql = @"INSERT INTO alamat (detail_alamat, desa_id, kabupaten) 
-                       VALUES (@detail, @desaId, 'Jember') 
-                       RETURNING alamat_id";
+            string sql = @"SELECT fn_insert_alamat(@detail, @desaId)";
 
             using var cmd = new NpgsqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@detail", detailAlamat);

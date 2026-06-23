@@ -19,16 +19,15 @@ namespace project_smt2.Controllers
 
                 string query =
                 @"SELECT
+                    u.user_id,
                     dp.data_pengiriman_id,
                     u.nama_lengkap,
                     dp.tanggal_kirim,
                     dp.biaya_kirim,
                     dp.status_pengiriman
-                FROM data_pengiriman dp
-                JOIN transaksi t
-                ON dp.transaksi_id=t.transaksi_id
-                JOIN users u
-                ON t.user_id=u.user_id";
+                    FROM data_pengiriman dp
+                    JOIN transaksi t ON dp.transaksi_id=t.transaksi_id
+                    JOIN users u ON t.user_id=u.user_id";
 
                 NpgsqlDataAdapter da =
                     new NpgsqlDataAdapter(
@@ -88,6 +87,29 @@ namespace project_smt2.Controllers
                 return Convert.ToInt32(cmd.ExecuteScalar());
 
                 //kenw
+            }
+        }
+
+        public void UpdateStatusPengiriman(int pengirimanId, string status, DateTime tanggalKirim)
+        {
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+
+                string query = @"
+      UPDATE data_pengiriman
+      SET status_pengiriman = @status::status_pengiriman,
+          tanggal_kirim = @tanggal
+      WHERE data_pengiriman_id = @pengiriman_id;";
+
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@status", status);
+                    cmd.Parameters.AddWithValue("@tanggal", DateOnly.FromDateTime(tanggalKirim));
+                    cmd.Parameters.AddWithValue("@pengiriman_id", pengirimanId);
+
+                    cmd.ExecuteNonQuery();
+                }
             }
         }
 

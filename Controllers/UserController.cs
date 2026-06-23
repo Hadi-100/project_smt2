@@ -14,38 +14,20 @@ namespace project_smt2.Controllers
                 conn.Open();
 
                 string query =
-                @"INSERT INTO users
-                (
-                    nama_lengkap,
-                    email,
-                    nomor_telepon,
-                    password,
-                    role_user
-                )
-                VALUES
-                (
-                    @nama,
-                    @email,
-                    @telepon,
-                    @password,
-                    'user'
-                )";
+                @"CALL PROCEDURE procedure_registrasi_akun(@nama, @email, @telepon, @password)";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@nama", user.NamaLengkap);
 
-                NpgsqlCommand cmd =
-                    new NpgsqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@nama",
-                    user.NamaLengkap);
+                    cmd.Parameters.AddWithValue("@email", user.Email);
 
-                cmd.Parameters.AddWithValue("@email",
-                    user.Email);
+                    cmd.Parameters.AddWithValue("@telepon", user.NomorTelepon);
 
-                cmd.Parameters.AddWithValue("@telepon",
-                    user.NomorTelepon);
+                    cmd.Parameters.AddWithValue("@password", user.Password);
 
-                cmd.Parameters.AddWithValue("@password",
-                    user.Password);
-
-                cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
+                }
+                
             }
         }
 
@@ -101,8 +83,8 @@ namespace project_smt2.Controllers
                 conn.Open();
                 string query =
                 @"SELECT COUNT(*) FROM users
-                WHERE role_user = 'user'";
-                NpgsqlCommand cmd =
+                WHERE role_user = 'user'";  
+                NpgsqlCommand cmd = 
                     new NpgsqlCommand(query, conn);
                 totalUser = Convert.ToInt32(cmd.ExecuteScalar());
             }

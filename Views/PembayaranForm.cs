@@ -17,10 +17,19 @@ namespace project_smt2.Views
         private int _alamatId;
         private decimal _harga;
 
-        private TransaksiController transaksiController =
-            new TransaksiController();
+        private TransaksiController transaksiController = new TransaksiController();
 
         public event EventHandler BtnBatal_Click;
+
+        public void SetData(
+        int hewanId,
+        int alamatId,
+        decimal harga)
+        {
+            _hewanId = hewanId;
+            _alamatId = alamatId;
+            _harga = harga;
+        }
 
         public PembayaranForm()
         {

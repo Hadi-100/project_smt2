@@ -1,4 +1,4 @@
-﻿using Npgsql;
+﻿    using Npgsql;
 using project_smt2.Helpers;
 using System.Collections;
 using System.Data;
@@ -18,18 +18,7 @@ namespace project_smt2.Controllers
                 conn.Open();
 
                 string query =
-                @"SELECT
-                ht.hewan_ternak_id,
-                jh.hewan AS jenis_hewan,
-                ht.jenis_kelamin,
-                ht.umur,
-                ht.berat,
-                ht.harga,
-                p.nama_peternak,
-                ht.status_hewan
-                FROM hewan_ternak ht
-                LEFT JOIN jenis_hewan jh ON ht.jenis_hewan_id = jh.jenis_hewan_id
-                LEFT JOIN peternak p ON ht.peternak_id = p.peternak_id";
+                @"SELECT * FROM view_list_hewan";
 
                 NpgsqlDataAdapter da =
                     new NpgsqlDataAdapter(
@@ -38,7 +27,7 @@ namespace project_smt2.Controllers
 
                 da.Fill(dt);
             }
-                return dt;
+            return dt;
         }
 
         public DataTable GetHewanById(int hewan_ternak_id)
@@ -47,18 +36,7 @@ namespace project_smt2.Controllers
             using (var conn = DatabaseHelper.GetConnection())
             {
                 conn.Open();
-                var cmd = new NpgsqlCommand(@"SELECT
-                        ht.hewan_ternak_id,
-                        jh.nama_jenis AS jenis_hewan,
-                        ht.jenis_kelamin,
-                        ht.umur,
-                        ht.berat,
-                        ht.harga,
-                        p.peternak_id,
-                        p.nama_peternak
-                    FROM hewan_ternak ht
-                    LEFT JOIN jenis_hewan jh ON ht.jenis_hewan_id = jh.jenis_hewan_id
-                    LEFT JOIN peternak p ON ht.peternak_id = p.peternak_id
+                var cmd = new NpgsqlCommand(@"SELECT * FROM view_list_hewan_id
                     WHERE hewan_ternak_id = @id", conn);
 
                 cmd.Parameters.AddWithValue("@id", hewan_ternak_id);
@@ -77,11 +55,7 @@ namespace project_smt2.Controllers
             {
                 conn.Open();
 
-                var cmd = new NpgsqlCommand(@"
-            SELECT COUNT(*)
-            FROM hewan_ternak
-            WHERE status_hewan = 'Tersedia'
-        ", conn);
+                var cmd = new NpgsqlCommand(@"SELECT * FROM view_total_hewan_tersedia", conn);
 
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
@@ -94,10 +68,7 @@ namespace project_smt2.Controllers
                 conn.Open();
 
                 var cmd = new NpgsqlCommand(@"
-            SELECT COUNT(*)
-            FROM hewan_ternak
-            WHERE status_hewan = 'Terjual'
-        ", conn);
+            SELECT * FROM view_total_hewan_terjual", conn);
 
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
@@ -109,7 +80,7 @@ namespace project_smt2.Controllers
             {
                 conn.Open();
                 var cmd = new NpgsqlCommand(
-                    "SELECT COUNT(*) FROM hewan_ternak ht JOIN jenis_hewan jh ON jh.jenis_hewan_id = ht.jenis_hewan_id WHERE jh.hewan = 'Sapi' AND ht.status_hewan = 'Tersedia'", conn);
+                    "SELECT * FROM view_total_sapi_tersedia", conn);
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
@@ -119,12 +90,12 @@ namespace project_smt2.Controllers
             {
                 conn.Open();
                 var cmd = new NpgsqlCommand(
-                    "SELECT COUNT(*) FROM hewan_ternak ht JOIN jenis_hewan jh ON jh.jenis_hewan_id = ht.jenis_hewan_id WHERE jh.hewan = 'Kambing' AND ht.status_hewan = 'Tersedia'", conn);
+                    "SELECT * FROM view_total_kambing_tersedia", conn);
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
 
-        public void TambahkanHewanTernak(
+        public void TambahkanHewan(
             int jenis_hewan_id,
             int peternak_id,
             string jenis_kelamin,
@@ -147,104 +118,49 @@ namespace project_smt2.Controllers
                 cmd.Parameters.AddWithValue("@berat", berat);
                 cmd.Parameters.AddWithValue("@harga", harga);
 
-                        int affected = cmd.ExecuteNonQuery();
-                        System.Diagnostics.Debug.WriteLine($"InsertHewan: hewan_ternak affected={affected}, peternak_id={peternak_id}, jenis_hewan_id={jenis_hewan_id}");
+                int affected = cmd.ExecuteNonQuery();
+                System.Diagnostics.Debug.WriteLine($"InsertHewan: hewan_ternak affected={affected}, peternak_id={peternak_id}, jenis_hewan_id={jenis_hewan_id}");
             }
         }
 
         public void UpdateHewan(
-     int hewan_ternak_id,
-     int peternak_id,
-     int jenis_hewan_id,
-     string jenis_kelamin,
-     int umur,
-     int berat,
-     int harga,
-     string kondisi_fisik,
-     DateTime tanggal_pemeriksaan
- )
+            int hewan_ternak_id,
+            int peternak_id,
+            int jenis_hewan_id,
+            string jenis_kelamin,
+            int umur,
+            int berat,
+            int harga,
+            string kondisi_fisik,
+            DateTime? tanggal_pemeriksaan)
         {
             using (var conn = DatabaseHelper.GetConnection())
             {
-                conn.Open();
-                using (var tran = conn.BeginTransaction())
+                try
                 {
-                    try
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand("CALL update_hewan_dan_qurban(@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9)", conn))
                     {
-                        using (var cmd = new NpgsqlCommand(
-                            @"UPDATE hewan_ternak 
-          SET jenis_hewan_id = @jenis_hewan_id, 
-              peternak_id = @peternak_id, 
-              jenis_kelamin = @jenis_kelamin, 
-              umur = @umur, 
-              berat = @berat, 
-              harga = @harga 
-          WHERE hewan_ternak_id = @hewan_ternak_id", conn))
-                        {
-                            cmd.Parameters.AddWithValue("@jenis_hewan_id", jenis_hewan_id);
-                            cmd.Parameters.AddWithValue("@peternak_id", peternak_id);
-                            cmd.Parameters.AddWithValue("@jenis_kelamin", jenis_kelamin);
-                            cmd.Parameters.AddWithValue("@umur", umur);
-                            cmd.Parameters.AddWithValue("@berat", berat);
-                            cmd.Parameters.AddWithValue("@harga", harga);
-                            cmd.Parameters.AddWithValue("@hewan_ternak_id", hewan_ternak_id);
+                        cmd.Parameters.AddWithValue("@p1", hewan_ternak_id);
+                        cmd.Parameters.AddWithValue("@p2", peternak_id);
+                        cmd.Parameters.AddWithValue("@p3", jenis_hewan_id);
+                        cmd.Parameters.AddWithValue("@p4", jenis_kelamin);
+                        cmd.Parameters.AddWithValue("@p5", umur);
+                        cmd.Parameters.AddWithValue("@p6", berat);
+                        cmd.Parameters.AddWithValue("@p7", harga);
+                        cmd.Parameters.AddWithValue("@p8", kondisi_fisik ?? "Sehat");
 
-                            int rowsHewan = cmd.ExecuteNonQuery();
-                        }
+                        // Jika tanggal_pemeriksaan dari admin null, kirimkan DBNull.Value ke database
+                        cmd.Parameters.AddWithValue("@p9", (object)tanggal_pemeriksaan ?? DBNull.Value);
 
-                        string statusQurban = "Tidak Layak";
-                        if ((jenis_hewan_id == 1 || jenis_hewan_id == 3 || jenis_hewan_id == 4) && umur >= 2)
-                        {
-                            statusQurban = "Layak";
-                        }
-                        else if ((jenis_hewan_id == 2 || jenis_hewan_id == 5 || jenis_hewan_id == 6 || jenis_hewan_id == 7) && umur >= 1)
-                        {
-                            statusQurban = "Layak";
-                        }
-
-                        if (kondisi_fisik == "Sakit" || kondisi_fisik == "Cacat Berat")
-                        {
-                            statusQurban = "Tidak Layak";
-                        }
-
-                        using (var cmdUpdate = new NpgsqlCommand(
-                            @"UPDATE klasifikasi_qurban 
-                        SET kondisi_fisik = @kondisi_fisik::kondisi_fisik, 
-                            status_qurban = @status_qurban::status_qurban,
-                            tanggal_pemeriksaan = @tanggal_pemeriksaan 
-                        WHERE hewan_ternak_id = @hewan_ternak_id", conn))
-                        {
-                            cmdUpdate.Parameters.AddWithValue("@kondisi_fisik", kondisi_fisik ?? "Sehat");
-                            cmdUpdate.Parameters.AddWithValue("@status_qurban", statusQurban);
-                            cmdUpdate.Parameters.AddWithValue("@tanggal_pemeriksaan", tanggal_pemeriksaan);
-                            cmdUpdate.Parameters.AddWithValue("@hewan_ternak_id", hewan_ternak_id);
-
-                            int rows = cmdUpdate.ExecuteNonQuery();
-
-                            if (rows == 0)
-                            {
-                                using (var cmdInsert = new NpgsqlCommand(
-                                    @"INSERT INTO klasifikasi_qurban (hewan_ternak_id, kondisi_fisik, status_qurban, tanggal_pemeriksaan) 
-                                    VALUES (@hewan_ternak_id, @kondisi_fisik::kondisi_fisik, @status_qurban::status_qurban, @tanggal_pemeriksaan)", conn))
-                                {
-                                    cmdInsert.Parameters.AddWithValue("@hewan_ternak_id", hewan_ternak_id);
-                                    cmdInsert.Parameters.AddWithValue("@kondisi_fisik", kondisi_fisik ?? "Sehat");
-                                    cmdInsert.Parameters.AddWithValue("@status_qurban", statusQurban);
-                                    cmdInsert.Parameters.AddWithValue("@tanggal_pemeriksaan", tanggal_pemeriksaan);
-                                    cmdInsert.ExecuteNonQuery();
-                                }
-                            }
-                        }
-
-                        tran.Commit();
+                        cmd.ExecuteNonQuery();
                     }
-
-                    catch (Exception ex)
-                    {
-                        tran.Rollback();
-                        MessageBox.Show($"[DEBUG 4] TERJADI ERROR, TRANSAKSI DI-ROLLBACK! Error: {ex.Message}", "Debug Error");
-                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"TERJADI ERROR! Error: {ex.Message}", "Debug Error");
+                }
             }
         }
     }
-}}
+}

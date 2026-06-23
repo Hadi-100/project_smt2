@@ -11,7 +11,6 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-
 namespace project_smt2
 {
     public partial class FormLogin : Form
@@ -42,7 +41,6 @@ namespace project_smt2
 
         }
 
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -52,16 +50,16 @@ namespace project_smt2
         {
 
         }
-       
+
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbMasukEmail.Text))
+            if (string.IsNullOrWhiteSpace(tbMasukEmail.Text) || tbMasukEmail.Text == "Masukkan Email")
             {
                 MessageBox.Show("Email harus diisi!");
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(tbMasukPass.Text))
+            if (string.IsNullOrWhiteSpace(tbMasukPass.Text) || tbMasukPass.Text == "Masukkan Password")
             {
                 MessageBox.Show("Password harus diisi!");
                 return;
@@ -74,28 +72,15 @@ namespace project_smt2
                 tbMasukPass.Text
             );
 
-            if (!string.IsNullOrEmpty(role))
-            {
-                Session.UserId = controller.UserId;
-                Session.NamaLengkap = controller.Username;
-                Session.RoleUser = role;
-            }
+            LoginSystem userSession = LoginFactory.CreateSession(role, controller.UserId, controller.Username);
 
-            if (role == "admin")
+            if (userSession != null)
             {
-                DashboardAdminForm frmAdmin =
-                    new DashboardAdminForm();
+                Session.UserId = userSession.UserId;
+                Session.NamaLengkap = userSession.Username;
+                Session.RoleUser = userSession.Role;
 
-                frmAdmin.Show();
-                this.Hide();
-            }
-            else if (role == "user")
-            {
-                DashboardUserForm frmUser =
-                    new DashboardUserForm(controller.Username);
-
-                frmUser.Show();
-                this.Hide();
+                userSession.LoginKe(this);
             }
             else
             {
@@ -107,7 +92,6 @@ namespace project_smt2
                 );
             }
         }
-
 
         private void btnRegist_Click_1(object sender, EventArgs e)
         {
@@ -123,7 +107,6 @@ namespace project_smt2
             tbMasukPass.Text = "Masukkan Password";
             tbMasukPass.ForeColor = Color.Gray;
             tbMasukPass.UseSystemPasswordChar = false;
-
         }
 
         private void ResetFormRegister()
@@ -132,10 +115,7 @@ namespace project_smt2
             tbRegTelp.Text = "Masukkan No Hp";
             tbRegEmail.Text = "Masukkan Email";
             tbRegPass.Text = "Masukkan Password";
-            MessageBox.Show("Masuk 1");
             tbRegPass.UseSystemPasswordChar = false;
-            MessageBox.Show("Masuk 2");
-
         }
 
         private void SetupLoginPlaceholder(TextBox tb, string placeholder, bool isPassword = false)
@@ -207,21 +187,6 @@ namespace project_smt2
             string email = tbRegEmail.Text;
             bool email_kosong = email == "" || email == "masukkan email";
 
-            //bool telp_kosong = noTelp == "" || noTelp == "masukkan no. telp";
-
-            //if (telp_kosong)
-            //{
-            //    pesan += "• Nomor telepon harus diisi\n";
-            //}
-            //else if (noTelp.Length < 11)
-            //{
-            //    pesan += "• Nomor telepon terlalu pendek\n";
-            //}
-            //else if (noTelp.Length > 15)
-            //{
-            //    pesan += "• Nomor telepon terlalu panjang\n";
-            //}
-
             if (email_kosong)
             {
                 pesan += "• Email harus diisi\n";
@@ -266,7 +231,6 @@ namespace project_smt2
             pnlRegist.Hide();
         }
 
-
         private void button1_Click(object sender, EventArgs e)
         {
             var login = new FormLogin();
@@ -287,6 +251,61 @@ namespace project_smt2
         private void tbRegEmail_TextChanged(object sender, EventArgs e)
         {
 
+        }
+    }
+
+    public abstract class LoginSystem
+    {
+        public int UserId { get; set; }
+        public string Username { get; set; }
+        public string Role { get; set; }
+        public abstract void LoginKe(Form currentForm);
+    }
+
+    public class AdminLogin : LoginSystem
+    {
+        public AdminLogin(int id, string username)
+        {
+            UserId = id;
+            Username = username;
+            Role = "admin";
+        }
+
+        public override void LoginKe(Form currentForm)
+        {
+            DashboardAdminForm frmAdmin = new DashboardAdminForm();
+            frmAdmin.Show();
+            currentForm.Hide();
+        }
+    }
+
+    public class UserLogin : LoginSystem
+    {
+        public UserLogin(int id, string username)
+        {
+            UserId = id;
+            Username = username;
+            Role = "user";
+        }
+
+        public override void LoginKe(Form currentForm)
+        {
+            DashboardUserForm frmUser = new DashboardUserForm(this.Username);
+            frmUser.Show();
+            currentForm.Hide();
+        }
+    }
+
+    public static class LoginFactory
+    {
+        public static LoginSystem CreateSession(string role, int id, string username)
+        {
+            if (role == "admin")
+                return new AdminLogin(id, username);
+            else if (role == "user")
+                return new UserLogin(id, username);
+
+            return null;
         }
     }
 }

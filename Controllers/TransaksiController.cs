@@ -17,15 +17,7 @@ namespace project_smt2.Controllers
                 conn.Open();
 
                 string query =
-                @"SELECT
-                t.transaksi_id,
-                u.nama_lengkap,
-                t.tanggal_transaksi,
-                dl.harga_jual,
-                t.status_pembayaran
-                FROM transaksi t
-                JOIN users u ON t.user_id = u.user_id
-                JOIN detail_transaksi dl ON t.transaksi_id = dl.transaksi_id";
+                @"SELECT * FROM view_list_riwayat_transaksi";
                 NpgsqlDataAdapter da =
                     new NpgsqlDataAdapter(
                         query,

@@ -94,12 +94,16 @@
             // 
             // btnKembali
             // 
+            btnKembali.BackColor = Color.Transparent;
+            btnKembali.BackgroundImageLayout = ImageLayout.Stretch;
+            btnKembali.FlatStyle = FlatStyle.Popup;
+            btnKembali.ForeColor = Color.Transparent;
             btnKembali.Location = new Point(1032, 675);
             btnKembali.Name = "btnKembali";
             btnKembali.Size = new Size(110, 62);
             btnKembali.TabIndex = 4;
-            btnKembali.Text = "button1";
-            btnKembali.UseVisualStyleBackColor = true;
+            btnKembali.Text = ".";
+            btnKembali.UseVisualStyleBackColor = false;
             btnKembali.Click += btnKembali_Click;
             // 
             // MasukkanAlamat

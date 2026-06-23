@@ -150,7 +150,7 @@ namespace project_smt2
             {
                 HewanController hewanController = new HewanController();
 
-                hewanController.TambahkanHewanTernak(
+                hewanController.TambahkanHewan(
                     jenis_hewan_id,
                     peternak_id,
                     jenis_kelamin,

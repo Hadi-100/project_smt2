@@ -16,9 +16,7 @@ namespace project_smt2.Models
 
         }
 
-        public PemeriksaanHewan(
-            int kesehatanTernakId,
-            DateTime tanggalPemeriksaan)
+        public PemeriksaanHewan(int kesehatanTernakId, DateTime tanggalPemeriksaan)
         {
             this.kesehatanTernakId = kesehatanTernakId;
             this.tanggalPemeriksaan = tanggalPemeriksaan;

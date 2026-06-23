@@ -7,7 +7,7 @@ namespace project_smt2.Models
     public class Hewan
     {
         public int HewanTernakId { get; set; }
-        public string jenisHewan { get; set; }
+        public string JenisHewan { get; set; }
         public string JenisKelamin { get; set; }
         public int Umur { get; set; }
         public int Berat { get; set; }
@@ -19,9 +19,10 @@ namespace project_smt2.Models
 
         }
 
-        public Hewan(int hewanTernakId, string jenisKelamin, int umur, int berat, int harga)
+        public Hewan(int hewanTernakId, string jenisHewan, string jenisKelamin, int umur, int berat, int harga)
         {
             HewanTernakId = hewanTernakId;
+            JenisHewan = jenisHewan;
             JenisKelamin = jenisKelamin;
             Umur = umur;
             Berat = berat;

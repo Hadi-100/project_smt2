@@ -6,14 +6,14 @@ namespace project_smt2.Models
 {
     public class HewanTernak : Hewan
     {
-        public int hewanTernakId { get; set; }
-
+        public int PeternakId { get; set; }
+            
         public string statusHewan { get; set; }
 
-        public HewanTernak(int hewanTernakId, int peternakId, string jenisHewan,
-            string jenisKelamin, int umur, int harga, int berat, string statusHewan) : base (hewanTernakId, jenisKelamin, umur, berat, harga)
+        public HewanTernak(int peternakId, string statusHewan, int hewanTernakId, string jenisHewan,
+            string jenisKelamin, int umur, int harga, int berat) : base (hewanTernakId, jenisHewan, jenisKelamin, umur, berat, harga)
         {
-            this.hewanTernakId = hewanTernakId;
+            this.PeternakId = peternakId;
             this.statusHewan = statusHewan;
         }
     }

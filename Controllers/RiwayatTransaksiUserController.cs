@@ -21,7 +21,6 @@ namespace project_smt2.Controllers
             SELECT
                 t.transaksi_id,
                 t.tanggal_transaksi,
-                
                 t.status_pembayaran
             FROM transaksi t
             WHERE t.user_id = @user_id

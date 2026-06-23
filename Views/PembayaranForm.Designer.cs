@@ -39,25 +39,28 @@
             // cmbBank
             // 
             cmbBank.FormattingEnabled = true;
-            cmbBank.Location = new Point(518, 230);
+            cmbBank.Location = new Point(523, 236);
+            cmbBank.Margin = new Padding(2);
             cmbBank.Name = "cmbBank";
-            cmbBank.Size = new Size(242, 40);
+            cmbBank.Size = new Size(210, 28);
             cmbBank.TabIndex = 0;
             cmbBank.SelectedIndexChanged += cmbBank_SelectedIndexChanged;
             // 
             // tbNoRekening
             // 
-            tbNoRekening.Location = new Point(519, 388);
+            tbNoRekening.Location = new Point(523, 394);
+            tbNoRekening.Margin = new Padding(2);
             tbNoRekening.Name = "tbNoRekening";
-            tbNoRekening.Size = new Size(993, 39);
+            tbNoRekening.Size = new Size(498, 27);
             tbNoRekening.TabIndex = 1;
             tbNoRekening.TextChanged += tbNoRekening_TextChanged;
             // 
             // tbNominal
             // 
-            tbNominal.Location = new Point(517, 543);
+            tbNominal.Location = new Point(523, 551);
+            tbNominal.Margin = new Padding(2);
             tbNominal.Name = "tbNominal";
-            tbNominal.Size = new Size(507, 39);
+            tbNominal.Size = new Size(314, 27);
             tbNominal.TabIndex = 2;
             tbNominal.TextChanged += tbNominal_TextChanged;
             // 
@@ -68,9 +71,10 @@
             btnBatal.FlatStyle = FlatStyle.Popup;
             btnBatal.Font = new Font("Segoe UI", 1.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnBatal.ForeColor = SystemColors.ButtonFace;
-            btnBatal.Location = new Point(1037, 773);
+            btnBatal.Location = new Point(794, 741);
+            btnBatal.Margin = new Padding(2);
             btnBatal.Name = "btnBatal";
-            btnBatal.Size = new Size(106, 59);
+            btnBatal.Size = new Size(112, 63);
             btnBatal.TabIndex = 3;
             btnBatal.Text = ".";
             btnBatal.UseVisualStyleBackColor = false;
@@ -83,9 +87,10 @@
             btnBayar.FlatStyle = FlatStyle.Popup;
             btnBayar.Font = new Font("Segoe UI", 1.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnBayar.ForeColor = SystemColors.ButtonFace;
-            btnBayar.Location = new Point(1285, 786);
+            btnBayar.Location = new Point(936, 741);
+            btnBayar.Margin = new Padding(2);
             btnBayar.Name = "btnBayar";
-            btnBayar.Size = new Size(113, 55);
+            btnBayar.Size = new Size(112, 63);
             btnBayar.TabIndex = 4;
             btnBayar.Text = ".";
             btnBayar.UseVisualStyleBackColor = false;
@@ -93,7 +98,7 @@
             // 
             // PembayaranForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
@@ -103,6 +108,7 @@
             Controls.Add(tbNoRekening);
             Controls.Add(cmbBank);
             DoubleBuffered = true;
+            Margin = new Padding(2);
             Name = "PembayaranForm";
             Size = new Size(1538, 832);
             ResumeLayout(false);

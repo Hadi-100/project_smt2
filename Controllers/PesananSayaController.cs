@@ -19,6 +19,7 @@ namespace project_smt2.Controllers
 
                 string query = @"
                 SELECT
+                    t.user_id,
                     t.transaksi_id,
                     t.tanggal_transaksi,
                     h.hewan_ternak_id,
@@ -32,9 +33,7 @@ namespace project_smt2.Controllers
                     ON dt.hewan_ternak_id = h.hewan_ternak_id
                 LEFT JOIN data_pengiriman dp
                     ON t.transaksi_id = dp.transaksi_id
-                WHERE t.user_id = @user_id
-                ORDER BY t.transaksi_id DESC";
-
+                WHERE t.user_id = @user_id";
                 NpgsqlCommand cmd = new NpgsqlCommand(query, conn);
 
                 cmd.Parameters.AddWithValue(
@@ -52,10 +51,12 @@ namespace project_smt2.Controllers
         {
             using (var conn = DatabaseHelper.GetConnection())
             {
-                conn.Open();
+                conn.Open(); 
 
                 var cmd = new NpgsqlCommand(
-                    "SELECT COUNT(*) FROM transaksi t JOIN data_pengiriman dp ON t.transaksi_id = dp.transaksi_id WHERE user_id = @user_id", conn);
+                    @"SELECT COUNT(*)
+                    FROM transaksi 
+                    WHERE user_id = @user_id", conn);
 
                 cmd.Parameters.AddWithValue("@user_id", userId);
 
@@ -68,7 +69,11 @@ namespace project_smt2.Controllers
             {
                 conn.Open();
                 var cmd = new NpgsqlCommand(
-                    "SELECT COUNT(*) FROM transaksi t JOIN data_pengiriman dp ON t.transaksi_id = dp.transaksi_id WHERE user_id = @user_id AND status_pengiriman = 'Terkirim'", conn);
+                    @"SELECT COUNT(*)
+                    FROM transaksi t
+                    JOIN data_pengiriman dp ON t.transaksi_id = dp.transaksi_id
+                    WHERE user_id = @user_id
+                    AND dp.status_pengiriman = 'Terkirim'", conn);
 
                 cmd.Parameters.AddWithValue("@user_id", userId);
 
@@ -82,7 +87,11 @@ namespace project_smt2.Controllers
             {
                 conn.Open();
                 var cmd = new NpgsqlCommand(
-                    "SELECT COUNT(*) FROM transaksi t JOIN data_pengiriman dp ON t.transaksi_id = dp.transaksi_id WHERE user_id = @user_id AND status_pengiriman = 'Proses'", conn);
+                    @"SELECT COUNT(*)
+                    FROM transaksi t
+                    JOIN data_pengiriman dp ON t.transaksi_id = dp.transaksi_id
+                    WHERE user_id = @user_id
+                    AND dp.status_pengiriman = 'Proses'", conn);
 
                 cmd.Parameters.AddWithValue("@user_id", userId);
 

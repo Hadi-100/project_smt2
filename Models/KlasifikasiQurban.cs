@@ -12,8 +12,8 @@ namespace project_smt2.Models
         public string statusQurban { get; set; }
         public string kondisiFisik { get; set; }
 
-        public KlasifikasiQurban(int klasifikasiQurbanId, int kesehatanTernakId,
-            string statusQurban, DateTime tanggalPemeriksaan, string kondisiFisik) : base (kesehatanTernakId, tanggalPemeriksaan)
+        public KlasifikasiQurban(int klasifikasiQurbanId, string statusQurban, string kondisiFisik, int kesehatanTernakId
+            , DateTime tanggalPemeriksaan) : base (kesehatanTernakId, tanggalPemeriksaan)
         {
             this.klasifikasiQurbanId = klasifikasiQurbanId;
             this.statusQurban = statusQurban;
