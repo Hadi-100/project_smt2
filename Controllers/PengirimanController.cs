@@ -85,8 +85,6 @@ namespace project_smt2.Controllers
                     new NpgsqlCommand(query, conn);
 
                 return Convert.ToInt32(cmd.ExecuteScalar());
-
-                //kenw
             }
         }
 

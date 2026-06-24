@@ -31,8 +31,7 @@ namespace project_smt2.Controllers
             }
         }
 
-        // Menampilkan daftar user
-        public DataTable GetUsers()
+         public DataTable GetUsers()
         {
             DataTable dt = new DataTable();
 

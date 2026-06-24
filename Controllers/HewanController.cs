@@ -150,7 +150,6 @@ namespace project_smt2.Controllers
                         cmd.Parameters.AddWithValue("@p7", harga);
                         cmd.Parameters.AddWithValue("@p8", kondisi_fisik ?? "Sehat");
 
-                        // Jika tanggal_pemeriksaan dari admin null, kirimkan DBNull.Value ke database
                         cmd.Parameters.AddWithValue("@p9", (object)tanggal_pemeriksaan ?? DBNull.Value);
 
                         cmd.ExecuteNonQuery();

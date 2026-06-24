@@ -66,7 +66,7 @@
             cbxJenisHewan.Font = new Font("Arial", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxJenisHewan.ForeColor = Color.DarkGray;
             cbxJenisHewan.FormattingEnabled = true;
-            cbxJenisHewan.Items.AddRange(new object[] { "1 Sapi ", "2 Kambing", "3 Sapi Limousin", "4 Sapi Brahmana", "5 Kambing Kacang", "6 Kambing Etawa", "7 Kambing JawaRandu" });
+            cbxJenisHewan.Items.AddRange(new object[] { "1 Sapi Limousin", "2 Sapi Simental", "3 Sapi Bali", "4 Sapi Madura", "5 Sapi Brahman", "6 Sapi Ongole", "7 Kambing Kacang", "8 Kambing Etawa", "9 Kambing Boer", "10 Kambing Jawarandu" });
             cbxJenisHewan.Location = new Point(57, 142);
             cbxJenisHewan.Name = "cbxJenisHewan";
             cbxJenisHewan.Size = new Size(350, 40);

@@ -49,7 +49,6 @@ namespace project_smt2.Views
             dgvListHewanQurban.DataSource = dt;
 
             dgvListHewanQurban.Columns["hewan_ternak_id"].HeaderText = "ID Hewan";
-            //dgvListHewanQurban.Columns["jenis_hewan"].HeaderText = "Jenis Hewan";
             dgvListHewanQurban.Columns["jenis_kelamin"].HeaderText = "Jenis Kelamin";
             dgvListHewanQurban.Columns["umur"].HeaderText = "Umur (th)";
             dgvListHewanQurban.Columns["berat"].HeaderText = "Berat (kg)";
